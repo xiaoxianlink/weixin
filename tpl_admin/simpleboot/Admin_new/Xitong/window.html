@@ -1,0 +1,147 @@
+<admintpl file="header" />
+<meta charset="UTF-8">
+<style>
+<!--
+a:hover {color: #fff}
+-->
+</style>
+<script type="text/javascript">
+ function countdown() {
+	 var nowtime = Date.parse(new Date()) / 1000;
+	 var obj = $("span[name='tmr']");
+	 $.each(obj, function(){
+		 if ($(this).attr("lang") != '--') {
+			 var time = $(this).attr("lang") - nowtime;//$(this).html();
+			 var hour = parseInt(time/3600);
+			 if (hour < 10 ) {
+				 hour = '0' + hour;
+			 }
+			 var minute = parseInt(time/60%60);
+			 if (minute < 10 ) {
+				 minute = '0' + minute;
+			 }
+			 var second = parseInt(time%60);
+			 if (second < 10 ) {
+				 second = '0' + second;
+			 }
+			 if (hour > 0 || minute > 0 || second > 0) {
+				 $(this).html(hour + ':' + minute + ':' + second);
+			 } else {
+				 $(this).html('--');
+				 $(this).attr("lang", '--')
+			 }
+		 }
+	 });
+ }
+ setInterval("countdown()",1000);
+ window.onload = countdown;
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('tr').click(function(){
+		$('tr').siblings().removeClass("tr_hover");
+		$(this).addClass("tr_hover");
+	});
+});
+</script>
+<body class="J_scroll_fixed">
+	<div class="wrap J_check_wrap">
+	<div id="cheliang_submit" class="top_div">
+		<form action="{:U('Xitong/window')} " method="post">
+		<input type="submit"  id="cheliang_submit_input"   class="query_btn"  value="查询"/>
+		<div  class="query_div" > 
+				状态 <select name="window_type" class="query_txt" >
+							<option value="0"></option>
+							<option value="1" <?php if($type==1){echo "selected='selected'";}?>>订单推送</option>
+							<option value="3" <?php if($type==3){echo "selected='selected'";}?>>正在办理</option>
+							<option value="4" <?php if($type==4){echo "selected='selected'";}?>>办理完成</option>
+					   </select>
+		</div>
+		<div  class="query_div" > 
+			  供应商编号 <input type="text"  class="query_txt"  name="window_number"value="{$window_number}"/>  
+		</div>
+		
+		</form>
+</div>
+<table class="table table-hover table-bordered table-list" id="menus-table">
+	<foreach name="str" item="vo">
+	       <tr>
+	         		<th>处理编号</th>
+	         		<th>推单编号</th>
+	         		<th>供应商编号</th>
+	         		<th>供应商手机号</th>
+	         		<th>推送时间</th>
+	         		<th>订单时间</th>
+	         		<th>状态</th>
+	         		<th>处理金额</th>
+	         		<th>支付金额</th>
+	         		<th>支付流水号</th>
+	         		<th>状态计时</th>
+	        </tr>
+			<tr>
+				<td>{$vo.order_sn}</td>
+				<td>{$vo.so_id}</td>
+				<td>{$vo.services_sn}</td>
+				<td>{$vo.phone}</td>
+				<td><if condition="$vo['c_time'] neq ''">{$vo.c_time|date='Y-m-d H:i:s',###}</if></td>
+				<td><if condition="$vo['last_time'] neq ''">{$vo.last_time|date='Y-m-d H:i:s',###}</if></td>
+				<td>
+					<if condition="$vo['state'] eq 0">订单推送
+					<elseif condition="$vo['state'] eq 1"/>手动转单
+					<elseif condition="$vo['state'] eq 2"/>超时转单
+					<elseif condition="$vo['state'] eq 3"/>正在办理
+					<elseif condition="$vo['state'] eq 4"/>办理完成
+					<elseif condition="$vo['state'] eq 5"/>结算完成
+					<elseif condition="$vo['state'] eq 6"/>推单取消
+					</if>
+				</td>
+				<td>{$vo.money}</td>
+				<td>{$vo.pay_money}</td>
+				<td>{$vo.pay_sn}</td>
+				<td><span name="tmr" lang="{$vo.tmr}">{$vo.tmr}</span></td>
+			</tr>
+			<tr>
+	                <td rowspan="2"></td>
+	                <td>车牌号</td>
+	                <td>发动机号</td>
+	        		<td>车架号</td>
+	        		<td>违章代码</td>
+	        		<td>违章时间</td>
+	        		<td>违章地区</td>
+	        		<td>罚金</td>
+	        		<td>罚分</td>
+	        		<td rowspan="2" colspan="2"></td>
+	     	</tr>
+	     	<tr>
+				<td>{$vo.license_number}</td>
+				<td>{$vo.engine_number}</td>
+				<td>{$vo.frame_number}</td>
+				<td>{$vo.code}</td>
+				<td><if condition="$vo['time'] neq ''">{$vo.time|date='Y-m-d H:i:s',###}</if></td>
+				<td>{$vo.area}</td>
+				<td>{$vo.money}</td>
+				<td>{$vo.points}</td>
+			</tr>
+			<tr>
+				<if condition="$vo['state'] eq '0'">
+				<td colspan="12"> 
+				<a style="background: #f77462; line-height:30px;" class="query_btn" href="{:U('Xitong/manage?state=3&id=')}{$vo['id']}">我来办理</a> 
+				<a style="background: #f77462; line-height:30px;" class="query_btn" href="{:U('Xitong/manage?state=1&id=')}{$vo['id']}">办不了</a></td>
+				<elseif condition="$vo['state'] eq '3'"/>
+				<td colspan="12"> <a style="background: #6ad1df; line-height:30px;" class="query_btn" href="{:U('Xitong/manage?state=4&id=')}{$vo['id']}"> 办理完成</a> <a style="background: #f77462; line-height:30px;" class="query_btn" href="{:U('Xitong/manage?state=1&id=')}{$vo['id']}">办不了</a></td>
+				<elseif condition="$vo['state'] eq '4'"/>
+				</if>
+			</tr>
+	<br />
+	</foreach>
+</table>
+<div class="pagination">{$Page}</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+

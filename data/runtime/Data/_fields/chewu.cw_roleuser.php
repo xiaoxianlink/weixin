@@ -1,0 +1,1 @@
+a:3:{i:0;s:7:"role_id";i:1;s:7:"user_id";s:5:"_type";a:2:{s:7:"role_id";s:21:"mediumint(9) unsigned";s:7:"user_id";s:8:"char(32)";}}

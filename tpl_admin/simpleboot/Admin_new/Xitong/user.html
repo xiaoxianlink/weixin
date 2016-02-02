@@ -1,0 +1,199 @@
+<admintpl file="header" />
+<meta charset="UTF-8">
+<style type="text/css">
+.user_role{
+	background:red;
+	display:block;
+	color:white;
+	margin-right:5%;
+	margin-left:2%;
+	border:1px solid red;
+	width:20%;
+	text-align:center;
+	float:right;
+}
+.user_password{
+	background:red;
+	display:block;
+	color:white;
+	margin-left:5%;
+	margin-right:2%;
+	border:1px solid red;
+	width:20%;
+	text-align:center;
+	float:right;
+}
+#user_color{
+	width:25%;
+}
+#mask{
+	position:fixed;
+}
+.mask{
+	left:0;
+	top:;
+	right:0;
+	bottom:0;
+	width:100%;
+	height:100%;
+	background:#000;
+	filter:alpha(opacity=30);
+	opacity:.3;
+	z-index:999;
+}
+#user_change_add{
+	position:absolute;	
+	width:500px;
+	height:400px;
+	margin-top:100px;
+	background:#fff;
+	z-index:1100;
+}
+#user_change_password{
+	position:absolute;	
+	width:500px;
+	height:400px;
+	margin-top:100px;
+	background:#fff;
+	z-index:1100;
+}
+</style>
+<script type="text/javascript">
+function redirect(){
+	$('#user_change_password').show();
+	$('body').append('<div class="mask" id="mask"></div>');
+	$('#user_change_password').css('left', Math.ceil(($('body').width() - 200)/2) +'px');
+	$('#user_change_password').css('top',Math.round($(this).position().top - 50) + 'px');
+}
+$(function(){
+	$('#user_change_add').hide();
+	$('#user_change_password').hide();
+	$('#user_link').click(function(){		
+		$('body').append('<div class="mask" id="mask"></div>');
+		$('#user_change_add').css('left', Math.ceil(($('body').width() - 200)/2) +'px');
+		$('#user_change_add').css('top',Math.round($(this).position().top - 50) + 'px');
+		$('#user_change_add').show();
+	})
+	$('#close').click(function(){
+		$('#user_change_add').hide();
+		$('#mask').remove();
+	})
+})
+$(function(){
+	$('.user_change_password').hide();
+	$('.user_password').click(function(){	
+		//var name=$('.user_change_password').attr('id');
+		$('body').append('<div class="mask" id="mask"></div>');
+		$('.user_change_password').css('left', Math.ceil(($('body').width() - 200)/2) +'px');
+		$('.user_change_password').css('top',Math.round($(this).position().top - 50) + 'px');
+		$('.user_change_password').show();
+	})
+		$('#close').click(function(){
+		$('#user_change_password').hide();
+		$('#mask').remove();
+	})
+})
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('tr').click(function(){
+		$('tr').siblings().removeClass("tr_hover");
+		$(this).addClass("tr_hover");
+	});
+});
+</script>
+<body class="J_scroll_fixed">
+	<div class="wrap J_check_wrap">
+	<div id="cheliang_submit" class="top_div">
+			<form action="{:U('Xitong/user')} " method="post">
+				<div  class="query_div" > 
+					<a href="javascript:;"  id="user_link" >添加用户</a>
+				</div>
+				<input type="submit"  id="cheliang_submit_input"   class="query_btn"  value="查询"/>
+				<div  class="query_div" > 
+					用户名 :<input type="text"  class="query_txt"  name="province_name" value="{$name}"/>
+				</div>	
+			</form>
+</div>
+<table class="table table-hover table-bordered table-list" id="menus-table">
+	<tr>
+		<th>#</th>
+		<th>用户ID</th>
+		<th>用户名称</th>
+		<th>用户角色</th>
+		<th>创建时间</th>
+		<th>最后登录时间</th>
+		<th id="user_color">操作</th>
+	</tr>
+	<foreach name="str" item="vo">
+		<tr>
+			<td>{$vo.iid}</td>
+			<td>{$vo.id}</td>
+			<td>{$vo.user_login}</td>
+			<td>{$vo.user_role}</td>
+			<td>{$vo.create_time}</td>
+			<td>{$vo.last_login_time}</td>
+			<td><a href="#?id={$vo.id}" onclick="redirect()"> 修改密码 </a><a href=""> 修改角色 </a></td>
+		</tr>
+	</foreach>
+</table>
+<div class="pagination">{$Page}</div>
+  <div id='user_change_add'>
+  	<p>添加用户</p>
+                	<form action="{:U('Xitong/user_add')} " method="post">
+                		<table>
+                			<tr>
+                				<td>用户名</td> 	<td><input type='text' name='username' value=''/></td>
+                			</tr>
+                			<tr>
+                				<td>密码</td> <td><input type='password' name='password_one' value=''/></td>
+                			</tr>
+                			<tr>
+                				<td>确认密码 </td><td><input type='password' name='password_two' value=''/></td>
+                			</tr>
+                			<tr>
+                				<td>角色 </td>
+                				<td>
+                						<select name="type" >
+											<option value="管理员" selected>管理员</option>
+											<option value="运营">运营</option>
+										</select>
+                				</td>
+                			</tr>
+                			<tr>
+            				<td><a href="{:U('Xitong/user')} ">取消</a></td>
+            				<td><input type='submit'  class="btn btn_submit btn-primary btn-small J_ajax_submit_btn"  value='确定'/></td>
+            			   </tr>
+                    	</table>
+                    </form>
+</div>
+<div id="user_change_password">
+	<p>修改密码</p>
+                	<form action="{:U('Xitong/user_password')} " method="post">
+                		<table>
+                			<tr>
+                				<td>原密码</td> <td><input type='password' name='password_one' value=''/></td>
+                			</tr>
+                			<tr>
+                				<td>新密码</td> <td><input type='password' name='password_one' value=''/></td>
+                			</tr>
+                			<tr>
+                				<td>确认密码 </td><td><input type='password' name='password_two' value=''/></td>
+                			</tr>
+                			<tr>
+            				<td><a href="{:U('Xitong/user')} ">取消</a></td>
+            				<td><input type='submit'  class="btn btn_submit btn-primary btn-small J_ajax_submit_btn"  value='确定'/></td>
+            			   </tr>
+                    	</table>
+                    </form>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+

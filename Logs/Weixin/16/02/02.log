@@ -1,0 +1,36 @@
+[ 2016-02-02T07:53:15+08:00 ] 180.157.84.249 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-02-02T07:53:16+08:00 ] 180.157.84.249 /index.php?g=weixin&m=sub&a=index&code=0019fbaa4b1161ac24f1e511f48ef37F&state=
+DEBUG: sub微信回调
+[ 2016-02-02T07:54:05+08:00 ] 180.157.84.249 /index.php?g=weixin&m=order&a=index
+DEBUG: order请求
+[ 2016-02-02T07:54:06+08:00 ] 180.157.84.249 /index.php?g=weixin&m=order&a=index&code=0214947c81593713a16c0aac8787e29S&state=
+DEBUG: order微信回调
+[ 2016-02-02T08:09:14+08:00 ] 122.84.213.206 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-02-02T08:09:14+08:00 ] 122.84.213.206 /index.php?g=weixin&m=sub&a=index&code=0110dbf846859a4266727bb62bcd80et&state=
+DEBUG: sub微信回调
+[ 2016-02-02T11:57:44+08:00 ] 140.206.58.243 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-02-02T11:57:44+08:00 ] 140.206.58.243 /index.php?g=weixin&m=sub&a=index&code=0019ef2e8a3a0445f3eb9b24c238897S&state=
+DEBUG: sub微信回调
+[ 2016-02-02T11:58:15+08:00 ] 140.206.58.243 /index.php?g=weixin&m=order&a=index
+DEBUG: order请求
+[ 2016-02-02T11:58:15+08:00 ] 140.206.58.243 /index.php?g=weixin&m=order&a=index&code=01106c4497bc6a46e11a764731eb1afi&state=
+DEBUG: order微信回调
+[ 2016-02-02T12:01:20+08:00 ] 140.206.58.243 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-02-02T12:01:22+08:00 ] 140.206.58.243 /index.php?g=weixin&m=sub&a=index&code=03168b5192237865a297cd73ddda0ef-&state=
+DEBUG: sub微信回调
+[ 2016-02-02T12:04:43+08:00 ] 140.206.58.243 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-02-02T12:04:44+08:00 ] 140.206.58.243 /index.php?g=weixin&m=sub&a=index&code=0414c56e32ab707a59ef553bc6afe14L&state=
+DEBUG: sub微信回调
+[ 2016-02-02T12:07:16+08:00 ] 140.206.58.243 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-02-02T12:07:16+08:00 ] 140.206.58.243 /index.php?g=weixin&m=sub&a=index&code=0212ebbbe95ae891523a6a8807a701fJ&state=
+DEBUG: sub微信回调
+[ 2016-02-02T12:09:47+08:00 ] 140.206.58.243 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-02-02T12:09:48+08:00 ] 140.206.58.243 /index.php?g=weixin&m=sub&a=index&code=03164ca9cd6de825d9cc4c859dbf6e0P&state=
+DEBUG: sub微信回调

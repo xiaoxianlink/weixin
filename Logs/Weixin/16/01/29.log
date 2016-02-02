@@ -1,0 +1,4 @@
+[ 2016-01-29T08:08:59+08:00 ] 180.157.85.13 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-29T08:08:59+08:00 ] 180.157.85.13 /index.php?g=weixin&m=sub&a=index&code=021352ee05e5878e1da34a908706fbdf&state=
+DEBUG: sub微信回调

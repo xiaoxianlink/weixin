@@ -1,0 +1,36 @@
+<admintpl file="header" />
+<meta charset="UTF-8">
+<script type="text/javascript">
+$(document).ready(function(){
+	$('tr').click(function(){
+		$('tr').siblings().removeClass("tr_hover");
+		$(this).addClass("tr_hover");
+	});
+});
+</script>
+<body class="J_scroll_fixed">
+	<div class="wrap J_check_wrap">
+	<div id="cheliang_submit" class="top_div">
+		<form action="{:U('Xitong/shuju')} " method="post">
+			<input type="submit"  id="cheliang_submit_input"   class="query_btn"  value="查询"/>
+			<div  class="query_div" > 
+					数据类型 :<input type="text"  class="query_txt"  name="xi_type" value="{$type}"/>
+				</div>	
+		</form>
+</div>
+<table class="table table-hover table-bordered table-list" id="menus-table">
+	<tr>
+		<th>ID</th>
+		<th>数据类型</th>
+		<th>数据值</th>
+		<th>备注</th>
+	</tr>
+		{$str}
+</table>
+</div>
+</body>
+</html>
+
+
+
+

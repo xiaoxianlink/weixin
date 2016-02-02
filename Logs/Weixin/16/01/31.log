@@ -1,0 +1,18 @@
+[ 2016-01-31T01:03:40+08:00 ] 211.161.244.136 /index.php?g=weixin&m=order&a=index
+DEBUG: order请求
+[ 2016-01-31T01:03:41+08:00 ] 211.161.244.136 /index.php?g=weixin&m=order&a=index&code=021b270227b525404d22c50e7e525ffU&state=
+DEBUG: order微信回调
+[ 2016-01-31T01:03:45+08:00 ] 211.161.244.136 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-31T01:03:46+08:00 ] 211.161.244.136 /index.php?g=weixin&m=sub&a=index&code=00187191986709f9488e7c231257b82x&state=
+DEBUG: sub微信回调
+[ 2016-01-31T01:03:46+08:00 ] 180.153.206.36 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-31T11:06:03+08:00 ] 116.227.245.249 /index.php?g=weixin&m=order&a=index
+DEBUG: order请求
+[ 2016-01-31T11:06:03+08:00 ] 116.227.245.249 /index.php?g=weixin&m=order&a=index&code=011beea9fa2974a7884a0299bdf42aaQ&state=
+DEBUG: order微信回调
+[ 2016-01-31T11:38:16+08:00 ] 116.227.245.249 /index.php?g=weixin&m=order&a=index
+DEBUG: order请求
+[ 2016-01-31T11:38:17+08:00 ] 116.227.245.249 /index.php?g=weixin&m=order&a=index&code=021669259390a31e11aaab294f596ee9&state=
+DEBUG: order微信回调

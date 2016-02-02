@@ -1,0 +1,4 @@
+[ 2016-02-01T14:40:21+08:00 ] 140.206.58.243 /index.php?g=weixin&m=scan&a=wxpay
+ERR: http://weixin.xiaoxianlink.com/Wxpay/example/jsapi.php??money=23000&order_sn=3181454308819&body=违章缴费&url=http://weixin.xiaoxianlink.com/
+[ 2016-02-01T14:40:28+08:00 ] 139.129.192.151 /index.php?g=weixin&m=scan&a=notify
+ERR: {"appid":"wxc4fd21f2f47f1fee","attach":"test","bank_type":"CMB_CREDIT","cash_fee":"23000","fee_type":"CNY","is_subscribe":"Y","mch_id":"1293235801","nonce_str":"lYqF47fbuynVedrC","openid":"oG-LHwd5tGktO8Ls4mCAk5XS_BCc","out_trade_no":"3181454308819","result_code":"SUCCESS","return_code":"SUCCESS","return_msg":"OK","sign":"00F456806C5ADE11DE44CD7BCC5E8DB7","time_end":"20160201144027","total_fee":"23000","trade_state":"SUCCESS","trade_type":"JSAPI","transaction_id":"1003510309201602013030648420"}

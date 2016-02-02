@@ -1,0 +1,850 @@
+[ 2016-01-31T00:00:03+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FGT3601%26classno%3DLDC611P2080708969%26engineno%3D0035756%26city_id%3D280%26car_type%3D02%7D&sign=236b4ca49d7b28d579f144b3d837f384&timestamp=1454169601&app_id=928
+[ 2016-01-31T00:00:03+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:00:03+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"98a89646fa72cab20fd9dd44f9a6a5e5","createTime":"20160131000003"}],"dataSize":1}
+[ 2016-01-31T00:00:03+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%8B%8F&carNumber=GT3601&vioCityCode=SH&carType=0&carFrame=LDC611P2080708969&carEngine=0035756
+[ 2016-01-31T00:00:04+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"GT3601","carType":"0","cityCode":"SH","provinceCode":"苏","result":[{"adjudication":"","agencyPrice":9500,"businessNumber":"","canAgency":0,"counterPrice":4500,"hasBeenRuled":false,"id":93677,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"长海路出恒仁路东约200米","violationCode":"10391","violationDesc":"机动车违反规定停放、临时停车且驾驶人虽在现场拒绝立即驶离，妨碍其它车辆、行人通行的","violationMark":0,"violationPrice":5000,"violationTime":"2015-10-17 09:38"},{"adjudication":"","agencyPrice":22000,"businessNumber":"","canAgency":0,"counterPrice":2000,"hasBeenRuled":false,"id":93678,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"延吉东路/安图路","violationCode":"1344","violationDesc":"机动车违反禁令标志指示的","violationMark":0,"violationPrice":20000,"violationTime":"2010-01-13 13:14"},{"adjudication":"","agencyPrice":9500,"businessNumber":"","canAgency":0,"counterPrice":4500,"hasBeenRuled":false,"id":93679,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"玉田路曲阳路250米","violationCode":"1039","violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationMark":0,"violationPrice":5000,"violationTime":"2015-09-16 17:50"},{"adjudication":"","agencyPrice":22000,"businessNumber":"","canAgency":0,"counterPrice":2000,"hasBeenRuled":false,"id":93680,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"包头路/国和路","violationCode":"10180","violationDesc":"机动车不在机动车道内行驶的","violationMark":0,"violationPrice":20000,"violationTime":"2011-03-26 10:37"},{"adjudication":"","agencyPrice":22000,"businessNumber":"","canAgency":0,"counterPrice":2000,"hasBeenRuled":false,"id":93681,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"包头路/国和路","violationCode":"10180","violationDesc":"机动车不在机动车道内行驶的","violationMark":0,"violationPrice":20000,"violationTime":"2011-05-14 10:38"}]}],"dataSize":1}
+[ 2016-01-31T00:00:06+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E9%B2%81AQ036C%26classno%3D010462%26engineno%3D863488%26city_id%3D153%26car_type%3D02%7D&sign=6a33e2d7014feaa678c1a52820731eef&timestamp=1454169604&app_id=928
+[ 2016-01-31T00:00:06+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:00:06+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"933482edbad60bbe38b264451548dda2","createTime":"20160131000006"}],"dataSize":1}
+[ 2016-01-31T00:00:06+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E9%B2%81&carNumber=AQ036C&vioCityCode=GD_DG&carType=0&carFrame=010462&carEngine=863488
+[ 2016-01-31T00:00:06+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"AQ036C","carType":"0","cityCode":"GD_DG","provinceCode":"鲁","result":[]}],"dataSize":1}
+[ 2016-01-31T00:00:07+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3222%26classno%3D924427%26engineno%3DB30A%26city_id%3D155%26car_type%3D02%7D&sign=32059b2ca4ac9db04023d5566a22b4fb&timestamp=1454169606&app_id=928
+[ 2016-01-31T00:00:07+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:00:07+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"a7ee99e0b12b16c94761602d52be7515","createTime":"20160131000007"}],"dataSize":1}
+[ 2016-01-31T00:00:07+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3222&vioCityCode=GD_ZS&carType=0&carFrame=924427&carEngine=55B30A
+[ 2016-01-31T00:00:08+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3222","carType":"0","cityCode":"GD_ZS","provinceCode":"沪","result":[]}],"dataSize":1}
+[ 2016-01-31T00:00:09+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FAQH991%26classno%3DLDC931L2980799740%26engineno%3D098111%26city_id%3D56%26car_type%3D02%7D&sign=bf704be407777086fd1487b6ea128671&timestamp=1454169608&app_id=928
+[ 2016-01-31T00:00:09+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":2001,"total_score":0,"total_money":500,"count":4,"historys":[{"id":8103920,"car_id":7331979,"status":"N","fen":0,"officer":"","occur_date":"2015-08-13 12:45:00","occur_area":"哈雷路祖冲之路北约50米","city_id":280,"province_id":23,"code":"8089","info":"机动车违反规定停放、临时停车，妨碍其它车辆、行人通行，驾驶人不在现场的(罚款未缴)","money":50,"city_name":"上海"},{"id":8554825,"car_id":7331979,"status":"N","fen":0,"officer":"","occur_date":"2015-09-11 16:00:00","occur_area":"商城路滨江大道北约10米","city_id":280,"province_id":23,"code":"8089","info":"机动车违反规定停放、临时停车，妨碍其它车辆、行人通行，驾驶人不在现场的(罚款未缴)","money":50,"city_name":"上海"},{"id":9174643,"car_id":7331979,"status":"N","fen":0,"officer":"","occur_date":"2016-01-01 14:09:00","occur_area":"沈海高速987公里900米","city_id":66,"province_id":5,"code":"16362","info":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速20%以上未达到50%的(罚款未缴)","money":200,"city_name":"盐城"},{"id":9174644,"car_id":7331979,"status":"N","fen":0,"officer":"","occur_date":"2016-01-01 14:56:00","occur_area":"沈海高速884公里350米","city_id":66,"province_id":5,"code":"16362","info":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速20%以上未达到50%的(罚款未缴)","money":200,"city_name":"盐城"}]}
+[ 2016-01-31T00:00:17+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FBW703V%26classno%3D043088%26engineno%3D040918%26city_id%3D14%26car_type%3D02%7D&sign=9fefeebb9e12f12160f9b735a8111017&timestamp=1454169609&app_id=928
+[ 2016-01-31T00:00:17+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:00:17+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"5fe8b9dfa753ee112b73b28c2cbcc443","createTime":"20160131000017"}],"dataSize":1}
+[ 2016-01-31T00:00:17+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%8B%8F&carNumber=BW703V&vioCityCode=HN_NANYANG&carType=0&carFrame=043088&carEngine=132040918
+[ 2016-01-31T00:00:17+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: aichefang:{"code":"27","dataSize":0,"message":"交管局网络原因暂时无法查询[交管局网络原因暂时无法查询,请稍后再试(neterror)]"}
+[ 2016-01-31T00:00:18+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E9%B2%81AQ036C%26classno%3DLFV2A11G2C4010462%26engineno%3D863488%26city_id%3D674%26car_type%3D02%7D&sign=6c4a7e771b92954d552b2d64aef3d065&timestamp=1454169617&app_id=928
+[ 2016-01-31T00:00:18+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:00:19+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"a5eb68e85cab530c890d716f6f227f9d","createTime":"20160131000019"}],"dataSize":1}
+[ 2016-01-31T00:00:19+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E9%B2%81&carNumber=AQ036C&vioCityCode=HLJ_HAERBIN&carType=0&carFrame=LFV2A11G2C4010462&carEngine=863488
+[ 2016-01-31T00:00:19+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"AQ036C","carType":"0","cityCode":"HLJ_HAERBIN","provinceCode":"鲁","result":[{"agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":93173,"officeName":"","status":"0","violationAddress":"济南无影山中路与无影山路南向北","violationCode":"1208","violationDesc":"不按行进方向驶入导向车道","violationMark":2,"violationPrice":10000,"violationTime":"2016-01-01 11:23:00"},{"agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":93174,"officeName":"","status":"0","violationAddress":"济南明湖路与趵突泉北路路口向东250米路南西向东","violationDesc":"交通拥堵处不按规定停车等候","violationMark":0,"violationPrice":0,"violationTime":"2015-10-24 16:24:00"},{"agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":93175,"officeName":"","status":"0","violationAddress":"济南山大路与山大北路路口向北24米路西北向南","violationCode":"1345","violationDesc":"违反禁止标线指示","violationMark":3,"violationPrice":5000,"violationTime":"2015-10-22 07:28:00"},{"agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":93176,"officeName":"","status":"0","violationAddress":"济南经十路奥体东路口西向东","violationCode":"1208","violationDesc":"不按行进方向驶入导向车道","violationMark":2,"violationPrice":10000,"violationTime":"2015-09-09 08:42:00"},{"agencyPrice":15000,"businessNumber":"","canAgency":0,"counterPrice":5000,"hasBeenRuled":false,"id":94262,"officeName":"","status":"0","violationAddress":"济南文化西路齐鲁医院路段路南侧西向东","violationCode":"1019","violationDesc":"机动车违规使用专用车道","violationMark":0,"violationPrice":10000,"violationTime":"2015-08-11 13:23:00"}]}],"dataSize":1}
+[ 2016-01-31T00:00:20+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E5%B7%9DYU1955%26classno%3D034531%26engineno%3D410414%26city_id%3D110%26car_type%3D02%7D&sign=5761ae14e8601766967a29715c3563b8&timestamp=1454169619&app_id=928
+[ 2016-01-31T00:00:20+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:00:21+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3222%26classno%3D924427%26engineno%3D55B30A%26city_id%3D265%26car_type%3D02%7D&sign=124b974bb9d5ea2079635cdcc804541c&timestamp=1454169620&app_id=928
+[ 2016-01-31T00:00:21+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:00:21+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E9%B2%81AQ036C%26classno%3DLFV2A11G2C4010462%26engineno%3D863488%26city_id%3D%26car_type%3D02%7D&sign=03e4ea2c19a2c168bcb7c136636c8bf0&timestamp=1454169621&app_id=928
+[ 2016-01-31T00:00:21+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":"1004"}
+[ 2016-01-31T00:00:21+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"717f1f1f61bf43b5bcd78a0fde387d5e","createTime":"20160131000021"}],"dataSize":1}
+[ 2016-01-31T00:00:21+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E9%B2%81&carNumber=AQ036C&vioCityCode=&carType=0&carFrame=LFV2A11G2C4010462&carEngine=863488
+[ 2016-01-31T00:00:22+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: aichefang:{"code":"30","dataSize":0,"message":"车辆违章城市代码不正确"}
+[ 2016-01-31T00:00:23+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FBW703V%26classno%3DLSGUD84XXDE043088%26engineno%3D040918%26city_id%3D57%26car_type%3D02%7D&sign=385b81caae69f935898815718fc7f635&timestamp=1454169622&app_id=928
+[ 2016-01-31T00:00:23+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":2001,"total_score":3,"total_money":900,"count":8,"historys":[{"id":9132647,"car_id":8430877,"status":"N","fen":0,"officer":"江苏省无锡市公安局交警支队","occur_date":"2015-06-04 16:54:00","occur_area":"东廊路胶阳路口","city_id":57,"province_id":5,"code":"16250","info":"驾驶机动车违反道路交通信号灯通行的","money":200,"city_name":"无锡"},{"id":9132649,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交警支队惠山大队五中队","occur_date":"2014-07-28 13:20:00","occur_area":"堰玉路石前路口","city_id":57,"province_id":5,"code":"13452","info":"违反禁止标线指示","money":100,"city_name":"无锡"},{"id":9132648,"car_id":8430877,"status":"N","fen":3,"officer":"江阴市公安局交通警察大队秩序管理中队","occur_date":"2015-05-13 10:41:00","occur_area":"大庙巷","city_id":109,"province_id":9,"code":"13442","info":"违反禁令标志指示","money":100,"city_name":"杭州"},{"id":9132650,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交警支队惠山大队五中队","occur_date":"2014-05-13 08:56:00","occur_area":"堰玉路石前路口","city_id":57,"province_id":5,"code":"13452","info":"违反禁止标线指示","money":100,"city_name":"无锡"},{"id":9132651,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交警支队惠山大队五中队","occur_date":"2014-05-05 09:16:00","occur_area":"堰玉路石前路口","city_id":57,"province_id":5,"code":"1208","info":"机动车通过有灯控路口时，不按所需行进方向驶入导向车道的","money":100,"city_name":"无锡"},{"id":9132652,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交通巡逻警支队惠山大队四中队","occur_date":"2014-02-12 14:18:00","occur_area":"前洲市镇前洲社区","city_id":57,"province_id":5,"code":"10391","info":"机动车违反规定停放，妨碍其他车辆、行人通行的，驾驶人不在现场的","money":50,"city_name":"无锡"},{"id":9132653,"car_id":8430877,"status":"N","fen":0,"officer":"泰州市公安局交通巡逻警察支队高速公路二大队","occur_date":"2013-12-24 14:55:00","occur_area":"沪陕高速256公里","city_id":14,"province_id":2,"code":"16362","info":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速20%以上未达到50%的","money":200,"city_name":"南阳"},{"id":9132654,"car_id":8430877,"status":"N","fen":0,"officer":"泰州市公安局交通巡逻警察支队高速公路二大队","occur_date":"2013-12-24 10:21:00","occur_area":"沪陕高速256公里","city_id":14,"province_id":2,"code":"13521","info":"驾驶中型以上载客汽车、中型以上载货汽车、危险物品运输车辆以外的其他机动车行驶超过规定时速10%以上未达20%的","money":50,"city_name":"南阳"}]}
+[ 2016-01-31T00:00:25+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FBW703V%26classno%3D043088%26engineno%3D132040918%26city_id%3D109%26car_type%3D02%7D&sign=355c91ef0b60f420e45914b7376aa28e&timestamp=1454169623&app_id=928
+[ 2016-01-31T00:00:25+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:00:25+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"639cce357084c824d37d56b1df209eb7","createTime":"20160131000025"}],"dataSize":1}
+[ 2016-01-31T00:00:25+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%8B%8F&carNumber=BW703V&vioCityCode=ZJ_HZ&carType=0&carFrame=043088&carEngine=132040918
+[ 2016-01-31T00:00:25+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"BW703V","carType":"0","cityCode":"ZJ_HZ","provinceCode":"苏","result":[]}],"dataSize":1}
+[ 2016-01-31T00:00:26+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E9%B2%81AQ036C%26classno%3DLFV2A11G2C4010462%26engineno%3D3488%26city_id%3D23%26car_type%3D02%7D&sign=87ae55cbd68149c76b5dfdb8e115d13c&timestamp=1454169625&app_id=928
+[ 2016-01-31T00:00:26+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":2001,"total_score":7,"total_money":600,"count":5,"historys":[{"id":9016011,"car_id":8568761,"status":"N","fen":3,"officer":"","occur_date":"2015-10-22 07:28:00","occur_area":"济南山大路与山大北路路口向北24米路西北向南","city_id":23,"province_id":3,"code":"13452","info":"违反禁止标线指示","money":200,"city_name":"济南"},{"id":9016013,"car_id":8568761,"status":"N","fen":0,"officer":"","occur_date":"2015-08-11 13:23:00","occur_area":"济南文化西路齐鲁医院路段路南侧西向东","city_id":23,"province_id":3,"code":"10190","info":"机动车违规使用专用车道","money":100,"city_name":"济南"},{"id":9035871,"car_id":8568761,"status":"N","fen":2,"officer":"","occur_date":"2016-01-01 11:23:00","occur_area":"济南无影山中路与无影山路南向北","city_id":23,"province_id":3,"code":"1208","info":"不按行进方向驶入导向车道","money":100,"city_name":"济南"},{"id":9016010,"car_id":8568761,"status":"N","fen":0,"officer":"","occur_date":"2015-10-24 16:24:00","occur_area":"济南明湖路与趵突泉北路路口向东250米路南西向东","city_id":23,"province_id":3,"code":"10390","info":"交通拥堵处不按规定停车等候","money":100,"city_name":"济南"},{"id":9016012,"car_id":8568761,"status":"N","fen":2,"officer":"","occur_date":"2015-09-09 08:42:00","occur_area":"济南经十路奥体东路口西向东","city_id":23,"province_id":3,"code":"1208","info":"不按行进方向驶入导向车道","money":100,"city_name":"济南"}]}
+[ 2016-01-31T00:00:28+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FAQH991%26classno%3DLDC931L2980799740%26engineno%3D098111%26city_id%3D66%26car_type%3D02%7D&sign=fade075a24a708fd5e98de0a817e42ec&timestamp=1454169626&app_id=928
+[ 2016-01-31T00:00:28+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:00:28+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"481aed354d360a9173c6e225740e21fa","createTime":"20160131000028"}],"dataSize":1}
+[ 2016-01-31T00:00:28+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%8B%8F&carNumber=AQH991&vioCityCode=&carType=0&carFrame=LDC931L2980799740&carEngine=098111
+[ 2016-01-31T00:00:28+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: aichefang:{"code":"30","dataSize":0,"message":"车辆违章城市代码不正确"}
+[ 2016-01-31T00:00:29+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B5%99B37Z15%26classno%3DA85008%26engineno%3D176115%26city_id%3D95%26car_type%3D02%7D&sign=f436774b962b3ee851a670973f010bf4&timestamp=1454169628&app_id=928
+[ 2016-01-31T00:00:29+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:00:29+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"14dacd14d803a3c981841d1e31f3de3a","createTime":"20160131000029"}],"dataSize":1}
+[ 2016-01-31T00:00:29+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B5%99&carNumber=B37Z15&vioCityCode=FJ_FU1ZHOU&carType=0&carFrame=A85008&carEngine=176115
+[ 2016-01-31T00:00:29+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"B37Z15","carType":"0","cityCode":"FJ_FU1ZHOU","provinceCode":"浙","result":[{"agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":92364,"officeName":"","status":"0","violationAddress":"火车南站站前路","violationCode":"1344","violationDesc":"机动车违反禁令标志指示的","violationMark":3,"violationPrice":20000,"violationTime":"2015-08-06 09:30:00"}]}],"dataSize":1}
+[ 2016-01-31T00:10:02+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FBW703V%26classno%3DLSGUD84XXDE043088%26engineno%3D132040918%26city_id%3D57%26car_type%3D02%7D&sign=9742ec81ed84b7c65985ee346ca551af&timestamp=1454170201&app_id=928
+[ 2016-01-31T00:10:02+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":2001,"total_score":3,"total_money":900,"count":8,"historys":[{"id":9132647,"car_id":8430877,"status":"N","fen":0,"officer":"江苏省无锡市公安局交警支队","occur_date":"2015-06-04 16:54:00","occur_area":"东廊路胶阳路口","city_id":57,"province_id":5,"code":"16250","info":"驾驶机动车违反道路交通信号灯通行的","money":200,"city_name":"无锡"},{"id":9132649,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交警支队惠山大队五中队","occur_date":"2014-07-28 13:20:00","occur_area":"堰玉路石前路口","city_id":57,"province_id":5,"code":"13452","info":"违反禁止标线指示","money":100,"city_name":"无锡"},{"id":9132648,"car_id":8430877,"status":"N","fen":3,"officer":"江阴市公安局交通警察大队秩序管理中队","occur_date":"2015-05-13 10:41:00","occur_area":"大庙巷","city_id":109,"province_id":9,"code":"13442","info":"违反禁令标志指示","money":100,"city_name":"杭州"},{"id":9132650,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交警支队惠山大队五中队","occur_date":"2014-05-13 08:56:00","occur_area":"堰玉路石前路口","city_id":57,"province_id":5,"code":"13452","info":"违反禁止标线指示","money":100,"city_name":"无锡"},{"id":9132651,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交警支队惠山大队五中队","occur_date":"2014-05-05 09:16:00","occur_area":"堰玉路石前路口","city_id":57,"province_id":5,"code":"1208","info":"机动车通过有灯控路口时，不按所需行进方向驶入导向车道的","money":100,"city_name":"无锡"},{"id":9132652,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交通巡逻警支队惠山大队四中队","occur_date":"2014-02-12 14:18:00","occur_area":"前洲市镇前洲社区","city_id":57,"province_id":5,"code":"10391","info":"机动车违反规定停放，妨碍其他车辆、行人通行的，驾驶人不在现场的","money":50,"city_name":"无锡"},{"id":9132653,"car_id":8430877,"status":"N","fen":0,"officer":"泰州市公安局交通巡逻警察支队高速公路二大队","occur_date":"2013-12-24 14:55:00","occur_area":"沪陕高速256公里","city_id":14,"province_id":2,"code":"16362","info":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速20%以上未达到50%的","money":200,"city_name":"南阳"},{"id":9132654,"car_id":8430877,"status":"N","fen":0,"officer":"泰州市公安局交通巡逻警察支队高速公路二大队","occur_date":"2013-12-24 10:21:00","occur_area":"沪陕高速256公里","city_id":14,"province_id":2,"code":"13521","info":"驾驶中型以上载客汽车、中型以上载货汽车、危险物品运输车辆以外的其他机动车行驶超过规定时速10%以上未达20%的","money":50,"city_name":"南阳"}]}
+[ 2016-01-31T00:10:05+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FBW703V%26classno%3DLSGUD84XXDE043088%26engineno%3D132040918%26city_id%3D280%26car_type%3D02%7D&sign=3133b742b6ddee59b7592203e5bbaa0e&timestamp=1454170202&app_id=928
+[ 2016-01-31T00:10:05+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:10:06+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E7%B2%A4BH5Z07%26classno%3DLGWEF3A6XBB003110%26engineno%3DSKD6363%26city_id%3D152%26car_type%3D02%7D&sign=1c2194a6b42f2c5a694dd69c102d3124&timestamp=1454170205&app_id=928
+[ 2016-01-31T00:10:06+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:10:23+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E7%B2%A4BH5Z07%26classno%3DLGWEF3A6XBB003110%26engineno%3DSKD6363%26city_id%3D280%26car_type%3D02%7D&sign=89f817320525d8969ff5c98573e3992b&timestamp=1454170206&app_id=928
+[ 2016-01-31T00:10:23+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:10:37+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANR8087%26classno%3DLGBF1DE03CR112114%26engineno%3D206920M%26city_id%3D280%26car_type%3D02%7D&sign=30611e57a88a00f53441297e884f9192&timestamp=1454170223&app_id=928
+[ 2016-01-31T00:10:37+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:10:40+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANE0997%26classno%3DLHGTF385XD8024378%26engineno%3D1024414%26city_id%3D280%26car_type%3D02%7D&sign=39da57ddf2216baf56b05aca73897d30&timestamp=1454170237&app_id=928
+[ 2016-01-31T00:10:40+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:10:50+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E7%9A%96A60H57%26classno%3DLFMA7E2A6E0037349%26engineno%3DJ036287%26city_id%3D250%26car_type%3D02%7D&sign=95fecc5729205196e1597fa77362582f&timestamp=1454170240&app_id=928
+[ 2016-01-31T00:10:50+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T00:10:55+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E7%9A%96A60H57%26classno%3DLFMA7E2A6E0037349%26engineno%3DJ036287%26city_id%3D280%26car_type%3D02%7D&sign=6a050be12bfe6be3141a1e519c7b0e8f&timestamp=1454170250&app_id=928
+[ 2016-01-31T00:10:55+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: 返回参数：{"status":2001,"total_score":0,"total_money":3050,"count":16,"historys":[{"id":9203789,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-11-16 13:50:00","occur_area":"巨鹿路进富民路西约70米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203790,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-11-06 21:40:00","occur_area":"长乐路进茂名南路西约80米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203791,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-10-07 16:06:00","occur_area":"汶水路/大华路(西向东，公交专用车道)","city_id":280,"province_id":23,"code":"1019","info":"机动车违反规定使用专用车道的","money":50,"city_name":"上海"},{"id":9203792,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-09-15 17:39:00","occur_area":"凯旋路出长宁路北约50米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人虽在现场拒绝立即驶离，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203793,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-09-15 07:08:00","occur_area":"虹梅南路春申路东约300米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203794,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-05-29 20:00:00","occur_area":"广元西路出华山路西约75米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203795,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-05-24 19:28:00","occur_area":"长乐路进陕西南路东约70米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203796,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-05-07 09:38:00","occur_area":"华泾路/位育路","city_id":280,"province_id":23,"code":"10180","info":"机动车不在机动车道内行驶的","money":200,"city_name":"上海"},{"id":9203797,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-05-04 12:15:00","occur_area":"长乐路出茂名南路西约80米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203798,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-04-18 07:07:00","occur_area":"春申路虹梅南路东约50米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203799,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-04-07 17:30:00","occur_area":"虹泉路虹莘路东约50米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人虽在现场拒绝立即驶离，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203800,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-04-05 15:51:00","occur_area":"长乐路进陕西南路东约70米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203801,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-03-30 17:22:00","occur_area":"瑞金二路出永嘉路北约30米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203802,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-01-13 11:25:00","occur_area":"银城中路进东园路东约10米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203803,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-01-12 11:38:00","occur_area":"银城中路进东园路东约5米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203804,"car_id":8737450,"status":"N","fen":0,"occur_date":"2014-12-30 16:31:00","occur_area":"银城中路进东园路东约3米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"}]}
+[ 2016-01-31T00:10:55+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------83
+[ 2016-01-31T00:10:55+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"83","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1447653000","money":"200.00","points":"0","address":"\u5de8\u9e7f\u8def\u8fdb\u5bcc\u6c11\u8def\u897f\u7ea670\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u4e0d\u5728\u73b0\u573a\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170255","is_manage":"0","manage_time":"1454170255","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:10:56+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613822}";
+[ 2016-01-31T00:10:56+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------84
+[ 2016-01-31T00:10:56+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"84","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1446817200","money":"200.00","points":"0","address":"\u957f\u4e50\u8def\u8fdb\u8302\u540d\u5357\u8def\u897f\u7ea680\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u4e0d\u5728\u73b0\u573a\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170256","is_manage":"0","manage_time":"1454170256","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:10:56+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613824}";
+[ 2016-01-31T00:10:56+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------85
+[ 2016-01-31T00:10:56+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"85","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"1019","time":"1444205160","money":"50.00","points":"0","address":"\u6c76\u6c34\u8def\/\u5927\u534e\u8def(\u897f\u5411\u4e1c\uff0c\u516c\u4ea4\u4e13\u7528\u8f66\u9053)","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u4f7f\u7528\u4e13\u7528\u8f66\u9053\u7684","create_time":"1454170256","is_manage":"0","manage_time":"1454170256","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:10:56+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613825}";
+[ 2016-01-31T00:10:56+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------86
+[ 2016-01-31T00:10:56+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"86","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1442309940","money":"200.00","points":"0","address":"\u51ef\u65cb\u8def\u51fa\u957f\u5b81\u8def\u5317\u7ea650\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u867d\u5728\u73b0\u573a\u62d2\u7edd\u7acb\u5373\u9a76\u79bb\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170256","is_manage":"0","manage_time":"1454170256","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:10:57+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613826}";
+[ 2016-01-31T00:10:57+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------87
+[ 2016-01-31T00:10:57+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"87","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1442272080","money":"200.00","points":"0","address":"\u8679\u6885\u5357\u8def\u6625\u7533\u8def\u4e1c\u7ea6300\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u4e0d\u5728\u73b0\u573a\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170257","is_manage":"0","manage_time":"1454170257","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:10:57+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613827}";
+[ 2016-01-31T00:10:57+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------88
+[ 2016-01-31T00:10:57+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"88","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1432900800","money":"200.00","points":"0","address":"\u5e7f\u5143\u897f\u8def\u51fa\u534e\u5c71\u8def\u897f\u7ea675\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u4e0d\u5728\u73b0\u573a\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170257","is_manage":"0","manage_time":"1454170257","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:10:57+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613829}";
+[ 2016-01-31T00:10:57+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------89
+[ 2016-01-31T00:10:57+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"89","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1432466880","money":"200.00","points":"0","address":"\u957f\u4e50\u8def\u8fdb\u9655\u897f\u5357\u8def\u4e1c\u7ea670\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u4e0d\u5728\u73b0\u573a\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170257","is_manage":"0","manage_time":"1454170257","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:10:58+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613830}";
+[ 2016-01-31T00:10:58+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------90
+[ 2016-01-31T00:10:58+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"90","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10180","time":"1430962680","money":"200.00","points":"0","address":"\u534e\u6cfe\u8def\/\u4f4d\u80b2\u8def","content":"\u673a\u52a8\u8f66\u4e0d\u5728\u673a\u52a8\u8f66\u9053\u5185\u884c\u9a76\u7684","create_time":"1454170258","is_manage":"0","manage_time":"1454170258","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:10:58+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613831}";
+[ 2016-01-31T00:10:58+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------91
+[ 2016-01-31T00:10:58+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"91","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1430712900","money":"200.00","points":"0","address":"\u957f\u4e50\u8def\u51fa\u8302\u540d\u5357\u8def\u897f\u7ea680\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u4e0d\u5728\u73b0\u573a\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170258","is_manage":"0","manage_time":"1454170258","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:10:58+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613832}";
+[ 2016-01-31T00:10:58+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------92
+[ 2016-01-31T00:10:58+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"92","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1429312020","money":"200.00","points":"0","address":"\u6625\u7533\u8def\u8679\u6885\u5357\u8def\u4e1c\u7ea650\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u4e0d\u5728\u73b0\u573a\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170258","is_manage":"0","manage_time":"1454170258","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:10:59+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613834}";
+[ 2016-01-31T00:10:59+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------93
+[ 2016-01-31T00:10:59+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"93","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1428399000","money":"200.00","points":"0","address":"\u8679\u6cc9\u8def\u8679\u8398\u8def\u4e1c\u7ea650\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u867d\u5728\u73b0\u573a\u62d2\u7edd\u7acb\u5373\u9a76\u79bb\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170259","is_manage":"0","manage_time":"1454170259","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:10:59+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613835}";
+[ 2016-01-31T00:10:59+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------94
+[ 2016-01-31T00:10:59+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"94","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1428220260","money":"200.00","points":"0","address":"\u957f\u4e50\u8def\u8fdb\u9655\u897f\u5357\u8def\u4e1c\u7ea670\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u4e0d\u5728\u73b0\u573a\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170259","is_manage":"0","manage_time":"1454170259","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:10:59+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613836}";
+[ 2016-01-31T00:10:59+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------95
+[ 2016-01-31T00:10:59+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"95","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1427707320","money":"200.00","points":"0","address":"\u745e\u91d1\u4e8c\u8def\u51fa\u6c38\u5609\u8def\u5317\u7ea630\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u4e0d\u5728\u73b0\u573a\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170259","is_manage":"0","manage_time":"1454170259","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:11:00+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613837}";
+[ 2016-01-31T00:11:00+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------96
+[ 2016-01-31T00:11:00+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"96","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1421119500","money":"200.00","points":"0","address":"\u94f6\u57ce\u4e2d\u8def\u8fdb\u4e1c\u56ed\u8def\u4e1c\u7ea610\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u4e0d\u5728\u73b0\u573a\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170260","is_manage":"0","manage_time":"1454170260","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:11:00+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613838}";
+[ 2016-01-31T00:11:00+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------97
+[ 2016-01-31T00:11:00+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"97","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1421033880","money":"200.00","points":"0","address":"\u94f6\u57ce\u4e2d\u8def\u8fdb\u4e1c\u56ed\u8def\u4e1c\u7ea65\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u4e0d\u5728\u73b0\u573a\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170260","is_manage":"0","manage_time":"1454170260","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:11:00+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613839}";
+[ 2016-01-31T00:11:00+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: send---------------------------98
+[ 2016-01-31T00:11:00+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: senddata---------------------------{"id":"98","car_id":"19","area":"\u4e0a\u6d77","query_port":"cheshouye.com","code":"10393","time":"1419928260","money":"200.00","points":"0","address":"\u94f6\u57ce\u4e2d\u8def\u8fdb\u4e1c\u56ed\u8def\u4e1c\u7ea63\u7c73","content":"\u673a\u52a8\u8f66\u8fdd\u53cd\u89c4\u5b9a\u505c\u653e\u3001\u4e34\u65f6\u505c\u8f66\u4e14\u9a7e\u9a76\u4eba\u4e0d\u5728\u73b0\u573a\uff0c\u59a8\u788d\u5176\u5b83\u8f66\u8f86\u3001\u884c\u4eba\u901a\u884c\u7684","create_time":"1454170260","is_manage":"0","manage_time":"1454170260","query_no":"2067","certificate_no":null,"office":null}
+[ 2016-01-31T00:11:01+08:00 ] 139.129.192.151 /index.php?g=weixin&m=api&a=timing_scan
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403613840}";
+[ 2016-01-31T01:03:38+08:00 ] 140.207.54.73 /index.php?g=weixin&m=index&a=index&signature=32939c4cb98e10f1641b8280dbe7395439925642&timestamp=1454173416&nonce=215114257
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E7%9A%96A60H57%26classno%3DLFMA7E2A6E0037349%26engineno%3DJ036287%26city_id%3D280%26car_type%3D02%7D&sign=d6579d095a8254ec76172a2b6e8dcebf&timestamp=1454173416&app_id=928
+[ 2016-01-31T01:03:38+08:00 ] 140.207.54.73 /index.php?g=weixin&m=index&a=index&signature=32939c4cb98e10f1641b8280dbe7395439925642&timestamp=1454173416&nonce=215114257
+DEBUG: 返回参数：{"status":2001,"total_score":0,"total_money":3050,"count":16,"historys":[{"id":9203789,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-11-16 13:50:00","occur_area":"巨鹿路进富民路西约70米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203790,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-11-06 21:40:00","occur_area":"长乐路进茂名南路西约80米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203791,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-10-07 16:06:00","occur_area":"汶水路/大华路(西向东，公交专用车道)","city_id":280,"province_id":23,"code":"1019","info":"机动车违反规定使用专用车道的","money":50,"city_name":"上海"},{"id":9203792,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-09-15 17:39:00","occur_area":"凯旋路出长宁路北约50米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人虽在现场拒绝立即驶离，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203793,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-09-15 07:08:00","occur_area":"虹梅南路春申路东约300米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203794,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-05-29 20:00:00","occur_area":"广元西路出华山路西约75米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203795,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-05-24 19:28:00","occur_area":"长乐路进陕西南路东约70米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203796,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-05-07 09:38:00","occur_area":"华泾路/位育路","city_id":280,"province_id":23,"code":"10180","info":"机动车不在机动车道内行驶的","money":200,"city_name":"上海"},{"id":9203797,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-05-04 12:15:00","occur_area":"长乐路出茂名南路西约80米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203798,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-04-18 07:07:00","occur_area":"春申路虹梅南路东约50米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203799,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-04-07 17:30:00","occur_area":"虹泉路虹莘路东约50米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人虽在现场拒绝立即驶离，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203800,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-04-05 15:51:00","occur_area":"长乐路进陕西南路东约70米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203801,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-03-30 17:22:00","occur_area":"瑞金二路出永嘉路北约30米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203802,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-01-13 11:25:00","occur_area":"银城中路进东园路东约10米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203803,"car_id":8737450,"status":"N","fen":0,"occur_date":"2015-01-12 11:38:00","occur_area":"银城中路进东园路东约5米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"},{"id":9203804,"car_id":8737450,"status":"N","fen":0,"occur_date":"2014-12-30 16:31:00","occur_area":"银城中路进东园路东约3米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"}]}
+[ 2016-01-31T01:03:40+08:00 ] 140.207.54.73 /index.php?g=weixin&m=index&a=index&signature=32939c4cb98e10f1641b8280dbe7395439925642&timestamp=1454173416&nonce=215114257
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E7%9A%96A60H57%26classno%3D037349%26engineno%3D036287%26city_id%3D250%26car_type%3D02%7D&sign=65dbde0525e0fb6e09496b4e8e6c35d7&timestamp=1454173418&app_id=928
+[ 2016-01-31T01:03:40+08:00 ] 140.207.54.73 /index.php?g=weixin&m=index&a=index&signature=32939c4cb98e10f1641b8280dbe7395439925642&timestamp=1454173416&nonce=215114257
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T01:03:40+08:00 ] 140.207.54.73 /index.php?g=weixin&m=index&a=index&signature=32939c4cb98e10f1641b8280dbe7395439925642&timestamp=1454173416&nonce=215114257
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403614739}";
+[ 2016-01-31T10:55:58+08:00 ] 116.227.245.249 /index.php?g=admin_new&m=jiaoyi&a=refund
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619054}";
+[ 2016-01-31T10:59:03+08:00 ] 116.227.245.249 /index.php?g=admin_new&m=jiaoyi&a=refund
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619117}";
+[ 2016-01-31T11:06:16+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E5%B7%9DYU1955%26classno%3DLSVNP212XD2034531%26engineno%3D410414%26city_id%3D280%26car_type%3D02%7D&sign=46e0eef5e0cba99c614dca15b4af5a20&timestamp=1454209574&app_id=928
+[ 2016-01-31T11:06:16+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:06:17+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"fc22f13fa05cd4987f08e6404e96af9b","createTime":"20160131110617"}],"dataSize":1}
+[ 2016-01-31T11:06:17+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E5%B7%9D&carNumber=YU1955&vioCityCode=SH&carType=0&carFrame=LSVNP212XD2034531&carEngine=410414
+[ 2016-01-31T11:06:17+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"YU1955","carType":"0","cityCode":"SH","provinceCode":"川","result":[{"adjudication":"","agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":92518,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"放鹤路宝秀路东约200米","violationCode":"16360","violationDesc":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速30%以上未达到50%的","violationMark":6,"violationPrice":20000,"violationTime":"2015-05-02 14:06"},{"adjudication":"","agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":92519,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"沪闵高架东侧近漕溪立交路段","violationCode":"13450","violationDesc":"机动车违反禁止标线指示的","violationMark":3,"violationPrice":10000,"violationTime":"2015-07-12 09:21"},{"adjudication":"","agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":92520,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"沪闵高架东侧近漕溪立交路段","violationCode":"13450","violationDesc":"机动车违反禁止标线指示的","violationMark":3,"violationPrice":10000,"violationTime":"2015-11-01 10:16"},{"adjudication":"","agencyPrice":22000,"businessNumber":"","canAgency":0,"counterPrice":2000,"hasBeenRuled":false,"id":92521,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"天目西路梅园路西约10米","violationCode":"1039","violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationMark":0,"violationPrice":20000,"violationTime":"2015-05-01 08:08"},{"adjudication":"","agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":92522,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"浦放路鲁陈路西约700米","violationCode":"16360","violationDesc":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速30%以上未达到50%的","violationMark":6,"violationPrice":20000,"violationTime":"2015-12-20 13:20"},{"adjudication":"","agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":92523,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"沪闵高架东侧近漕溪立交路段","violationCode":"13450","violationDesc":"机动车违反禁止标线指示的","violationMark":3,"violationPrice":10000,"violationTime":"2015-12-27 19:04"}]}],"dataSize":1}
+[ 2016-01-31T11:06:19+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E5%B7%9DYU1955%26classno%3D034531%26engineno%3D410414%26city_id%3D658%26car_type%3D02%7D&sign=a0d7b1fb8e9ccf7d4e0268d1c7aa7c62&timestamp=1454209577&app_id=928
+[ 2016-01-31T11:06:19+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:06:19+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"43ae634dd98fa665d6f200313aa4a353","createTime":"20160131110619"}],"dataSize":1}
+[ 2016-01-31T11:06:19+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E5%B7%9D&carNumber=YU1955&vioCityCode=&carType=0&carFrame=034531&carEngine=410414
+[ 2016-01-31T11:06:19+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"30","dataSize":0,"message":"车辆违章城市代码不正确"}
+[ 2016-01-31T11:06:19+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619251}";
+[ 2016-01-31T11:06:22+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FBW703V%26classno%3DLSGUD84XXDE043088%26engineno%3D132040918%26city_id%3D280%26car_type%3D02%7D&sign=41c5c0906b54156ee3eb0483e971861d&timestamp=1454209579&app_id=928
+[ 2016-01-31T11:06:22+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:06:22+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"a842bcaf284da546547ed65aa42438c3","createTime":"20160131110622"}],"dataSize":1}
+[ 2016-01-31T11:06:22+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%8B%8F&carNumber=BW703V&vioCityCode=SH&carType=0&carFrame=LSGUD84XXDE043088&carEngine=132040918
+[ 2016-01-31T11:06:22+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"BW703V","carType":"0","cityCode":"SH","provinceCode":"苏","result":[]}],"dataSize":1}
+[ 2016-01-31T11:06:23+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FBW703V%26classno%3DLSGUD84XXDE043088%26engineno%3D040918%26city_id%3D57%26car_type%3D02%7D&sign=1eb48d2264b41e6d0359e9e205d11983&timestamp=1454209582&app_id=928
+[ 2016-01-31T11:06:23+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":2001,"total_score":3,"total_money":900,"count":8,"historys":[{"id":9132647,"car_id":8430877,"status":"N","fen":0,"officer":"江苏省无锡市公安局交警支队","occur_date":"2015-06-04 16:54:00","occur_area":"东廊路胶阳路口","city_id":57,"province_id":5,"code":"16250","info":"驾驶机动车违反道路交通信号灯通行的","money":200,"city_name":"无锡"},{"id":9132649,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交警支队惠山大队五中队","occur_date":"2014-07-28 13:20:00","occur_area":"堰玉路石前路口","city_id":57,"province_id":5,"code":"13452","info":"违反禁止标线指示","money":100,"city_name":"无锡"},{"id":9132648,"car_id":8430877,"status":"N","fen":3,"officer":"江阴市公安局交通警察大队秩序管理中队","occur_date":"2015-05-13 10:41:00","occur_area":"大庙巷","city_id":109,"province_id":9,"code":"13442","info":"违反禁令标志指示","money":100,"city_name":"杭州"},{"id":9132650,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交警支队惠山大队五中队","occur_date":"2014-05-13 08:56:00","occur_area":"堰玉路石前路口","city_id":57,"province_id":5,"code":"13452","info":"违反禁止标线指示","money":100,"city_name":"无锡"},{"id":9132651,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交警支队惠山大队五中队","occur_date":"2014-05-05 09:16:00","occur_area":"堰玉路石前路口","city_id":57,"province_id":5,"code":"1208","info":"机动车通过有灯控路口时，不按所需行进方向驶入导向车道的","money":100,"city_name":"无锡"},{"id":9132652,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交通巡逻警支队惠山大队四中队","occur_date":"2014-02-12 14:18:00","occur_area":"前洲市镇前洲社区","city_id":57,"province_id":5,"code":"10391","info":"机动车违反规定停放，妨碍其他车辆、行人通行的，驾驶人不在现场的","money":50,"city_name":"无锡"},{"id":9132653,"car_id":8430877,"status":"N","fen":0,"officer":"泰州市公安局交通巡逻警察支队高速公路二大队","occur_date":"2013-12-24 14:55:00","occur_area":"沪陕高速256公里","city_id":62,"province_id":5,"code":"16362","info":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速20%以上未达到50%的","money":200,"city_name":"扬州"},{"id":9132654,"car_id":8430877,"status":"N","fen":0,"officer":"泰州市公安局交通巡逻警察支队高速公路二大队","occur_date":"2013-12-24 10:21:00","occur_area":"沪陕高速256公里","city_id":62,"province_id":5,"code":"13521","info":"驾驶中型以上载客汽车、中型以上载货汽车、危险物品运输车辆以外的其他机动车行驶超过规定时速10%以上未达20%的","money":50,"city_name":"扬州"}]}
+[ 2016-01-31T11:06:23+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619255}";
+[ 2016-01-31T11:06:25+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3222%26classno%3DWBAZV410XCL924427%26engineno%3D08278127N55B30A%26city_id%3D280%26car_type%3D02%7D&sign=ffcefc6953327ea36463e8c9b9be944d&timestamp=1454209583&app_id=928
+[ 2016-01-31T11:06:25+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:06:25+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"aeea2cbe2085f74333fbbbea5b7b3d80","createTime":"20160131110625"}],"dataSize":1}
+[ 2016-01-31T11:06:25+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3222&vioCityCode=SH&carType=0&carFrame=WBAZV410XCL924427&carEngine=08278127N55B30A
+[ 2016-01-31T11:06:26+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3222","carType":"0","cityCode":"SH","provinceCode":"沪","result":[{"adjudication":"","agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":94321,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"光藻路4公里600米","violationCode":"13521","violationDesc":"驾驶中型以上载客载货汽车、危险物品运输车辆以外的其他机动车行驶超过规定时速10%未达20%的","violationMark":3,"violationPrice":0,"violationTime":"2015-10-16 13:34"},{"adjudication":"","agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":66150,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"明月路/黑松路","violationCode":"","violationDesc":"驾驶机动车不按机动车信号灯表示通行的","violationMark":0,"violationPrice":0,"violationTime":"2015-10-28 15:33"}]}],"dataSize":1}
+[ 2016-01-31T11:06:26+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619258}";
+[ 2016-01-31T11:06:28+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3225%26classno%3DVF1VYRTE2CC439907%26engineno%3D2TRA703P122308%26city_id%3D280%26car_type%3D02%7D&sign=dcda363046e569d51d9b0f7d51086e10&timestamp=1454209586&app_id=928
+[ 2016-01-31T11:06:28+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:06:28+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"c838c803902606d954439ab6a37a9280","createTime":"20160131110628"}],"dataSize":1}
+[ 2016-01-31T11:06:28+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3225&vioCityCode=SH&carType=0&carFrame=VF1VYRTE2CC439907&carEngine=2TRA703P122308
+[ 2016-01-31T11:06:28+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3225","carType":"0","cityCode":"SH","provinceCode":"沪","result":[{"adjudication":"","agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":92358,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"浦东北路/浦东北路989号","violationCode":"","violationDesc":"驾驶机动车不按机动车信号灯表示通行的","violationMark":0,"violationPrice":0,"violationTime":"2015-11-25 15:56"}]}],"dataSize":1}
+[ 2016-01-31T11:06:29+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619261}";
+[ 2016-01-31T11:06:31+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E9%B2%81AJV716%26classno%3DLJNMFE2KW2CN062495%26engineno%3D418247%26city_id%3D280%26car_type%3D02%7D&sign=dd34ae69a7f34b60b6ff9fb24c3ddea5&timestamp=1454209589&app_id=928
+[ 2016-01-31T11:06:31+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:06:31+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"fd757d877b759d516a2925eb807251b2","createTime":"20160131110631"}],"dataSize":1}
+[ 2016-01-31T11:06:31+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E9%B2%81&carNumber=AJV716&vioCityCode=SH&carType=0&carFrame=LJNMFE2KW2CN062495&carEngine=418247
+[ 2016-01-31T11:06:31+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"AJV716","carType":"0","cityCode":"SH","provinceCode":"鲁","result":[]}],"dataSize":1}
+[ 2016-01-31T11:06:32+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E9%B2%81AJV716%26classno%3DLJNMFE2KW2CN062495%26engineno%3D8247%26city_id%3D23%26car_type%3D02%7D&sign=ac53343823516eeb35b521c3a386b2c5&timestamp=1454209591&app_id=928
+[ 2016-01-31T11:06:32+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:06:33+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619264}";
+[ 2016-01-31T11:06:47+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%B5%A3H0Y181%26classno%3DLDNABADK5C0007422%26engineno%3DSLD4043%26city_id%3D280%26car_type%3D02%7D&sign=ec180e3449c2987d676dd1ea3130942a&timestamp=1454209593&app_id=928
+[ 2016-01-31T11:06:47+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:06:47+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"2f187f8b1c96dcde9b04bc1683a986b7","createTime":"20160131110647"}],"dataSize":1}
+[ 2016-01-31T11:06:47+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%B5%A3&carNumber=H0Y181&vioCityCode=SH&carType=0&carFrame=LDNABADK5C0007422&carEngine=SLD4043
+[ 2016-01-31T11:06:47+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"H0Y181","carType":"0","cityCode":"SH","provinceCode":"赣","result":[{"adjudication":"","agencyPrice":7000,"businessNumber":"","canAgency":0,"counterPrice":2000,"hasBeenRuled":false,"id":86714,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"汶水路/平陆路（东向西，公交专用车道）","violationCode":"10190","violationDesc":"机动车违反规定使用专用车道的","violationMark":0,"violationPrice":5000,"violationTime":"2015-03-20 09:19"},{"adjudication":"","agencyPrice":22000,"businessNumber":"","canAgency":0,"counterPrice":2000,"hasBeenRuled":false,"id":86716,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"张江建中路张江路西约100米","violationCode":"1039","violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationMark":0,"violationPrice":20000,"violationTime":"2014-10-08 12:25"},{"adjudication":"","agencyPrice":7000,"businessNumber":"","canAgency":0,"counterPrice":2000,"hasBeenRuled":false,"id":86715,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"汶水路/高平路（东向西，公交专用车道）","violationCode":"10190","violationDesc":"机动车违反规定使用专用车道的","violationMark":0,"violationPrice":5000,"violationTime":"2015-04-10 08:07"}]}],"dataSize":1}
+[ 2016-01-31T11:06:48+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%B5%A3H0Y181%26classno%3D007422%26engineno%3DSLD4043%26city_id%3D668%26car_type%3D02%7D&sign=9319434aa6221bed0e54514735eaf5b8&timestamp=1454209607&app_id=928
+[ 2016-01-31T11:06:48+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:06:49+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"56f7b64f74a309ef08a6cfa8ff8d1795","createTime":"20160131110649"}],"dataSize":1}
+[ 2016-01-31T11:06:49+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%B5%A3&carNumber=H0Y181&vioCityCode=&carType=0&carFrame=007422&carEngine=SLD4043
+[ 2016-01-31T11:06:49+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"30","dataSize":0,"message":"车辆违章城市代码不正确"}
+[ 2016-01-31T11:06:49+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619275}";
+[ 2016-01-31T11:07:06+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E7%B2%A4BH5Z07%26classno%3DLGWEF3A6XBB003110%26engineno%3DSKD6363%26city_id%3D280%26car_type%3D02%7D&sign=7e5d62eaeba7a23e33577cb1a0dc80d1&timestamp=1454209609&app_id=928
+[ 2016-01-31T11:07:06+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:06+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"3d56870f91940900a08373a0afab70d9","createTime":"20160131110706"}],"dataSize":1}
+[ 2016-01-31T11:07:06+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E7%B2%A4&carNumber=BH5Z07&vioCityCode=SH&carType=0&carFrame=LGWEF3A6XBB003110&carEngine=SKD6363
+[ 2016-01-31T11:07:06+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"BH5Z07","carType":"0","cityCode":"SH","provinceCode":"粤","result":[]}],"dataSize":1}
+[ 2016-01-31T11:07:07+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E7%B2%A4BH5Z07%26classno%3D003110%26engineno%3DKD6363%26city_id%3D152%26car_type%3D02%7D&sign=1aaf4609106569f406b37cdc6fc2b9df&timestamp=1454209626&app_id=928
+[ 2016-01-31T11:07:07+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:08+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619289}";
+[ 2016-01-31T11:07:10+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B5%99B37Z15%26classno%3DLBVNE39096SA85008%26engineno%3D00176115%26city_id%3D280%26car_type%3D02%7D&sign=ffaffe6e02137311c48ca07881f965a8&timestamp=1454209628&app_id=928
+[ 2016-01-31T11:07:10+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:10+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"d5f210c96c417775176ca3e4151deeaf","createTime":"20160131110710"}],"dataSize":1}
+[ 2016-01-31T11:07:10+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B5%99&carNumber=B37Z15&vioCityCode=SH&carType=0&carFrame=LBVNE39096SA85008&carEngine=00176115
+[ 2016-01-31T11:07:10+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"B37Z15","carType":"0","cityCode":"SH","provinceCode":"浙","result":[]}],"dataSize":1}
+[ 2016-01-31T11:07:12+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B5%99B37Z15%26classno%3DA85008%26engineno%3D00176115%26city_id%3D110%26car_type%3D02%7D&sign=107953241da74605674790a4e2851d4c&timestamp=1454209630&app_id=928
+[ 2016-01-31T11:07:12+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":2001,"total_score":3,"total_money":100,"count":1,"historys":[{"id":9089322,"car_id":8650184,"status":"N","fen":3,"officer":"350104005400","occur_date":"2015-08-06 09:30:00","occur_area":"火车南站站前路","city_id":95,"province_id":8,"code":"1344B","info":"机动车违反禁令标志指示的","money":100,"city_name":"福州"}]}
+[ 2016-01-31T11:07:12+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619296}";
+[ 2016-01-31T11:07:14+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E9%B2%81AQ036C%26classno%3DLFV2A11G2C4010462%26engineno%3D863488%26city_id%3D280%26car_type%3D02%7D&sign=6117dc0369c85b49cd169ab4c46305a5&timestamp=1454209632&app_id=928
+[ 2016-01-31T11:07:14+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:14+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"a676002e07c5b0b0eed6eb6fb1f45249","createTime":"20160131110714"}],"dataSize":1}
+[ 2016-01-31T11:07:14+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E9%B2%81&carNumber=AQ036C&vioCityCode=SH&carType=0&carFrame=LFV2A11G2C4010462&carEngine=863488
+[ 2016-01-31T11:07:14+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"AQ036C","carType":"0","cityCode":"SH","provinceCode":"鲁","result":[]}],"dataSize":1}
+[ 2016-01-31T11:07:22+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E9%B2%81AQ036C%26classno%3DLFV2A11G2C4010462%26engineno%3D3488%26city_id%3D23%26car_type%3D02%7D&sign=da60bb8607722563336a740f037974b8&timestamp=1454209634&app_id=928
+[ 2016-01-31T11:07:22+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":2001,"total_score":7,"total_money":600,"count":5,"historys":[{"id":9035871,"car_id":8568761,"status":"N","fen":2,"officer":"","occur_date":"2016-01-01 11:23:00","occur_area":"济南无影山中路与无影山路南向北","city_id":23,"province_id":3,"code":"1208","info":"不按行进方向驶入导向车道","money":100,"city_name":"济南"},{"id":9016010,"car_id":8568761,"status":"N","fen":0,"officer":"","occur_date":"2015-10-24 16:24:00","occur_area":"济南明湖路与趵突泉北路路口向东250米路南西向东","city_id":23,"province_id":3,"code":"10390","info":"交通拥堵处不按规定停车等候","money":100,"city_name":"济南"},{"id":9016011,"car_id":8568761,"status":"N","fen":3,"officer":"","occur_date":"2015-10-22 07:28:00","occur_area":"济南山大路与山大北路路口向北24米路西北向南","city_id":23,"province_id":3,"code":"13452","info":"违反禁止标线指示","money":200,"city_name":"济南"},{"id":9016012,"car_id":8568761,"status":"N","fen":2,"officer":"","occur_date":"2015-09-09 08:42:00","occur_area":"济南经十路奥体东路口西向东","city_id":23,"province_id":3,"code":"1208","info":"不按行进方向驶入导向车道","money":100,"city_name":"济南"},{"id":9016013,"car_id":8568761,"status":"N","fen":0,"officer":"","occur_date":"2015-08-11 13:23:00","occur_area":"济南文化西路齐鲁医院路段路南侧西向东","city_id":23,"province_id":3,"code":"10190","info":"机动车违规使用专用车道","money":100,"city_name":"济南"}]}
+[ 2016-01-31T11:07:22+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619302}";
+[ 2016-01-31T11:07:24+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANE0997%26classno%3DLHGTF385XD8024378%26engineno%3D1024414%26city_id%3D280%26car_type%3D02%7D&sign=0cdd6663d2bad899ae824736da9cb0e5&timestamp=1454209642&app_id=928
+[ 2016-01-31T11:07:24+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":2001,"total_score":0,"total_money":200,"count":1,"historys":[{"id":8622369,"car_id":8210423,"status":"N","fen":0,"occur_date":"2015-09-10 10:39:00","occur_area":"长海路出中原路西约400米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人虽在现场拒绝立即驶离，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"}]}
+[ 2016-01-31T11:07:24+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619304}";
+[ 2016-01-31T11:07:27+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FAQH991%26classno%3DLDC931L2980799740%26engineno%3D5098111%26city_id%3D280%26car_type%3D02%7D&sign=0d51acea0cc8608677f6ddbe384b170d&timestamp=1454209644&app_id=928
+[ 2016-01-31T11:07:27+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:27+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"17933123fa0e6d8ef4db6f4d500e864e","createTime":"20160131110727"}],"dataSize":1}
+[ 2016-01-31T11:07:27+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%8B%8F&carNumber=AQH991&vioCityCode=SH&carType=0&carFrame=LDC931L2980799740&carEngine=5098111
+[ 2016-01-31T11:07:27+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"AQH991","carType":"0","cityCode":"SH","provinceCode":"苏","result":[{"adjudication":"","agencyPrice":8500,"businessNumber":"","canAgency":0,"counterPrice":3500,"hasBeenRuled":false,"id":94322,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"哈雷路祖冲之路北约50米","violationCode":"1039","violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationMark":0,"violationPrice":5000,"violationTime":"2015-08-13 12:45"},{"adjudication":"","agencyPrice":8500,"businessNumber":"","canAgency":0,"counterPrice":3500,"hasBeenRuled":false,"id":94323,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"商城路滨江大道北约10米","violationCode":"1039","violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationMark":0,"violationPrice":5000,"violationTime":"2015-09-11 16:00"}]}],"dataSize":1}
+[ 2016-01-31T11:07:29+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FAQH991%26classno%3DLDC931L2980799740%26engineno%3D098111%26city_id%3D56%26car_type%3D02%7D&sign=5087b1ef91cbf2dc0433f4e8870b80fe&timestamp=1454209647&app_id=928
+[ 2016-01-31T11:07:29+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":2001,"total_score":0,"total_money":500,"count":4,"historys":[{"id":8103920,"car_id":7331979,"status":"N","fen":0,"officer":"","occur_date":"2015-08-13 12:45:00","occur_area":"哈雷路祖冲之路北约50米","city_id":280,"province_id":23,"code":"8089","info":"机动车违反规定停放、临时停车，妨碍其它车辆、行人通行，驾驶人不在现场的(罚款未缴)","money":50,"city_name":"上海"},{"id":8554825,"car_id":7331979,"status":"N","fen":0,"officer":"","occur_date":"2015-09-11 16:00:00","occur_area":"商城路滨江大道北约10米","city_id":280,"province_id":23,"code":"8089","info":"机动车违反规定停放、临时停车，妨碍其它车辆、行人通行，驾驶人不在现场的(罚款未缴)","money":50,"city_name":"上海"},{"id":9174643,"car_id":7331979,"status":"N","fen":0,"officer":"","occur_date":"2016-01-01 14:09:00","occur_area":"沈海高速987公里900米","city_id":66,"province_id":5,"code":"16362","info":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速20%以上未达到50%的(罚款未缴)","money":200,"city_name":"盐城"},{"id":9174644,"car_id":7331979,"status":"N","fen":0,"officer":"","occur_date":"2016-01-01 14:56:00","occur_area":"沈海高速884公里350米","city_id":66,"province_id":5,"code":"16362","info":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速20%以上未达到50%的(罚款未缴)","money":200,"city_name":"盐城"}]}
+[ 2016-01-31T11:07:29+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619308}";
+[ 2016-01-31T11:07:31+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%B5%A3L59138%26classno%3DLDC62123X80725466%26engineno%3D6050354%26city_id%3D280%26car_type%3D02%7D&sign=bf8d632aa1ea13c0b526d3d0047e34b4&timestamp=1454209649&app_id=928
+[ 2016-01-31T11:07:31+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:31+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"35418f35530d64e5555092d87d1a5367","createTime":"20160131110731"}],"dataSize":1}
+[ 2016-01-31T11:07:31+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%B5%A3&carNumber=L59138&vioCityCode=SH&carType=0&carFrame=LDC62123X80725466&carEngine=6050354
+[ 2016-01-31T11:07:31+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"L59138","carType":"0","cityCode":"SH","provinceCode":"赣","result":[]}],"dataSize":1}
+[ 2016-01-31T11:07:32+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%B5%A3L59138%26classno%3D725466%26engineno%3D6050354%26city_id%3D668%26car_type%3D02%7D&sign=6f49cdf92a569da5c58ef8c9078e1e34&timestamp=1454209651&app_id=928
+[ 2016-01-31T11:07:32+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:32+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"321ab879870c15ea6c0143e8b6d0a872","createTime":"20160131110732"}],"dataSize":1}
+[ 2016-01-31T11:07:32+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%B5%A3&carNumber=L59138&vioCityCode=&carType=0&carFrame=725466&carEngine=6050354
+[ 2016-01-31T11:07:32+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"30","dataSize":0,"message":"车辆违章城市代码不正确"}
+[ 2016-01-31T11:07:33+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619312}";
+[ 2016-01-31T11:07:35+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B5%99GDJ986%26classno%3DLDC621P2070569227%26engineno%3D0021433%26city_id%3D280%26car_type%3D02%7D&sign=e096e1dbad1abb9359c2d94134b3bec6&timestamp=1454209653&app_id=928
+[ 2016-01-31T11:07:35+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:42+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B5%99GDJ986%26classno%3D569227%26engineno%3D0021433%26city_id%3D118%26car_type%3D02%7D&sign=f28a316a537c87074e097bcf01a783c5&timestamp=1454209655&app_id=928
+[ 2016-01-31T11:07:42+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:42+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619318}";
+[ 2016-01-31T11:07:45+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANE5923%26classno%3DLVSFCFME0CF377863%26engineno%3DCJ65925%26city_id%3D280%26car_type%3D02%7D&sign=2ca2c126b7cc96bc860bf090b17e92cd&timestamp=1454209662&app_id=928
+[ 2016-01-31T11:07:45+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:45+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"367b35f6ae35f26df374230fe73178e6","createTime":"20160131110745"}],"dataSize":1}
+[ 2016-01-31T11:07:45+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NE5923&vioCityCode=SH&carType=0&carFrame=LVSFCFME0CF377863&carEngine=CJ65925
+[ 2016-01-31T11:07:45+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NE5923","carType":"0","cityCode":"SH","provinceCode":"沪","result":[]}],"dataSize":1}
+[ 2016-01-31T11:07:45+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619323}";
+[ 2016-01-31T11:07:51+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANE9319%26classno%3DLHGTF3855D8029990%26engineno%3D1029954%26city_id%3D280%26car_type%3D02%7D&sign=e6a756943dc15bfd0889f946bc782991&timestamp=1454209665&app_id=928
+[ 2016-01-31T11:07:51+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:51+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"2db09f1167abbe86798e1bb96b864c61","createTime":"20160131110751"}],"dataSize":1}
+[ 2016-01-31T11:07:51+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NE9319&vioCityCode=SH&carType=0&carFrame=LHGTF3855D8029990&carEngine=1029954
+[ 2016-01-31T11:07:51+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NE9319","carType":"0","cityCode":"SH","provinceCode":"沪","result":[{"adjudication":"","agencyPrice":7000,"businessNumber":"","canAgency":0,"counterPrice":2000,"hasBeenRuled":false,"id":93630,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"重庆南路/兴安路（南向北）","violationCode":"10190","violationDesc":"机动车违反规定使用专用车道的","violationMark":0,"violationPrice":5000,"violationTime":"2015-11-17 17:15"},{"adjudication":"","agencyPrice":0,"businessNumber":"","canAgency":1,"counterPrice":0,"hasBeenRuled":false,"id":93631,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"梁溪路青山西路口","violationCode":"13450","violationDesc":"机动车违反禁止标线指示的","violationMark":3,"violationPrice":20000,"violationTime":"2016-01-03 13:12"}]}],"dataSize":1}
+[ 2016-01-31T11:07:51+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619328}";
+[ 2016-01-31T11:07:57+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF1993%26classno%3DLVVDB11B0CD435475%26engineno%3DBBCM04206%26city_id%3D280%26car_type%3D02%7D&sign=738f29119f23b775c13970d7527aef5f&timestamp=1454209671&app_id=928
+[ 2016-01-31T11:07:57+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:57+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"af0ef95accc706c229563681549c496b","createTime":"20160131110757"}],"dataSize":1}
+[ 2016-01-31T11:07:57+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF1993&vioCityCode=SH&carType=0&carFrame=LVVDB11B0CD435475&carEngine=BBCM04206
+[ 2016-01-31T11:07:57+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF1993","carType":"0","cityCode":"SH","provinceCode":"沪","result":[{"adjudication":"","agencyPrice":22000,"businessNumber":"","canAgency":0,"counterPrice":2000,"hasBeenRuled":false,"id":93633,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"秋竹路平城路南约30米","violationCode":"1039","violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationMark":0,"violationPrice":20000,"violationTime":"2015-12-17 14:16"}]}],"dataSize":1}
+[ 2016-01-31T11:07:57+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619333}";
+[ 2016-01-31T11:07:59+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF2062%26classno%3DYV1FW63C9D1090695%26engineno%3DB5204T94580926%26city_id%3D280%26car_type%3D02%7D&sign=88fd86a6d607fde3149a38d189c671ce&timestamp=1454209677&app_id=928
+[ 2016-01-31T11:07:59+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:07:59+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"0414f0d188ed68e2043e50e3e5d14036","createTime":"20160131110759"}],"dataSize":1}
+[ 2016-01-31T11:07:59+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF2062&vioCityCode=SH&carType=0&carFrame=YV1FW63C9D1090695&carEngine=B5204T94580926
+[ 2016-01-31T11:08:00+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF2062","carType":"0","cityCode":"SH","provinceCode":"沪","result":[]}],"dataSize":1}
+[ 2016-01-31T11:08:00+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619334}";
+[ 2016-01-31T11:08:17+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3008%26classno%3DYV1CZ5958C1648198%26engineno%3DB5254T24577021%26city_id%3D280%26car_type%3D02%7D&sign=738e33e207faaedbee247c3cd11e941b&timestamp=1454209680&app_id=928
+[ 2016-01-31T11:08:17+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:08:17+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"68e377a41bd4e72a523d545bc351e533","createTime":"20160131110817"}],"dataSize":1}
+[ 2016-01-31T11:08:17+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3008&vioCityCode=SH&carType=0&carFrame=YV1CZ5958C1648198&carEngine=B5254T24577021
+[ 2016-01-31T11:08:18+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3008","carType":"0","cityCode":"SH","provinceCode":"沪","result":[{"adjudication":"","agencyPrice":22000,"businessNumber":"","canAgency":0,"counterPrice":2000,"hasBeenRuled":false,"id":93634,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"嘉兴路出哈尔滨路西约5米","violationCode":"1039","violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationMark":0,"violationPrice":20000,"violationTime":"2015-07-21 12:09"}]}],"dataSize":1}
+[ 2016-01-31T11:08:18+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619349}";
+[ 2016-01-31T11:08:35+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3015%26classno%3DLDGGF53WXDH013568%26engineno%3D123290174%26city_id%3D280%26car_type%3D02%7D&sign=cd0f4b9d194ba1654dc8a63b761cdf38&timestamp=1454209698&app_id=928
+[ 2016-01-31T11:08:35+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:08:35+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"8858694b40fe526b648a1aef762c7e13","createTime":"20160131110835"}],"dataSize":1}
+[ 2016-01-31T11:08:35+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3015&vioCityCode=SH&carType=0&carFrame=LDGGF53WXDH013568&carEngine=123290174
+[ 2016-01-31T11:08:36+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3015","carType":"0","cityCode":"SH","provinceCode":"沪","result":[{"adjudication":"","agencyPrice":22000,"businessNumber":"","canAgency":0,"counterPrice":2000,"hasBeenRuled":false,"id":93638,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"松汇中路近长桥南街西侧路段","violationCode":"10391","violationDesc":"机动车违反规定停放、临时停车且驾驶人虽在现场拒绝立即驶离，妨碍其它车辆、行人通行的","violationMark":0,"violationPrice":20000,"violationTime":"2015-11-11 12:29"},{"adjudication":"","agencyPrice":22000,"businessNumber":"","canAgency":0,"counterPrice":2000,"hasBeenRuled":false,"id":93639,"officeName":"","sendOfficeName":"","status":"0","violationAddress":"中山中路出谷阳北路西约120米","violationCode":"1039","violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationMark":0,"violationPrice":20000,"violationTime":"2015-09-18 15:07"}]}],"dataSize":1}
+[ 2016-01-31T11:08:36+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619357}";
+[ 2016-01-31T11:08:38+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3055%26classno%3DLBV3M2106CMA26613%26engineno%3D0123C895%26city_id%3D280%26car_type%3D02%7D&sign=2da2026f9b7b4bfaa106a73110102f87&timestamp=1454209716&app_id=928
+[ 2016-01-31T11:08:38+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:08:39+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"42c70b29f25469b458e628c355f57a26","createTime":"20160131110838"}],"dataSize":1}
+[ 2016-01-31T11:08:39+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3055&vioCityCode=SH&carType=0&carFrame=LBV3M2106CMA26613&carEngine=0123C895
+[ 2016-01-31T11:08:39+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3055","carType":"0","cityCode":"SH","provinceCode":"沪","result":[]}],"dataSize":1}
+[ 2016-01-31T11:08:39+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619358}";
+[ 2016-01-31T11:08:44+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3193%26classno%3DLSVNM4182C2200213%26engineno%3D411033%26city_id%3D280%26car_type%3D02%7D&sign=2376089f18283b09b8d31250b6abc294&timestamp=1454209719&app_id=928
+[ 2016-01-31T11:08:44+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T11:08:44+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"61d472b3d58e1cbfddb698b8ae4feab0","createTime":"20160131110844"}],"dataSize":1}
+[ 2016-01-31T11:08:44+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3193&vioCityCode=SH&carType=0&carFrame=LSVNM4182C2200213&carEngine=411033
+[ 2016-01-31T11:08:45+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3193","carType":"0","cityCode":"SH","provinceCode":"沪","result":[]}],"dataSize":1}
+[ 2016-01-31T11:08:45+08:00 ] 140.207.54.76 /index.php?g=weixin&m=index&a=index&signature=26e820e8f7621a361e4a6b742969b447b3a44722&timestamp=1454209574&nonce=2038788871
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619359}";
+[ 2016-01-31T11:39:01+08:00 ] 116.227.245.249 /index.php?g=admin_new&m=xitong&a=manage&state=3&id=11
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403619905}";
+[ 2016-01-31T14:50:00+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E5%B7%9DYU1955%26classno%3DLSVNP212XD2034531%26engineno%3D410414%26city_id%3D280%26car_type%3D02%7D&sign=c499533b64d4731d91b98b211b0ede0a&timestamp=1454222998&app_id=928
+[ 2016-01-31T14:50:00+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:00+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"7eca5aa7ad9bc0a2049ff07ae541fe3d","createTime":"20160131145000"}],"dataSize":1}
+[ 2016-01-31T14:50:00+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E5%B7%9D&carNumber=YU1955&vioCityCode=SH&carType=0&carFrame=LSVNP212XD2034531&carEngine=410414
+[ 2016-01-31T14:50:01+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"YU1955","result":[{"officeName":"","canAgency":1,"businessNumber":"","adjudication":"","agencyPrice":0,"violationCode":"16360","hasBeenRuled":false,"violationDesc":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速30%以上未达到50%的","violationPrice":20000,"violationAddress":"放鹤路宝秀路东约200米","sendOfficeName":"","violationTime":"2015-05-02 14:06","counterPrice":0,"violationMark":6,"id":92518,"status":"0"},{"officeName":"","canAgency":1,"businessNumber":"","adjudication":"","agencyPrice":0,"violationCode":"13450","hasBeenRuled":false,"violationDesc":"机动车违反禁止标线指示的","violationPrice":10000,"violationAddress":"沪闵高架东侧近漕溪立交路段","sendOfficeName":"","violationTime":"2015-07-12 09:21","counterPrice":0,"violationMark":3,"id":92519,"status":"0"},{"officeName":"","canAgency":1,"businessNumber":"","adjudication":"","agencyPrice":0,"violationCode":"13450","hasBeenRuled":false,"violationDesc":"机动车违反禁止标线指示的","violationPrice":10000,"violationAddress":"沪闵高架东侧近漕溪立交路段","sendOfficeName":"","violationTime":"2015-11-01 10:16","counterPrice":0,"violationMark":3,"id":92520,"status":"0"},{"officeName":"","canAgency":0,"businessNumber":"","adjudication":"","agencyPrice":22000,"violationCode":"1039","hasBeenRuled":false,"violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationPrice":20000,"violationAddress":"天目西路梅园路西约10米","sendOfficeName":"","violationTime":"2015-05-01 08:08","counterPrice":2000,"violationMark":0,"id":92521,"status":"0"},{"officeName":"","canAgency":1,"businessNumber":"","adjudication":"","agencyPrice":0,"violationCode":"16360","hasBeenRuled":false,"violationDesc":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速30%以上未达到50%的","violationPrice":20000,"violationAddress":"浦放路鲁陈路西约700米","sendOfficeName":"","violationTime":"2015-12-20 13:20","counterPrice":0,"violationMark":6,"id":92522,"status":"0"},{"officeName":"","canAgency":1,"businessNumber":"","adjudication":"","agencyPrice":0,"violationCode":"13450","hasBeenRuled":false,"violationDesc":"机动车违反禁止标线指示的","violationPrice":10000,"violationAddress":"沪闵高架东侧近漕溪立交路段","sendOfficeName":"","violationTime":"2015-12-27 19:04","counterPrice":0,"violationMark":3,"id":92523,"status":"0"}],"carType":"0","cityCode":"SH","provinceCode":"川"}],"dataSize":1}
+[ 2016-01-31T14:50:01+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E5%B7%9DYU1955%26classno%3D034531%26engineno%3D410414%26city_id%3D658%26car_type%3D02%7D&sign=0129f7e18b698e6d6be5531c98f567a7&timestamp=1454223001&app_id=928
+[ 2016-01-31T14:50:01+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":"5001"}
+[ 2016-01-31T14:50:01+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"188b7c2c00cefe5a4c48285f5406afcf","createTime":"20160131145001"}],"dataSize":1}
+[ 2016-01-31T14:50:01+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E5%B7%9D&carNumber=YU1955&vioCityCode=&carType=0&carFrame=034531&carEngine=410414
+[ 2016-01-31T14:50:01+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"30","dataSize":0,"message":"车辆违章城市代码不正确"}
+[ 2016-01-31T14:50:01+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625493}";
+[ 2016-01-31T14:50:03+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FBW703V%26classno%3DLSGUD84XXDE043088%26engineno%3D132040918%26city_id%3D280%26car_type%3D02%7D&sign=3d21ee44b5ca2345106472579d25bdee&timestamp=1454223001&app_id=928
+[ 2016-01-31T14:50:03+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:03+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"da9212bc315a4579759d1d82e9eeb8e4","createTime":"20160131145003"}],"dataSize":1}
+[ 2016-01-31T14:50:03+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%8B%8F&carNumber=BW703V&vioCityCode=SH&carType=0&carFrame=LSGUD84XXDE043088&carEngine=132040918
+[ 2016-01-31T14:50:03+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"BW703V","result":[],"carType":"0","cityCode":"SH","provinceCode":"苏"}],"dataSize":1}
+[ 2016-01-31T14:50:05+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FBW703V%26classno%3DLSGUD84XXDE043088%26engineno%3D040918%26city_id%3D57%26car_type%3D02%7D&sign=23b42230d9adc3489b57488c04f70d04&timestamp=1454223003&app_id=928
+[ 2016-01-31T14:50:05+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":2001,"total_score":3,"total_money":900,"count":8,"historys":[{"id":9132647,"car_id":8430877,"status":"N","fen":0,"officer":"江苏省无锡市公安局交警支队","occur_date":"2015-06-04 16:54:00","occur_area":"东廊路胶阳路口","city_id":57,"province_id":5,"code":"16250","info":"驾驶机动车违反道路交通信号灯通行的","money":200,"city_name":"无锡"},{"id":9132649,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交警支队惠山大队五中队","occur_date":"2014-07-28 13:20:00","occur_area":"堰玉路石前路口","city_id":57,"province_id":5,"code":"13452","info":"违反禁止标线指示","money":100,"city_name":"无锡"},{"id":9132648,"car_id":8430877,"status":"N","fen":3,"officer":"江阴市公安局交通警察大队秩序管理中队","occur_date":"2015-05-13 10:41:00","occur_area":"大庙巷","city_id":109,"province_id":9,"code":"13442","info":"违反禁令标志指示","money":100,"city_name":"杭州"},{"id":9132650,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交警支队惠山大队五中队","occur_date":"2014-05-13 08:56:00","occur_area":"堰玉路石前路口","city_id":57,"province_id":5,"code":"13452","info":"违反禁止标线指示","money":100,"city_name":"无锡"},{"id":9132651,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交警支队惠山大队五中队","occur_date":"2014-05-05 09:16:00","occur_area":"堰玉路石前路口","city_id":57,"province_id":5,"code":"1208","info":"机动车通过有灯控路口时，不按所需行进方向驶入导向车道的","money":100,"city_name":"无锡"},{"id":9132652,"car_id":8430877,"status":"N","fen":0,"officer":"无锡市公安局交通巡逻警支队惠山大队四中队","occur_date":"2014-02-12 14:18:00","occur_area":"前洲市镇前洲社区","city_id":57,"province_id":5,"code":"10391","info":"机动车违反规定停放，妨碍其他车辆、行人通行的，驾驶人不在现场的","money":50,"city_name":"无锡"},{"id":9132653,"car_id":8430877,"status":"N","fen":0,"officer":"泰州市公安局交通巡逻警察支队高速公路二大队","occur_date":"2013-12-24 14:55:00","occur_area":"沪陕高速256公里","city_id":14,"province_id":2,"code":"16362","info":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速20%以上未达到50%的","money":200,"city_name":"南阳"},{"id":9132654,"car_id":8430877,"status":"N","fen":0,"officer":"泰州市公安局交通巡逻警察支队高速公路二大队","occur_date":"2013-12-24 10:21:00","occur_area":"沪陕高速256公里","city_id":14,"province_id":2,"code":"13521","info":"驾驶中型以上载客汽车、中型以上载货汽车、危险物品运输车辆以外的其他机动车行驶超过规定时速10%以上未达20%的","money":50,"city_name":"南阳"}]}
+[ 2016-01-31T14:50:05+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625495}";
+[ 2016-01-31T14:50:10+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3222%26classno%3DWBAZV410XCL924427%26engineno%3D08278127N55B30A%26city_id%3D280%26car_type%3D02%7D&sign=4fa5248f93232bf5920d6496c98f5361&timestamp=1454223005&app_id=928
+[ 2016-01-31T14:50:10+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:10+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"2b6c05385b5b2c2e8b833e5e2992d7d5","createTime":"20160131145010"}],"dataSize":1}
+[ 2016-01-31T14:50:10+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3222&vioCityCode=SH&carType=0&carFrame=WBAZV410XCL924427&carEngine=08278127N55B30A
+[ 2016-01-31T14:50:10+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3222","result":[{"officeName":"","canAgency":1,"businessNumber":"","adjudication":"","agencyPrice":0,"violationCode":"13521","hasBeenRuled":false,"violationDesc":"驾驶中型以上载客载货汽车、危险物品运输车辆以外的其他机动车行驶超过规定时速10%未达20%的","violationPrice":0,"violationAddress":"光藻路4公里600米","sendOfficeName":"","violationTime":"2015-10-16 13:34","counterPrice":0,"violationMark":3,"id":94321,"status":"0"},{"officeName":"","canAgency":1,"businessNumber":"","adjudication":"","agencyPrice":0,"violationCode":"","hasBeenRuled":false,"violationDesc":"驾驶机动车不按机动车信号灯表示通行的","violationPrice":0,"violationAddress":"明月路/黑松路","sendOfficeName":"","violationTime":"2015-10-28 15:33","counterPrice":0,"violationMark":0,"id":66150,"status":"0"}],"carType":"0","cityCode":"SH","provinceCode":"沪"}],"dataSize":1}
+[ 2016-01-31T14:50:10+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625498}";
+[ 2016-01-31T14:50:16+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3225%26classno%3DVF1VYRTE2CC439907%26engineno%3D2TRA703P122308%26city_id%3D280%26car_type%3D02%7D&sign=c07e7e132ff871d4c0d542efead86894&timestamp=1454223010&app_id=928
+[ 2016-01-31T14:50:16+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:16+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"cbcf5ef15028429f42c7c5ab8309689f","createTime":"20160131145016"}],"dataSize":1}
+[ 2016-01-31T14:50:16+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3225&vioCityCode=SH&carType=0&carFrame=VF1VYRTE2CC439907&carEngine=2TRA703P122308
+[ 2016-01-31T14:50:16+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3225","result":[{"officeName":"","canAgency":1,"businessNumber":"","adjudication":"","agencyPrice":0,"violationCode":"","hasBeenRuled":false,"violationDesc":"驾驶机动车不按机动车信号灯表示通行的","violationPrice":0,"violationAddress":"浦东北路/浦东北路989号","sendOfficeName":"","violationTime":"2015-11-25 15:56","counterPrice":0,"violationMark":0,"id":92358,"status":"0"}],"carType":"0","cityCode":"SH","provinceCode":"沪"}],"dataSize":1}
+[ 2016-01-31T14:50:16+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625500}";
+[ 2016-01-31T14:50:18+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E9%B2%81AJV716%26classno%3DLJNMFE2KW2CN062495%26engineno%3D418247%26city_id%3D280%26car_type%3D02%7D&sign=ebd0e82e32f65ace255e3b6c4ef34c19&timestamp=1454223016&app_id=928
+[ 2016-01-31T14:50:18+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:19+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"45c70c1c01931b631f671a213e3e138b","createTime":"20160131145018"}],"dataSize":1}
+[ 2016-01-31T14:50:19+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E9%B2%81&carNumber=AJV716&vioCityCode=SH&carType=0&carFrame=LJNMFE2KW2CN062495&carEngine=418247
+[ 2016-01-31T14:50:19+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"AJV716","result":[],"carType":"0","cityCode":"SH","provinceCode":"鲁"}],"dataSize":1}
+[ 2016-01-31T14:50:20+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E9%B2%81AJV716%26classno%3DLJNMFE2KW2CN062495%26engineno%3D8247%26city_id%3D23%26car_type%3D02%7D&sign=35da0ef6cd74e67447f89274a2cf1334&timestamp=1454223019&app_id=928
+[ 2016-01-31T14:50:20+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:20+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625502}";
+[ 2016-01-31T14:50:22+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%B5%A3H0Y181%26classno%3DLDNABADK5C0007422%26engineno%3DSLD4043%26city_id%3D280%26car_type%3D02%7D&sign=3ef21debb737cb7521ac72bbcba8bb64&timestamp=1454223020&app_id=928
+[ 2016-01-31T14:50:22+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5002,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:22+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"6c81becfa35d0e2561a21b7d1196a5e7","createTime":"20160131145022"}],"dataSize":1}
+[ 2016-01-31T14:50:22+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%B5%A3&carNumber=H0Y181&vioCityCode=SH&carType=0&carFrame=LDNABADK5C0007422&carEngine=SLD4043
+[ 2016-01-31T14:50:22+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"H0Y181","result":[{"officeName":"","canAgency":0,"businessNumber":"","adjudication":"","agencyPrice":7000,"violationCode":"10190","hasBeenRuled":false,"violationDesc":"机动车违反规定使用专用车道的","violationPrice":5000,"violationAddress":"汶水路/平陆路（东向西，公交专用车道）","sendOfficeName":"","violationTime":"2015-03-20 09:19","counterPrice":2000,"violationMark":0,"id":86714,"status":"0"},{"officeName":"","canAgency":0,"businessNumber":"","adjudication":"","agencyPrice":22000,"violationCode":"1039","hasBeenRuled":false,"violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationPrice":20000,"violationAddress":"张江建中路张江路西约100米","sendOfficeName":"","violationTime":"2014-10-08 12:25","counterPrice":2000,"violationMark":0,"id":86716,"status":"0"},{"officeName":"","canAgency":0,"businessNumber":"","adjudication":"","agencyPrice":7000,"violationCode":"10190","hasBeenRuled":false,"violationDesc":"机动车违反规定使用专用车道的","violationPrice":5000,"violationAddress":"汶水路/高平路（东向西，公交专用车道）","sendOfficeName":"","violationTime":"2015-04-10 08:07","counterPrice":2000,"violationMark":0,"id":86715,"status":"0"}],"carType":"0","cityCode":"SH","provinceCode":"赣"}],"dataSize":1}
+[ 2016-01-31T14:50:24+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%B5%A3H0Y181%26classno%3D007422%26engineno%3DSLD4043%26city_id%3D668%26car_type%3D02%7D&sign=78e601ffbf10819c22cf9c14d069a90d&timestamp=1454223023&app_id=928
+[ 2016-01-31T14:50:24+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:24+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"9c0257c9e42a200d5d88ec8b32377783","createTime":"20160131145024"}],"dataSize":1}
+[ 2016-01-31T14:50:24+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%B5%A3&carNumber=H0Y181&vioCityCode=&carType=0&carFrame=007422&carEngine=SLD4043
+[ 2016-01-31T14:50:24+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"30","dataSize":0,"message":"车辆违章城市代码不正确"}
+[ 2016-01-31T14:50:24+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625503}";
+[ 2016-01-31T14:50:26+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E7%B2%A4BH5Z07%26classno%3DLGWEF3A6XBB003110%26engineno%3DSKD6363%26city_id%3D280%26car_type%3D02%7D&sign=69779a0af13b9b057de6939989683871&timestamp=1454223024&app_id=928
+[ 2016-01-31T14:50:26+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:26+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"2e7a1745bd50d34a7432ac3cbc970c35","createTime":"20160131145026"}],"dataSize":1}
+[ 2016-01-31T14:50:26+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E7%B2%A4&carNumber=BH5Z07&vioCityCode=SH&carType=0&carFrame=LGWEF3A6XBB003110&carEngine=SKD6363
+[ 2016-01-31T14:50:26+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"BH5Z07","result":[],"carType":"0","cityCode":"SH","provinceCode":"粤"}],"dataSize":1}
+[ 2016-01-31T14:50:28+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E7%B2%A4BH5Z07%26classno%3D003110%26engineno%3DKD6363%26city_id%3D152%26car_type%3D02%7D&sign=fdb9cfb0cb416c0a876ea997f5d21618&timestamp=1454223026&app_id=928
+[ 2016-01-31T14:50:28+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:28+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625504}";
+[ 2016-01-31T14:50:30+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B5%99B37Z15%26classno%3DLBVNE39096SA85008%26engineno%3D00176115%26city_id%3D280%26car_type%3D02%7D&sign=4589e4004713900bf7de580dbfff9112&timestamp=1454223028&app_id=928
+[ 2016-01-31T14:50:30+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:30+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"68934e594ee5311b71300454a5e16419","createTime":"20160131145030"}],"dataSize":1}
+[ 2016-01-31T14:50:30+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B5%99&carNumber=B37Z15&vioCityCode=SH&carType=0&carFrame=LBVNE39096SA85008&carEngine=00176115
+[ 2016-01-31T14:50:30+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"B37Z15","result":[],"carType":"0","cityCode":"SH","provinceCode":"浙"}],"dataSize":1}
+[ 2016-01-31T14:50:31+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B5%99B37Z15%26classno%3DA85008%26engineno%3D00176115%26city_id%3D110%26car_type%3D02%7D&sign=baa14f794d8f64ff3cc949aca54d0f5e&timestamp=1454223030&app_id=928
+[ 2016-01-31T14:50:31+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":2001,"total_score":3,"total_money":100,"count":1,"historys":[{"id":9089322,"car_id":8650184,"status":"N","fen":3,"officer":"350104005400","occur_date":"2015-08-06 09:30:00","occur_area":"火车南站站前路","city_id":95,"province_id":8,"code":"1344B","info":"机动车违反禁令标志指示的","money":100,"city_name":"福州"}]}
+[ 2016-01-31T14:50:32+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625505}";
+[ 2016-01-31T14:50:34+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E9%B2%81AQ036C%26classno%3DLFV2A11G2C4010462%26engineno%3D863488%26city_id%3D280%26car_type%3D02%7D&sign=c8eafd8dfdcc21884252fbf21bc37411&timestamp=1454223032&app_id=928
+[ 2016-01-31T14:50:34+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:34+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"3fd8643eaf2e7c5b99b4d5adf040bc11","createTime":"20160131145034"}],"dataSize":1}
+[ 2016-01-31T14:50:34+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E9%B2%81&carNumber=AQ036C&vioCityCode=SH&carType=0&carFrame=LFV2A11G2C4010462&carEngine=863488
+[ 2016-01-31T14:50:34+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"AQ036C","result":[],"carType":"0","cityCode":"SH","provinceCode":"鲁"}],"dataSize":1}
+[ 2016-01-31T14:50:35+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E9%B2%81AQ036C%26classno%3DLFV2A11G2C4010462%26engineno%3D3488%26city_id%3D23%26car_type%3D02%7D&sign=1ed17b004a6fd538bb0341fd13b9818d&timestamp=1454223034&app_id=928
+[ 2016-01-31T14:50:35+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":2001,"total_score":7,"total_money":600,"count":5,"historys":[{"id":9035871,"car_id":8568761,"status":"N","fen":2,"officer":"","occur_date":"2016-01-01 11:23:00","occur_area":"济南无影山中路与无影山路南向北","city_id":23,"province_id":3,"code":"1208","info":"不按行进方向驶入导向车道","money":100,"city_name":"济南"},{"id":9016010,"car_id":8568761,"status":"N","fen":0,"officer":"","occur_date":"2015-10-24 16:24:00","occur_area":"济南明湖路与趵突泉北路路口向东250米路南西向东","city_id":23,"province_id":3,"code":"10390","info":"交通拥堵处不按规定停车等候","money":100,"city_name":"济南"},{"id":9016011,"car_id":8568761,"status":"N","fen":3,"officer":"","occur_date":"2015-10-22 07:28:00","occur_area":"济南山大路与山大北路路口向北24米路西北向南","city_id":23,"province_id":3,"code":"13452","info":"违反禁止标线指示","money":200,"city_name":"济南"},{"id":9016012,"car_id":8568761,"status":"N","fen":2,"officer":"","occur_date":"2015-09-09 08:42:00","occur_area":"济南经十路奥体东路口西向东","city_id":23,"province_id":3,"code":"1208","info":"不按行进方向驶入导向车道","money":100,"city_name":"济南"},{"id":9016013,"car_id":8568761,"status":"N","fen":0,"officer":"","occur_date":"2015-08-11 13:23:00","occur_area":"济南文化西路齐鲁医院路段路南侧西向东","city_id":23,"province_id":3,"code":"10190","info":"机动车违规使用专用车道","money":100,"city_name":"济南"}]}
+[ 2016-01-31T14:50:36+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625507}";
+[ 2016-01-31T14:50:39+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANE0997%26classno%3DLHGTF385XD8024378%26engineno%3D1024414%26city_id%3D280%26car_type%3D02%7D&sign=3f9810d13539f182fae009b5341a5096&timestamp=1454223036&app_id=928
+[ 2016-01-31T14:50:39+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":2001,"total_score":0,"total_money":200,"count":1,"historys":[{"id":8622369,"car_id":8210423,"status":"N","fen":0,"occur_date":"2015-09-10 10:39:00","occur_area":"长海路出中原路西约400米","city_id":280,"province_id":23,"code":"10393","info":"机动车违反规定停放、临时停车且驾驶人虽在现场拒绝立即驶离，妨碍其它车辆、行人通行的","money":200,"city_name":"上海"}]}
+[ 2016-01-31T14:50:39+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625509}";
+[ 2016-01-31T14:50:41+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FAQH991%26classno%3DLDC931L2980799740%26engineno%3D5098111%26city_id%3D280%26car_type%3D02%7D&sign=9d3faa72543672ab93259ae036782605&timestamp=1454223039&app_id=928
+[ 2016-01-31T14:50:41+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:41+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"52b35fd50105cbf67098b1b0405f404c","createTime":"20160131145041"}],"dataSize":1}
+[ 2016-01-31T14:50:41+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%8B%8F&carNumber=AQH991&vioCityCode=SH&carType=0&carFrame=LDC931L2980799740&carEngine=5098111
+[ 2016-01-31T14:50:41+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"AQH991","result":[{"officeName":"","canAgency":0,"businessNumber":"","adjudication":"","agencyPrice":8500,"violationCode":"1039","hasBeenRuled":false,"violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationPrice":5000,"violationAddress":"哈雷路祖冲之路北约50米","sendOfficeName":"","violationTime":"2015-08-13 12:45","counterPrice":3500,"violationMark":0,"id":94322,"status":"0"},{"officeName":"","canAgency":0,"businessNumber":"","adjudication":"","agencyPrice":8500,"violationCode":"1039","hasBeenRuled":false,"violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationPrice":5000,"violationAddress":"商城路滨江大道北约10米","sendOfficeName":"","violationTime":"2015-09-11 16:00","counterPrice":3500,"violationMark":0,"id":94323,"status":"0"}],"carType":"0","cityCode":"SH","provinceCode":"苏"}],"dataSize":1}
+[ 2016-01-31T14:50:45+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%8B%8FAQH991%26classno%3DLDC931L2980799740%26engineno%3D098111%26city_id%3D56%26car_type%3D02%7D&sign=02f5f702f82323d5b0c99aab81281c9d&timestamp=1454223041&app_id=928
+[ 2016-01-31T14:50:45+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":2001,"total_score":0,"total_money":300,"count":4,"historys":[{"id":9174644,"car_id":7331979,"status":"N","fen":0,"occur_date":"2016-01-01 14:56:00","occur_area":"沈海高速884公里350米","city_id":66,"province_id":5,"code":"16362","info":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速20%以上未达到50%的(罚款未缴)","money":200,"city_name":"盐城"},{"id":9174643,"car_id":7331979,"status":"N","fen":0,"occur_date":"2016-01-01 14:09:00","occur_area":"沈海高速987公里900米","city_id":66,"province_id":5,"code":"16362","info":"驾驶中型以上载客载货汽车、校车、危险物品运输车辆以外的其他机动车行驶超过规定时速20%以上未达到50%的(罚款未缴)","money":50,"city_name":"盐城"},{"id":8554825,"car_id":7331979,"status":"N","fen":0,"occur_date":"2015-09-11 16:00:00","occur_area":"商城路滨江大道北约10米","city_id":280,"province_id":23,"code":"8089","info":"机动车违反规定停放、临时停车，妨碍其它车辆、行人通行，驾驶人不在现场的(罚款未缴)","money":50,"city_name":"上海"},{"id":8103920,"car_id":7331979,"status":"N","fen":0,"occur_date":"2015-08-13 12:45:00","occur_area":"哈雷路祖冲之路北约50米","city_id":280,"province_id":23,"code":"8089","info":"机动车违反规定停放、临时停车，妨碍其它车辆、行人通行，驾驶人不在现场的(罚款未缴)","money":0,"city_name":"上海"}]}
+[ 2016-01-31T14:50:46+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625512}";
+[ 2016-01-31T14:50:51+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%B5%A3L59138%26classno%3DLDC62123X80725466%26engineno%3D6050354%26city_id%3D280%26car_type%3D02%7D&sign=a7a0e3e9b0d5de304066ed828e7828d7&timestamp=1454223046&app_id=928
+[ 2016-01-31T14:50:51+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:51+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"3ad6e773c73db8db5298081585ec0e93","createTime":"20160131145051"}],"dataSize":1}
+[ 2016-01-31T14:50:51+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%B5%A3&carNumber=L59138&vioCityCode=SH&carType=0&carFrame=LDC62123X80725466&carEngine=6050354
+[ 2016-01-31T14:50:51+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"L59138","result":[],"carType":"0","cityCode":"SH","provinceCode":"赣"}],"dataSize":1}
+[ 2016-01-31T14:50:51+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E8%B5%A3L59138%26classno%3D725466%26engineno%3D6050354%26city_id%3D668%26car_type%3D02%7D&sign=06cd614e6420c5fdd2efb47f74695197&timestamp=1454223051&app_id=928
+[ 2016-01-31T14:50:51+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":"5001"}
+[ 2016-01-31T14:50:51+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"eccdea0a74ba6f2a6657ec02b6fe393c","createTime":"20160131145051"}],"dataSize":1}
+[ 2016-01-31T14:50:51+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E8%B5%A3&carNumber=L59138&vioCityCode=&carType=0&carFrame=725466&carEngine=6050354
+[ 2016-01-31T14:50:51+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"30","dataSize":0,"message":"车辆违章城市代码不正确"}
+[ 2016-01-31T14:50:51+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625515}";
+[ 2016-01-31T14:50:54+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B5%99GDJ986%26classno%3DLDC621P2070569227%26engineno%3D0021433%26city_id%3D280%26car_type%3D02%7D&sign=9c8f2b2e4f0515a014928aca55796b4c&timestamp=1454223051&app_id=928
+[ 2016-01-31T14:50:54+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:55+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B5%99GDJ986%26classno%3D569227%26engineno%3D0021433%26city_id%3D118%26car_type%3D02%7D&sign=b1a6f8bcb8ffdf93c7f5d92f1be061fe&timestamp=1454223054&app_id=928
+[ 2016-01-31T14:50:55+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":2000,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:55+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625517}";
+[ 2016-01-31T14:50:57+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANE5923%26classno%3DLVSFCFME0CF377863%26engineno%3DCJ65925%26city_id%3D280%26car_type%3D02%7D&sign=b39d29d3863aae0ac66c4f6ea64212b8&timestamp=1454223055&app_id=928
+[ 2016-01-31T14:50:57+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:50:57+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"a421aee50369dcf59160b12cac15f1e4","createTime":"20160131145057"}],"dataSize":1}
+[ 2016-01-31T14:50:57+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NE5923&vioCityCode=SH&carType=0&carFrame=LVSFCFME0CF377863&carEngine=CJ65925
+[ 2016-01-31T14:50:57+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NE5923","result":[],"carType":"0","cityCode":"SH","provinceCode":"沪"}],"dataSize":1}
+[ 2016-01-31T14:50:58+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625519}";
+[ 2016-01-31T14:51:00+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANE9319%26classno%3DLHGTF3855D8029990%26engineno%3D1029954%26city_id%3D280%26car_type%3D02%7D&sign=21fcfb4afb3288e38369581b03ac0c19&timestamp=1454223058&app_id=928
+[ 2016-01-31T14:51:00+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:51:00+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"d1878a5dc4d9217ec3141963af4fb167","createTime":"20160131145100"}],"dataSize":1}
+[ 2016-01-31T14:51:00+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NE9319&vioCityCode=SH&carType=0&carFrame=LHGTF3855D8029990&carEngine=1029954
+[ 2016-01-31T14:51:00+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NE9319","result":[{"officeName":"","canAgency":0,"businessNumber":"","adjudication":"","agencyPrice":7000,"violationCode":"10190","hasBeenRuled":false,"violationDesc":"机动车违反规定使用专用车道的","violationPrice":5000,"violationAddress":"重庆南路/兴安路（南向北）","sendOfficeName":"","violationTime":"2015-11-17 17:15","counterPrice":2000,"violationMark":0,"id":93630,"status":"0"},{"officeName":"","canAgency":1,"businessNumber":"","adjudication":"","agencyPrice":0,"violationCode":"13450","hasBeenRuled":false,"violationDesc":"机动车违反禁止标线指示的","violationPrice":20000,"violationAddress":"梁溪路青山西路口","sendOfficeName":"","violationTime":"2016-01-03 13:12","counterPrice":0,"violationMark":3,"id":93631,"status":"0"}],"carType":"0","cityCode":"SH","provinceCode":"沪"}],"dataSize":1}
+[ 2016-01-31T14:51:00+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625520}";
+[ 2016-01-31T14:51:02+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF1993%26classno%3DLVVDB11B0CD435475%26engineno%3DBBCM04206%26city_id%3D280%26car_type%3D02%7D&sign=8d015a613648c6318399732caf01b5e3&timestamp=1454223060&app_id=928
+[ 2016-01-31T14:51:02+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:51:02+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"6959077e028c97553c5d21100b4b020d","createTime":"20160131145102"}],"dataSize":1}
+[ 2016-01-31T14:51:02+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF1993&vioCityCode=SH&carType=0&carFrame=LVVDB11B0CD435475&carEngine=BBCM04206
+[ 2016-01-31T14:51:02+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF1993","result":[{"officeName":"","canAgency":0,"businessNumber":"","adjudication":"","agencyPrice":22000,"violationCode":"1039","hasBeenRuled":false,"violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationPrice":20000,"violationAddress":"秋竹路平城路南约30米","sendOfficeName":"","violationTime":"2015-12-17 14:16","counterPrice":2000,"violationMark":0,"id":93633,"status":"0"}],"carType":"0","cityCode":"SH","provinceCode":"沪"}],"dataSize":1}
+[ 2016-01-31T14:51:03+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625521}";
+[ 2016-01-31T14:51:05+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF2062%26classno%3DYV1FW63C9D1090695%26engineno%3DB5204T94580926%26city_id%3D280%26car_type%3D02%7D&sign=a13a1d3f42d018584f799f08611ef602&timestamp=1454223063&app_id=928
+[ 2016-01-31T14:51:05+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:51:05+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"2280886bdc87500f9a3850047fa3c829","createTime":"20160131145105"}],"dataSize":1}
+[ 2016-01-31T14:51:05+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF2062&vioCityCode=SH&carType=0&carFrame=YV1FW63C9D1090695&carEngine=B5204T94580926
+[ 2016-01-31T14:51:05+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF2062","result":[],"carType":"0","cityCode":"SH","provinceCode":"沪"}],"dataSize":1}
+[ 2016-01-31T14:51:05+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625522}";
+[ 2016-01-31T14:51:08+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3008%26classno%3DYV1CZ5958C1648198%26engineno%3DB5254T24577021%26city_id%3D280%26car_type%3D02%7D&sign=e7969221879fc99492ce4caca1ef10c3&timestamp=1454223065&app_id=928
+[ 2016-01-31T14:51:08+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:51:08+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"08ad03ce6d3452e55bfa21f487fcf126","createTime":"20160131145108"}],"dataSize":1}
+[ 2016-01-31T14:51:08+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3008&vioCityCode=SH&carType=0&carFrame=YV1CZ5958C1648198&carEngine=B5254T24577021
+[ 2016-01-31T14:51:08+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3008","result":[{"officeName":"","canAgency":0,"businessNumber":"","adjudication":"","agencyPrice":22000,"violationCode":"1039","hasBeenRuled":false,"violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationPrice":20000,"violationAddress":"嘉兴路出哈尔滨路西约5米","sendOfficeName":"","violationTime":"2015-07-21 12:09","counterPrice":2000,"violationMark":0,"id":93634,"status":"0"}],"carType":"0","cityCode":"SH","provinceCode":"沪"}],"dataSize":1}
+[ 2016-01-31T14:51:08+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625524}";
+[ 2016-01-31T14:51:13+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3015%26classno%3DLDGGF53WXDH013568%26engineno%3D123290174%26city_id%3D280%26car_type%3D02%7D&sign=38be8f27a0316ddeff38ce1ea47582d2&timestamp=1454223068&app_id=928
+[ 2016-01-31T14:51:13+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:51:13+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"fc2cf1f74089dbe17d24d8dbc51ad856","createTime":"20160131145113"}],"dataSize":1}
+[ 2016-01-31T14:51:13+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3015&vioCityCode=SH&carType=0&carFrame=LDGGF53WXDH013568&carEngine=123290174
+[ 2016-01-31T14:51:13+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3015","result":[{"officeName":"","canAgency":0,"businessNumber":"","adjudication":"","agencyPrice":22000,"violationCode":"10391","hasBeenRuled":false,"violationDesc":"机动车违反规定停放、临时停车且驾驶人虽在现场拒绝立即驶离，妨碍其它车辆、行人通行的","violationPrice":20000,"violationAddress":"松汇中路近长桥南街西侧路段","sendOfficeName":"","violationTime":"2015-11-11 12:29","counterPrice":2000,"violationMark":0,"id":93638,"status":"0"},{"officeName":"","canAgency":0,"businessNumber":"","adjudication":"","agencyPrice":22000,"violationCode":"1039","hasBeenRuled":false,"violationDesc":"机动车违反规定停放、临时停车且驾驶人不在现场，妨碍其它车辆、行人通行的","violationPrice":20000,"violationAddress":"中山中路出谷阳北路西约120米","sendOfficeName":"","violationTime":"2015-09-18 15:07","counterPrice":2000,"violationMark":0,"id":93639,"status":"0"}],"carType":"0","cityCode":"SH","provinceCode":"沪"}],"dataSize":1}
+[ 2016-01-31T14:51:14+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625526}";
+[ 2016-01-31T14:51:16+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3055%26classno%3DLBV3M2106CMA26613%26engineno%3D0123C895%26city_id%3D280%26car_type%3D02%7D&sign=ba9d99cd506361b1a904a065bc972095&timestamp=1454223074&app_id=928
+[ 2016-01-31T14:51:16+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5001,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:51:16+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"d494c9a4e21838ec3b9c2deba436fdb6","createTime":"20160131145116"}],"dataSize":1}
+[ 2016-01-31T14:51:16+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3055&vioCityCode=SH&carType=0&carFrame=LBV3M2106CMA26613&carEngine=0123C895
+[ 2016-01-31T14:51:16+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3055","result":[],"carType":"0","cityCode":"SH","provinceCode":"沪"}],"dataSize":1}
+[ 2016-01-31T14:51:16+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625529}";
+[ 2016-01-31T14:51:18+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 请求参数：http://www.cheshouye.com/api/weizhang/query_task?car_info=%7Bhphm%3D%E6%B2%AANF3193%26classno%3DLSVNM4182C2200213%26engineno%3D411033%26city_id%3D280%26car_type%3D02%7D&sign=94f1a232c7e332791e955bd3a3954b48&timestamp=1454223076&app_id=928
+[ 2016-01-31T14:51:18+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: 返回参数：{"status":5002,"total_score":0,"total_money":0,"count":0}
+[ 2016-01-31T14:51:18+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: get_token:{"code":"0","data":[{"accessToken":"11a6117349058a7523c5a6f839ca5b68","createTime":"20160131145118"}],"dataSize":1}
+[ 2016-01-31T14:51:18+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: http://120.26.57.239/api/queryCarViolateInfo?provinceCode=%E6%B2%AA&carNumber=NF3193&vioCityCode=SH&carType=0&carFrame=LSVNM4182C2200213&carEngine=411033
+[ 2016-01-31T14:51:18+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: aichefang:{"code":"0","data":[{"carNumber":"NF3193","result":[],"carType":"0","cityCode":"SH","provinceCode":"沪"}],"dataSize":1}
+[ 2016-01-31T14:51:19+08:00 ] 140.207.54.77 /index.php?g=weixin&m=index&a=index&signature=c241b271f5d457e652bba7a5124cd31a2cd5f909&timestamp=1454222998&nonce=256612286
+DEBUG: s:45:"{"errcode":0,"errmsg":"ok","msgid":403625530}";

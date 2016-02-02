@@ -1,0 +1,72 @@
+[ 2016-02-02T01:23:11+08:00 ] 121.42.0.38 /index.php?s=my-show-id-\..\Runtime\Logs\16_02_02.log
+ERR: 无法加载控制器:My-show-id-\..\Runtime\Logs\16_02_02
+
+[ 2016-02-02T01:23:14+08:00 ] 121.42.0.38 /index.php?m=tg/admin&s=delivery_address
+ERR: 无法加载控制器:DeliveryAddress
+
+[ 2016-02-02T01:23:37+08:00 ] 121.42.0.38 /index.php?m=download/admin&s=order_update
+ERR: 无法加载控制器:OrderUpdate
+
+[ 2016-02-02T01:23:42+08:00 ] 121.42.0.38 /index.php?m=buy/admin&s=add_cat
+ERR: 无法加载控制器:AddCat
+
+[ 2016-02-02T01:23:47+08:00 ] 121.42.0.38 /index.php/search/index/type-music-keyword-a%27%20and%20%28SELECT%201%20FROM%20%28select%20count%28*%29,concat%28floor%28rand%280%29*2%29,%28md5(233333)%20version%28%29%29%29a%20from%20information_schema.tables%20group%20by%20a%29b%29and%272%27=%272.htm
+ERR: 无法加载控制器:Search
+
+[ 2016-02-02T01:24:44+08:00 ] 121.42.0.38 /index.php?m=message
+ERR: 无法加载控制器:Message
+
+[ 2016-02-02T01:26:10+08:00 ] 121.42.0.38 /index.php?m=vote&c=index&a=post&subjectid=1
+ERR: 无法加载控制器:Vote
+
+[ 2016-02-02T01:26:31+08:00 ] 121.42.0.38 /index.php?m=wap&c=index&a=comment_list&commentid=content_12%2527%20or%20updatexml(1,concat(0x7e,(version())),0)%23-84-1
+ERR: 无法加载控制器:Wap
+
+[ 2016-02-02T01:26:37+08:00 ] 121.42.0.38 /index.php?m=poster&c=index&a=poster_click&id=1
+ERR: 无法加载控制器:Poster
+
+[ 2016-02-02T01:35:38+08:00 ] 121.42.0.38 /index.php/module/action/param1/%7B$%7Bphpinfo()%7D%7D_
+ERR: 无法加载控制器:Module
+
+[ 2016-02-02T01:40:34+08:00 ] 121.42.0.38 /index.php?m=Goods&a=showcate&id=103%20and%20(select%201%20from%20(select%20count(*),concat(md5(233333),floor(rand(0)*2))x%20from%20information_schema.tables%20group%20by%20x)a)
+ERR: 无法加载控制器:Goods
+
+[ 2016-02-02T01:41:07+08:00 ] 121.42.0.38 /index.php?m=search&c=index&a=public_get_suggest_keyword&url=asdf&q=../../phpsso_server/caches/configs/database.php
+ERR: 无法加载控制器:Search
+
+[ 2016-02-02T02:49:11+08:00 ] 121.42.0.38 /index.php?s=my-show-id-\..\Runtime\Logs\16_02_02.log
+ERR: 无法加载控制器:My-show-id-\..\Runtime\Logs\16_02_02
+
+[ 2016-02-02T02:49:15+08:00 ] 121.42.0.38 /index.php?m=tg/admin&s=delivery_address
+ERR: 无法加载控制器:DeliveryAddress
+
+[ 2016-02-02T02:49:18+08:00 ] 121.42.0.38 /index.php?m=download/admin&s=order_update
+ERR: 无法加载控制器:OrderUpdate
+
+[ 2016-02-02T02:49:21+08:00 ] 121.42.0.38 /index.php?m=buy/admin&s=add_cat
+ERR: 无法加载控制器:AddCat
+
+[ 2016-02-02T02:49:24+08:00 ] 121.42.0.38 /index.php/search/index/type-music-keyword-a%27%20and%20%28SELECT%201%20FROM%20%28select%20count%28*%29,concat%28floor%28rand%280%29*2%29,%28md5(233333)%20version%28%29%29%29a%20from%20information_schema.tables%20group%20by%20a%29b%29and%272%27=%272.htm
+ERR: 无法加载控制器:Search
+
+[ 2016-02-02T02:50:24+08:00 ] 121.42.0.38 /index.php?m=message
+ERR: 无法加载控制器:Message
+
+[ 2016-02-02T02:52:03+08:00 ] 121.42.0.38 /index.php?m=wap&c=index&a=comment_list&commentid=content_12%2527%20or%20updatexml(1,concat(0x7e,(version())),0)%23-84-1
+ERR: 无法加载控制器:Wap
+
+[ 2016-02-02T02:52:09+08:00 ] 121.42.0.38 /index.php?m=poster&c=index&a=poster_click&id=1
+ERR: 无法加载控制器:Poster
+
+[ 2016-02-02T02:57:25+08:00 ] 121.42.0.38 /index.php?s=my-show-id-\..\Runtime\Logs\16_02_02.log
+ERR: 无法加载控制器:My-show-id-\..\Runtime\Logs\16_02_02
+
+[ 2016-02-02T03:05:53+08:00 ] 121.42.0.38 /index.php/module/action/param1/%7B$%7Bphpinfo()%7D%7D_
+ERR: 无法加载控制器:Module
+
+[ 2016-02-02T03:10:49+08:00 ] 121.42.0.38 /index.php?m=Goods&a=showcate&id=103%20and%20(select%201%20from%20(select%20count(*),concat(md5(233333),floor(rand(0)*2))x%20from%20information_schema.tables%20group%20by%20x)a)
+ERR: 无法加载控制器:Goods
+
+[ 2016-02-02T03:12:07+08:00 ] 121.42.0.38 /index.php?m=search&c=index&a=public_get_suggest_keyword&url=asdf&q=../../phpsso_server/caches/configs/database.php
+ERR: 无法加载控制器:Search
+

@@ -1,0 +1,1 @@
+a:8:{i:0;s:2:"id";i:1;s:11:"services_id";i:2;s:4:"code";i:3;s:9:"violation";i:4;s:5:"money";i:5;s:11:"create_time";s:3:"_pk";s:2:"id";s:5:"_type";a:6:{s:2:"id";s:7:"int(11)";s:11:"services_id";s:11:"varchar(32)";s:4:"code";s:7:"int(11)";s:9:"violation";s:7:"int(11)";s:5:"money";s:13:"decimal(10,2)";s:11:"create_time";s:7:"int(11)";}}

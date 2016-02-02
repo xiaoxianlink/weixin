@@ -1,0 +1,106 @@
+<admintpl file="header" />
+<meta charset="UTF-8">
+<style>
+<!--
+.table td{padding:0;}
+.table .th2{background:#93e3f9;}
+.table .th4{background:#85f8be;}
+-->
+</style>
+<script type="text/javascript">
+<!--
+function select_services(id) {
+	$("#id").val(id);
+	$.post('{:U("Fuwu/select_services3")}', { id: id }, function (data) {
+		$("#province").html(data[0]);
+		$("#city").html('<tr><th class="th4">城市编码</th><th class="th4">城市名称</th><th class="th4">简称</th></tr>');
+		$("#sod").html('<tr><th class="th3">违章代码</th><th class="th3">罚款</th><th class="th3">罚分</th><th class="th3">定价（元）</th><th class="th3">操作</th></tr>');
+		$('#province tr').click(function(){
+			$('#province tr').siblings().removeClass("tr_hover");
+			$(this).addClass("tr_hover");
+		});
+	});
+}
+function select_city(province) {
+	var id = $("#id").val();
+	$.post('{:U("Fuwu/select_city2")}', { province: province, id : id }, function (data) {
+		$("#city").html(data[0]);
+		$('#city tr').click(function(){
+			$('#city tr').siblings().removeClass("tr_hover");
+			$(this).addClass("tr_hover");
+		});
+	});
+}
+function select_scode(city_id){
+	var id = $("#id").val();
+	$.post('{:U("Fuwu/select_scode")}', { city_id: city_id, id : id }, function (data) {
+		$("#sod").html(data[0]);
+	});
+}
+function insert_sod(code, city_id){
+	var id = $("#id").val();
+	var money = $("#money_"+code).val();
+	$.post('{:U("Fuwu/insert_sod")}', { id: id, money: money, code: code, city_id: city_id }, function (data) {
+		if (data == 1) {
+			alert('定价单已提交');
+		}
+	});
+}
+//-->
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#menus-table tr').click(function(){
+		$('tr').siblings().removeClass("tr_hover");
+		$(this).addClass("tr_hover");
+	});
+});
+</script>
+<body class="J_scroll_fixed">
+	<div class="wrap J_check_wrap">
+	<input type="hidden" id="id"/>
+		<table style="width: 100%">
+			<tr>
+				<td style="vertical-align: top; width: 15%"><table class="table table-hover table-bordered table-list"
+						id="menus-table">
+						<tr>
+							<th class="th1">服务商编号</th>
+							<th class="th1">手机号</th>
+						</tr>
+						<foreach name="roles" item="vo">
+						<tr onclick="select_services({$vo.id})">
+							<td>{$vo.services_sn}</td>
+							<td>{$vo.phone}</td>
+						</tr>
+						</foreach>
+					</table><div class="pagination">{$Page}</div></td>
+				<td style="vertical-align: top; width: 20%"><table class="table table-hover table-bordered table-list" id="province">
+						<tr>
+							<th class="th2">省份编码</th>
+							<th class="th2">省份名称</th>
+							<th class="th2">简称</th>
+						</tr>
+					</table></td>
+				<td style="vertical-align: top; width: 20%"><table class="table table-hover table-bordered table-list" id="city">
+						<tr>
+							<th class="th4">城市编码</th>
+							<th class="th4">城市名称</th>
+							<th class="th4">简称</th>
+						</tr>
+						<tr></tr>
+					</table></td>
+				<td style="vertical-align: top;"><table class="table table-hover table-bordered table-list" id="sod">
+						<tr>
+							<th class="th3">违章代码</th>
+							<th class="th3">罚款</th>
+							<th class="th3">罚分</th>
+							<th class="th3">定价（元）</th>
+							<th class="th3">操作</th>
+						</tr>
+						<tr></tr>
+					</table></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

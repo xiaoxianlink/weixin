@@ -1,0 +1,64 @@
+[ 2016-01-24T11:07:01+08:00 ] 113.128.137.241 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T11:07:02+08:00 ] 113.128.137.241 /index.php?g=weixin&m=sub&a=index&code=001d1dda9f65f7f32f8b39bb2589c40k&state=
+DEBUG: sub微信回调
+[ 2016-01-24T11:30:53+08:00 ] 113.128.137.241 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T11:30:54+08:00 ] 113.128.137.241 /index.php?g=weixin&m=sub&a=index&code=0311acd6b1202ccbb610ee2c99cf1e5j&state=
+DEBUG: sub微信回调
+[ 2016-01-24T11:33:22+08:00 ] 221.178.182.172 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T11:33:22+08:00 ] 221.178.182.154 /index.php?g=weixin&m=sub&a=index&code=041879406611a2c57029a9087ae5ebau&state=
+DEBUG: sub微信回调
+[ 2016-01-24T13:01:35+08:00 ] 221.178.182.203 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T13:01:35+08:00 ] 221.178.182.147 /index.php?g=weixin&m=sub&a=index&code=001b3bbe94e55f9e491dde380d03852w&state=
+DEBUG: sub微信回调
+[ 2016-01-24T13:01:36+08:00 ] 180.153.214.191 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T17:55:50+08:00 ] 116.227.241.167 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T17:55:50+08:00 ] 101.226.125.108 /index.php?g=weixin&m=sub&a=index&code=001e2bbe607cc047feb71e41e30c2dcB&state=
+DEBUG: sub微信回调
+[ 2016-01-24T17:55:56+08:00 ] 101.226.125.108 /index.php?g=weixin&m=order&a=index
+DEBUG: order请求
+[ 2016-01-24T17:55:57+08:00 ] 101.226.125.108 /index.php?g=weixin&m=order&a=index&code=021b11499876182a8e328a33bd6a1f9q&state=
+DEBUG: order微信回调
+[ 2016-01-24T17:56:08+08:00 ] 101.226.125.108 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T17:56:09+08:00 ] 101.226.125.108 /index.php?g=weixin&m=sub&a=index&code=001a5890b0bcd56ad13c439fc37563ba&state=
+DEBUG: sub微信回调
+[ 2016-01-24T17:58:08+08:00 ] 101.226.125.108 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T17:58:09+08:00 ] 101.226.125.108 /index.php?g=weixin&m=sub&a=index&code=00110e747c9d01720084fb91fb9ea583&state=
+DEBUG: sub微信回调
+[ 2016-01-24T18:00:11+08:00 ] 101.226.125.108 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T18:00:12+08:00 ] 101.226.125.108 /index.php?g=weixin&m=sub&a=index&code=041766f6c5b9674a9c596cb3e798fb60&state=
+DEBUG: sub微信回调
+[ 2016-01-24T18:02:53+08:00 ] 101.226.125.108 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T18:02:54+08:00 ] 101.226.125.108 /index.php?g=weixin&m=sub&a=index&code=0318919fef8bb7ec4efd5b56c7cf674e&state=
+DEBUG: sub微信回调
+[ 2016-01-24T18:10:54+08:00 ] 116.227.241.167 /index.php?g=weixin&m=order&a=index
+DEBUG: order请求
+[ 2016-01-24T18:10:54+08:00 ] 116.227.241.167 /index.php?g=weixin&m=order&a=index&code=031df506fa11314f155750a035affb3W&state=
+DEBUG: order微信回调
+[ 2016-01-24T19:19:04+08:00 ] 116.227.241.167 /index.php?g=weixin&m=order&a=index
+DEBUG: order请求
+[ 2016-01-24T19:19:04+08:00 ] 116.227.241.167 /index.php?g=weixin&m=order&a=index&code=00187161a5a6ba9a860e9efc55142580&state=
+DEBUG: order微信回调
+[ 2016-01-24T20:11:40+08:00 ] 116.227.241.167 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T20:11:40+08:00 ] 116.227.241.167 /index.php?g=weixin&m=sub&a=index&code=0118ba8298d1bbaa6a588494665d691-&state=
+DEBUG: sub微信回调
+[ 2016-01-24T20:12:16+08:00 ] 116.227.241.167 /index.php?g=weixin&m=sub&a=index&code=0118ba8298d1bbaa6a588494665d691-&state=
+DEBUG: sub微信回调
+[ 2016-01-24T20:15:50+08:00 ] 116.227.241.167 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T20:15:51+08:00 ] 116.227.241.167 /index.php?g=weixin&m=sub&a=index&code=00146b3ac525ed15fa73b6050e41d36k&state=
+DEBUG: sub微信回调
+[ 2016-01-24T21:39:20+08:00 ] 113.128.137.241 /index.php?g=weixin&m=sub&a=index
+DEBUG: sub请求
+[ 2016-01-24T21:39:20+08:00 ] 113.128.137.241 /index.php?g=weixin&m=sub&a=index&code=0115aee08ac5900ece54d7783259242U&state=
+DEBUG: sub微信回调

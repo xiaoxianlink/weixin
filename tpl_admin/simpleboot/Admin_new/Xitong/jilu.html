@@ -1,0 +1,127 @@
+<admintpl file="header" />
+<meta charset="UTF-8">
+<script type="text/javascript">
+ function ShowPrompt(objEvent,code,money,points,content) {
+	 $("#frame_number").html(code+'-'+money+'元/'+points+'分');
+	 $("#engine_number").html(content);
+     var divObj = document.getElementById("promptDiv");
+     divObj.style.visibility = "visible";
+     var left = objEvent.clientX - 100;
+     var top = objEvent.clientY + document.body.scrollTop;     //clientY 为鼠标在窗体中的 y 坐标值
+     $("#promptDiv").css({"top":top,"left":left});
+ }
+ function HiddenPrompt() {
+     divObj = document.getElementById("promptDiv");
+     divObj.style.visibility = "hidden";
+     divObj2 = document.getElementById("promptDiv2");
+     divObj2.style.visibility = "hidden";
+ }
+ function order(order) {
+	 if (order=='desc') {
+		 order = 'asc';
+	 } else {
+		 order = 'desc';
+	 }
+	 var number = $("#number").val();
+	 var city = $("#city").val();
+	 var state = $("#state").val();
+	 var time_end = $("#time_end").val();
+	 var time_start = $("#time_start").val();
+	 window.location.href="{:U('Xitong/jilu')}&order="+order+"&number="+number+"&city="+city+"&state="+state+"&time_end="+time_end+"&time_start="+time_start; 
+ }
+ function finish(e_id) {
+ 	if(window.confirm('你确定违章已处理吗？')){
+ 		$.post("{:u('Xitong/e_finish')}", {
+			'e_id' : e_id
+		}, function(data) {
+			location.replace();
+		});
+    }else{
+        return false;
+	}
+ }
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('tr').click(function(){
+		$('tr').siblings().removeClass("tr_hover");
+		$(this).addClass("tr_hover");
+	});
+});
+</script>
+<body class="J_scroll_fixed">
+	<div class="wrap J_check_wrap">
+	<div id="cheliang_submit" class="top_div">
+			<form action="{:U('Xitong/jilu')} " method="post">
+			<input type="submit"  id="cheliang_submit_input"   class="query_btn"  value="查询"/>
+			<div  class="query_div" > 
+					违章时间 <input type="text" name="time_start" id="time_start"  class="input length_3 J_datetime"    value="{$array.3}"/> 
+					— <input type="text"   class="input length_3 J_datetime" id="time_end" name="time_end" value="{$array.4}"/>
+			</div>	
+			<div  class="query_div" > 
+				状态			<select name="state" id="state" class="query_txt"  >
+								<option value="" >全部({$sums.0.numbers})</option>
+								<option value="1" <?php if($array[2]==1){echo "selected='selected'";}?>>未处理</option>
+								<option value="2" <?php if($array[2]==2){echo "selected='selected'";}?>>处理中</option>
+								<option value="3" <?php if($array[2]==3){echo "selected='selected'";}?>>已处理</option>
+							</select>
+			</div>	
+			<div  class="query_div" > 
+			   违章城市<select name="city" id="city" class="query_txt"  >
+							<option value="">全部</option>
+							</select>
+			</div>	
+			<div  class="query_div" > 
+					车牌号<input type="text"  class="query_txt"  name="number" id="number" value="{$array.0}"/>
+			</div>	
+			</form>
+	</div>
+<table class="table table-hover table-bordered table-list" id="menus-table">
+	<tr>
+		<th>#</th>
+		<th>违章指纹</th>
+		<th>车牌号</th>
+		<th onclick="order('{$order}')">违章时间<?php if ($order == 'desc'){?>↓<?php }else{ ?>↑<?php } ?></th>
+		<th>违章城市</th>
+		<th>违章代码</th>
+		<th>罚金</th>
+		<th>罚分</th>
+		<th>查询编号</th>
+		<th>证书编号</th>
+		<th>违章地点</th>
+		<th style='width:20%'>违法信息</th>
+		<th>采证机关</th>
+		<th>是否已处理</th>
+	</tr>
+	<?php $i = 1;?>
+	<?php $i = $pageIndex + $i;?>
+	<foreach name="str" item="vo">
+		<tr>
+			<td>{$i++}</td>
+			<td><?php echo md5($vo['license_number'].$vo['time']); ?></td>
+			<td>{$vo.license_number}</td>
+			<td><if condition="$vo['time'] neq ''">{$vo.time|date='Y-m-d H:i:s',###}</if></td>
+			<td>{$vo.area}</td>
+			<td><span class="sview" onmouseover="ShowPrompt(event,'{$vo.v_code}','{$vo.v_money}','{$vo.v_points}','{$vo.v_content}')" onmouseout="HiddenPrompt()">{$vo.code}</span></td>
+			<td>{$vo.money}</td>
+			<td>{$vo.points}</td>
+			<td>{$vo.query_no}</td>
+			<td>{$vo.certificate_no}</td>
+			<td>{$vo.address}</td>
+			<td>{$vo.content}</td>
+			<td>{$vo.office}</td>
+			<td><if condition="$vo['is_manage'] eq 0"><a href="#" onclick="finish('{$vo.id}')">未处理</a><elseif condition="$vo['is_manage'] eq 1"/><a href="#" onclick="finish('{$vo.id}')">处理中</a><elseif condition="$vo['is_manage'] eq 2"/>已处理</if></td>
+		</tr>
+	</foreach>
+</table>
+<div class="pagination">{$Page}</div>
+</div>
+<div id="promptDiv" class="promptStyle">
+	<br /><br />
+	<div id="frame_number" class="prom_div"></div>
+	<div id="engine_number" class="prom_div"></div>
+</div>
+<script type="text/javascript" src="__ROOT__/statics/js/common.js"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/content_addtop.js"></script>
+</body>
+</html>

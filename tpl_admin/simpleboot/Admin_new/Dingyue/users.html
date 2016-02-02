@@ -1,0 +1,78 @@
+<admintpl file="header" />
+<meta charset="UTF-8">
+<script type="text/javascript">
+$(document).ready(function(){
+	$('tr').click(function(){
+		$('tr').siblings().removeClass("tr_hover");
+		$(this).addClass("tr_hover");
+	});
+});
+</script>
+<body  class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+<div id="cheliang_submit" class="top_div">
+	<form action="{:U('Dingyue/users')} " method="post">
+				<input type="submit"  id="cheliang_submit_input"  class="query_btn"  value="查询"/>
+				<div  id="cheliang_submit_text" class="query_div" > 
+						用户昵称   <input type="text"   class="query_txt" name="username"  value="{$input_sum.0}"/>
+				</div>
+				<div  id="cheliang_submit_text" class="query_div" > 
+						订阅渠道  <select  class="query_txt" name="type"  >
+											<option value=""></option>
+											<option value="1" <?php if($input_sum[1]==1){echo "selected='selected'";}?>>wechat</option>
+											<option value="2" <?php if($input_sum[1]==2){echo "selected='selected'";}?>>alipay</option>
+										</select>
+				</div>
+	</form>
+</div>
+<div class="count_div">
+		<div class="count_txt">关注用户数：<a href="{:U('Dingyue/users?concern=1')}">{$array_type.0}</a></div>
+		<div class="count_txt">总数：<a href="{:U('Dingyue/users')}">{$array_type.1}</a></div>
+		<div class="count_txt" style="width: 500px;">订阅渠道：&nbsp;&nbsp;微信&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('Dingyue/users')}">{$array_type.1}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alipay&nbsp;&nbsp;&nbsp;&nbsp;</div>
+</div>
+<table class="table table-hover table-bordered table-list" id="menus-table">
+	<tr>
+		<th>#</th>
+		<th>用户编号</th>
+		<th>OpenID</th>
+		<th>GroupID</th>
+		<th>用户名</th>
+		<th>是否关注</th>
+		<th>关注时间</th>
+		<th>订阅渠道</th>
+		<th>昵称</th>
+		<th>所在城市</th>
+	</tr>
+	<foreach name="str" item="vo">
+		<tr>
+			<td>{$vo.iid}</td>
+			<td>{$vo.id}</td>
+			<td>{$vo.openid}</td>
+			<td>{$vo.group_id}</td>
+			<td>{$vo.username}</td>
+			<td><if condition="$vo['is_att'] eq '0'">是<else />否</if></td>
+			<td><if condition="$vo['create_time'] eq 0"><else />{$vo.create_time|date='Y-m-d H:i:s',###}</if></td>
+			<td>wechat</td>
+			<td>{$vo.nickname}</td>
+			<td>{$vo.city}</td>
+		</tr>
+	</foreach>
+</table>
+<div class="pagination">{$Page}</div>
+</div>
+<div id="promptDiv" class="promptStyle">
+	<br /><br />
+	<div id="frame_number" class="prom_div"></div>
+	<div id="engine_number" class="prom_div"></div>
+</div>
+<div id="promptDiv2" class="promptStyle2">
+    <br /><br />
+	<div id="nickname" class="prom_div2"></div>
+	<div class="prom_div2">渠道：微信</div>
+	<div id="openid" class="prom_div2"></div>
+	<div id="city" class="prom_div2"></div>
+	<div class="prom_div2">语言：zh_CN</div>
+	<div id="c_time" class="prom_div2"></div>
+</div>
+</body>
+</html>
