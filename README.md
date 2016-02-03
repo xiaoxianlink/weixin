@@ -1,12 +1,11 @@
 ## README
-ziniu 
+weixin: xiaoxianchewu 
 
-ziniu.xiaoxianlink.com
+weixin.xiaoxianlink.com
 
 ## UPDATE
 X1.0
-* 订阅管理
-* 交易管理
-* 服务商管理
-* 系统管理
+* 初始化版本
+* 违章扫描，违章订阅，我的订单 三个菜单
+
 
