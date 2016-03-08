@@ -87,55 +87,99 @@ class ScanController extends IndexController {
 			}
 			
 			// 筛选服务商
-			$so_model = M ( "Services_order" ); // 1
-			$solist = $so_model->where ( "violation = '{$v['code']}' and (code = '$city_id1' or code = '$city_id2')" )->order ( "money asc" )->group ( "services_id" )->limit ( NUMS1 )->select ();
-			$services_model = M ( "Services" ); // 2
-			$where = "state = 0";
-			if (! empty ( $solist )) {
-				foreach ( $solist as $p => $c ) {
-					if ($p == 0) {
-						$where .= " and (id = '{$c['services_id']}'";
-					} else {
-						$where .= " or id = '{$c['services_id']}'";
+			// 算法说明：
+		    // 1.先获取符合条件的静态报价列表，价格最低者优先
+			// 2.再获取符合条件的动态报价列表，价格最低者优先
+			// 3.比较两个价格列表顶部，价格最低者为本次违章处理的最低价
+			// 4.根据最低价，反查能提供该价格的服务商，选择正在处理订单数量最少的服务商为本次违章处理的服务商
+			// 潜在的性能问题：
+			// 若同一个城市中针对某违章的报价完全一样，且服务商数量上万，则本算法会造成内存使用量以及多次sql查询性能问题，但考虑该情况为极端情况，故本算法占时不处理。待真有此性能问题时，再行处理
+			
+			$so_model = new Model(); // 1.a
+			$so_sql = "select srv.id as services_id, so.money from cw_services as srv, cw_services_order as so where srv.id = so.services_id and srv.state = 0 and srv.grade > 4 and so.violation = {$v['code']} and (so.code = $city_id1 or so.code = $city_id2) group by srv.id order by money asc ";
+			$solist = $so_model->query($so_sql);
+			
+			$violation_model = M("violation");
+			$violation = $violation_model->field("money, points")->where("code = {$v['code']}")->find();
+			
+			$sd_model = new Model(); // 1.b
+			$sd_sql = "select * from (select dyna.services_id, ({$violation['money']} + dyna.fee + dyna.point_fee * {$violation['points']}) dyna_fee from cw_services_dyna dyna where dyna.code = $city_id1 or dyna.code = $city_id2 ORDER BY dyna_fee ASC) as service_dyna group by services_id";
+			$sdlist = $sd_model->query($sd_sql);
+			
+			$log->write ( $so_sql );
+			$log->write ( $sd_sql );
+			// we now get the lowest price
+			$lowest_price = -1;
+			if( ! empty($solist)){
+				$lowest_price = $solist[0]['money'];
+			}
+			if( ! empty($sdlist)){
+				if($lowest_price > -1 ){
+					if($lowest_price > $sdlist[0]['dyna_fee']){
+						$lowest_price = $sdlist[0]['dyna_fee'];
 					}
 				}
-				$where .= ")";
-				$serviceslist = $services_model->field ( "id" )->where ( $where )->order ( "`grade` desc" )->limit ( NUMS2 )->select ();
-				$order_model = new Model (); // 3
-				$where = "(order_status = 2 or order_status = 3)";
-				$services_id1 = array ();
-				if (! empty ( $serviceslist )) {
-					foreach ( $serviceslist as $p => $c ) {
-						if ($p == 0) {
-							$where .= " and (services_id = '{$c['id']}'";
-						} else {
-							$where .= " or services_id = '{$c['id']}'";
-						}
-						
-						$services_id1 [] = $c ['id'];
-					}
-					$where .= ")";
-					$sql = "SELECT COUNT(*) as nums, `services_id` FROM `cw_order` WHERE $where GROUP BY `services_id` ORDER BY nums";
-					$orderlist = $order_model->query ( $sql );
-					$services_id2 = array ();
-					foreach ( $orderlist as $p => $c ) {
-						$services_id2 [] = $c ['services_id'];
-					}
-					$services = array_diff ( $services_id1, $services_id2 );
-					if (! empty ( $services )) {
-						foreach ( $services as $r ) {
-							$services_id = $r;
-							break;
-						}
-					} else {
-						$services_id = $orderlist [0] ['services_id'];
-					}
-					// 4
-					$so = $so_model->where ( "violation = '{$v['code']}' and services_id = '$services_id' and (code = '$city_id1' or code = '$city_id2')" )->order ( "money asc" )->find ();
-					$endorsementlist [$k] ['so_id'] = $so ['id'];
-					$endorsementlist [$k] ['so_money'] = $so ['money'];
+				else{
+					$lowest_price = $sdlist[0]['dyna_fee'];
 				}
 			}
+			$log->write ( "lowest_price=". $lowest_price );
+			$where = "";
+			$firstCondition = false;
+			$services_id_by_money = array ();
+			if( ! empty($solist)){
+				foreach ( $solist as $p => $c ) {
+					if($c['money'] == $lowest_price){
+						if ($firstCondition == false) {
+							$where .= " services_id = {$c['services_id']}";
+							$firstCondition = true;
+						} else {
+							$where .= " or services_id = {$c['services_id']}";
+						}
+						$services_id_by_money[] = $c['services_id'];
+					}
+					else{
+						break;
+					}
+				}
+			}
+			if( ! empty($sdlist)){
+				foreach ( $sdlist as $p => $c ) {
+					if($c['dyna_fee'] == $lowest_price){
+						if ($firstCondition == false) {
+							$where .= " services_id = '{$c['services_id']}'";
+							$firstCondition = true;
+						} else {
+							$where .= " or services_id = '{$c['services_id']}'";
+						}
+						$services_id_by_money[] = $c['services_id'];
+					}
+					else{
+						break;
+					}
+				}
+			}
+			$order_model = new Model (); // 2
+			$sql = "SELECT COUNT(*) as nums, `services_id` FROM `cw_order` WHERE $where GROUP BY `services_id` ORDER BY nums";
+			$log->write ( $sql);
+			$orderlist = $order_model->query ( $sql );
+			$services_id_by_ordernum = array ();
+			foreach ( $orderlist as $p => $c ) {
+				$services_id_by_ordernum [] = $c ['services_id'];
+			}
+			$services = array_diff ( $services_id_by_money, $services_id_by_ordernum );
+			if (! empty ( $services )) {
+				foreach ( $services as $r ) {
+					$services_id = $r;
+					break;
+				}
+			} else {
+				$services_id = $orderlist [0] ['services_id'];
+			}
+			$log->write ( "services_id=". $services_id );
+			// 3
+			$endorsementlist [$k] ['so_id'] = $services_id;
+			$endorsementlist [$k] ['so_money'] = $lowest_price;
 		}
 		return $endorsementlist;
 	}
