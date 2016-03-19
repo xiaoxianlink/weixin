@@ -69,7 +69,12 @@ class ScanController extends IndexController {
 					"is_dredge" => 0 
 			);
 			$region = $region_model->where ( $where )->order ( 'id' )->find ();
-			$city_id1 = $region ['id'];
+			if (empty ( $region )) {
+				$city_id1 = 0;
+			}
+			else{
+				$city_id1 = $region ['id'];
+			}
 			
 			$where = array (
 					"id" => $v ['car_id'] 
@@ -95,35 +100,50 @@ class ScanController extends IndexController {
 			// 潜在的性能问题：
 			// 若同一个城市中针对某违章的报价完全一样，且服务商数量上万，则本算法会造成内存使用量以及多次sql查询性能问题，但考虑该情况为极端情况，故本算法占时不处理。待真有此性能问题时，再行处理
 			
-			$so_model = new Model(); // 1.a
-			$so_sql = "select srv.id as services_id, so.money from cw_services as srv, cw_services_order as so where srv.id = so.services_id and srv.state = 0 and srv.grade > 4 and so.violation = {$v['code']} and (so.code = $city_id1 or so.code = $city_id2) group by srv.id order by money asc ";
-			$solist = $so_model->query($so_sql);
-			
 			$violation_model = M("violation");
 			$violation = $violation_model->field("money, points")->where("code = {$v['code']}")->find();
+			if(empty($violation) || $violation['state'] == 1){
+				continue;
+			}
+			
+			$so_model = new Model(); // 1.a
+			$so_sql = "select srv.id as services_id, so.id as so_id, so.money from cw_services as srv, cw_services_city as scity, cw_services_code as scode, cw_services_order as so where srv.id = scity.services_id and srv.id = scode.services_id and srv.id = so.services_id and srv.state = 0 and srv.grade > 4 and ((scity.code = $city_id1 and scity.state = 0) or (scity.code = $city_id2 and scity.state = 0)) and (scode.code = '{$v['code']}' and scode.state = 0 ) and so.violation = '{$v['code']}' and (so.code = $city_id1 or so.code = $city_id2) group by srv.id order by money asc ";
+			//$log->write ( $so_sql );
+			$solist = $so_model->query($so_sql);
 			
 			$sd_model = new Model(); // 1.b
-			$sd_sql = "select * from (select dyna.services_id, ({$violation['money']} + dyna.fee + dyna.point_fee * {$violation['points']}) dyna_fee from cw_services_dyna dyna where dyna.code = $city_id1 or dyna.code = $city_id2 ORDER BY dyna_fee ASC) as service_dyna group by services_id";
+			$sd_sql = "select * from (select dyna.services_id, dyna.id as so_id, ({$v['money']} + dyna.fee + dyna.point_fee * {$v['points']}) dyna_fee from cw_services as srv, cw_services_city as scity, cw_services_code as scode, cw_services_dyna as dyna where srv.id = scity.services_id and srv.id = scode.services_id and srv.id = dyna.services_id and srv.state = 0 and srv.grade > 4 and ((scity.code = $city_id1 and scity.state = 0) or (scity.code = $city_id2 and scity.state = 0)) and scode.code = '{$v['code']}' and scode.state = 0 and (dyna.code = $city_id1 or dyna.code = $city_id2) ORDER BY dyna_fee ASC) as service_dyna group by services_id";
+			//$log->write ( $sd_sql );
 			$sdlist = $sd_model->query($sd_sql);
 			
-			$log->write ( $so_sql );
-			$log->write ( $sd_sql );
 			// we now get the lowest price
 			$lowest_price = -1;
+			$so_id = -1;
+			$so_type = -1;
 			if( ! empty($solist)){
 				$lowest_price = $solist[0]['money'];
+				$so_id = $solist[0]['so_id'];
+				$so_type = 1;
 			}
 			if( ! empty($sdlist)){
 				if($lowest_price > -1 ){
 					if($lowest_price > $sdlist[0]['dyna_fee']){
 						$lowest_price = $sdlist[0]['dyna_fee'];
+						$so_id = $sdlist[0]['so_id'];
+						$so_type = 2;
 					}
 				}
 				else{
 					$lowest_price = $sdlist[0]['dyna_fee'];
+					$so_id = $sdlist[0]['so_id'];
+					$so_type = 2;
 				}
 			}
-			$log->write ( "lowest_price=". $lowest_price );
+			//$log->write ( "lowest_price=". $lowest_price );
+			if($lowest_price == -1){
+				continue;
+			}
+			
 			$where = "";
 			$firstCondition = false;
 			$services_id_by_money = array ();
@@ -161,7 +181,7 @@ class ScanController extends IndexController {
 			}
 			$order_model = new Model (); // 2
 			$sql = "SELECT COUNT(*) as nums, `services_id` FROM `cw_order` WHERE $where GROUP BY `services_id` ORDER BY nums";
-			$log->write ( $sql);
+			//$log->write ( $sql);
 			$orderlist = $order_model->query ( $sql );
 			$services_id_by_ordernum = array ();
 			foreach ( $orderlist as $p => $c ) {
@@ -176,9 +196,10 @@ class ScanController extends IndexController {
 			} else {
 				$services_id = $orderlist [0] ['services_id'];
 			}
-			$log->write ( "services_id=". $services_id );
+			//$log->write ( "services_id=". $services_id );
 			// 3
-			$endorsementlist [$k] ['so_id'] = $services_id;
+			$endorsementlist [$k] ['so_id'] = $so_id;
+			$endorsementlist [$k] ['so_type'] = $so_type;
 			$endorsementlist [$k] ['so_money'] = $lowest_price;
 		}
 		return $endorsementlist;
@@ -188,16 +209,23 @@ class ScanController extends IndexController {
 		$id = $_REQUEST ['id'];
 		$license_number = $_REQUEST ['license_number'];
 		$so_id = $_REQUEST ['so_id'];
+		$so_type = $_REQUEST ['so_type'];
 		$user_id = $_REQUEST ['user_id'];
 		$state = isset ( $_REQUEST ['state'] ) ? $_REQUEST ['state'] : '';
 		
 		$endorsement = $this->get_endorsement_info ( $id );
-		$so = $this->get_so_info ( $so_id );
+		if($so_type == 1){
+			$so = $this->get_so_info ( $so_id);
+		}
+		if($so_type == 2){
+			$so = $this->get_sd_info ($so_id);
+			$so['money'] = $endorsement['money'] + $so['fee'] + $so['point_fee'] * $endorsement['points'];
+		}
 		
 		$coupon_money = 0;
 		// 创建订单
 		if (empty ( $state )) {
-			$order_id = $this->create_order ( $endorsement, $so, $user_id );
+			$order_id = $this->create_order ( $endorsement, $so, $so_type, $user_id );
 		} else {
 			$order_id = $_REQUEST ['order_id'];
 			$cuc_id = isset ( $_REQUEST ['cuc_id'] ) ? $_REQUEST ['cuc_id'] : 0;
@@ -213,6 +241,7 @@ class ScanController extends IndexController {
 		$this->assign ( 'endorsement', $endorsement );
 		$this->assign ( 'coupon_money', $coupon_money );
 		$this->assign ( 'so', $so );
+		$this->assign ( 'so_type', $so_type );
 		$this->assign ( 'order', $order );
 		$this->assign ( 'license_number', $license_number );
 		$this->assign ( 'ucoupon_count', count ( $ucouponlist ) );
@@ -236,7 +265,17 @@ class ScanController extends IndexController {
 		$so = $so_model->where ( $where )->find ();
 		return $so;
 	}
-	function create_order($endorsement, $so, $user_id) {
+	function get_sd_info($id) {
+		// 定价表信息
+		$sd_model = M ( "Services_dyna" );
+		$where = array (
+				"id" => $id 
+		);
+		$sd = $sd_model->where ( $where )->find ();
+		return $sd;
+	}
+	
+	function create_order($endorsement, $so, $so_type, $user_id) {
 		$order_model = M ( "Order" );
 		$order = $order_model->where ( "endorsement_id = '{$endorsement ['id']}' and order_status = 1" )->find ();
 		if (! empty ( $order )) {
@@ -256,6 +295,7 @@ class ScanController extends IndexController {
 				"last_time" => time (),
 				"services_id" => $so ['services_id'],
 				"so_id" => $so ['id'],
+				"so_type" => $so_type,
 				"c_time" => time () 
 		);
 		return $order_model->add ( $data );
@@ -289,6 +329,7 @@ class ScanController extends IndexController {
 		$id = $_REQUEST ['id'];
 		$license_number = $_REQUEST ['license_number'];
 		$so_id = $_REQUEST ['so_id'];
+		$so_type = $_REQUEST ['so_type'];
 		$user_id = $_REQUEST ['user_id'];
 		$order_id = $_REQUEST ['order_id'];
 		$money = $_REQUEST ['money'];
@@ -297,6 +338,7 @@ class ScanController extends IndexController {
 		$this->assign ( 'id', $id );
 		$this->assign ( 'license_number', $license_number );
 		$this->assign ( 'so_id', $so_id );
+		$this->assign ( 'so_type', $so_type );
 		$this->assign ( 'user_id', $user_id );
 		$this->assign ( 'order_id', $order_id );
 		$this->assign ( 'uuc_list', $uclist );

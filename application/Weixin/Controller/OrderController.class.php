@@ -78,7 +78,7 @@ class OrderController extends IndexController {
 			$table .= '<tr><td colspan="2" class="td" style="padding-bottom:15px;">罚&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分：' . $v ['points'] . '</td></tr>';
 			$table .= '<tr><td class="l_pay td" style="font-size:20px;padding-top:10px;">' . $v ['money'] . '元</td>';
 			if ($v ['order_status'] == 1) {
-				$table .= '<td rowspan="2" class="r_pay" onclick="scan_info(' . $endorsement_id . ', ' . $license_number . ', ' . $so_id . ', ' . $user_id . ')">';
+				$table .= '<td rowspan="2" class="r_pay" onclick="scan_info(' . $endorsement_id . ', ' . $license_number . ', ' . $so_id . ', '  . $so_type . ', '. $user_id . ')">';
 			} else {
 				$table .= '<td rowspan="2" class="r_pay">';
 			}
@@ -94,7 +94,7 @@ class OrderController extends IndexController {
 	}
 	function get_user_order($user_id, $pageIndex = 0, $pageSize = 5) {
 		$order_model = M ( "Order" );
-		$field = "o.id,o.order_sn,o.money as o_money,o.order_status,o.last_time,o.endorsement_id,o.so_id";
+		$field = "o.id,o.order_sn,o.money as o_money,o.order_status,o.last_time,o.endorsement_id,o.so_id,o.so_type";
 		$field .= ",endor.area,endor.code,endor.time,endor.address,endor.content,endor.money,endor.points";
 		$field .= ",car.license_number";
 		$join1 = "cw_endorsement as endor on endor.id = o.endorsement_id";

@@ -9,17 +9,17 @@
 <link href="__TMPL__Public/css/weixin.css" rel="stylesheet">
 <script src="__ROOT__/statics/js/jquery.js"></script>
 <script type="text/javascript">
-	function select_coupon(cuc_id, id, license_number, so_id, user_id, order_id) {
+	function select_coupon(cuc_id, id, license_number, so_id, so_type, user_id, order_id) {
 		window.location.href = "{:u('Scan/scan_info')}&state=1" + "&cuc_id="
 				+ cuc_id + "&id=" + id + "&license_number=" + license_number
-				+ "&so_id=" + so_id + "&user_id=" + user_id + "&order_id="
+				+ "&so_id=" + so_id + "&so_type=" + so_type + "&user_id=" + user_id + "&order_id="
 				+ order_id;
 	}
 </script>
 </head>
 <body>
 	<foreach name="uuc_list" item="v" key="k">
-	<div onclick="select_coupon('{$v.cuc_id}','{$id}','{$license_number}','{$so_id}','{$user_id}','{$order_id}')" class="coupon_bg">
+	<div onclick="select_coupon('{$v.cuc_id}','{$id}','{$license_number}','{$so_id}','{$so_type}','{$user_id}','{$order_id}')" class="coupon_bg">
     <table width="100%" style="padding: 20px;">
     	<tr>
         	<td style="color: #a9a6a1; font-size: 26px;" class="dy_td">{$v.name}</td>
@@ -34,7 +34,7 @@
     </table>
 	</div><br/>
 	</foreach>
-	<div style="position:fixed;bottom:0; width: 100%; padding-bottom: 20px;"><button type="submit" onclick="select_coupon('0','{$id}','{$license_number}','{$so_id}','{$user_id}','{$order_id}')"class="addcar_btn" style="border:#fbcc5c 2px solid; background-color: #fbcc5c;">取消</button></div>
+	<div style="position:fixed;bottom:0; width: 100%; padding-bottom: 20px;"><button type="submit" onclick="select_coupon('0','{$id}','{$license_number}','{$so_id}','{$so_type}','{$user_id}','{$order_id}')"class="addcar_btn" style="border:#fbcc5c 2px solid; background-color: #fbcc5c;">取消</button></div>
 	<?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1256820389).'" width="0" height="0"/>';?>
 </body>
 </html>

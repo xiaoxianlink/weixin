@@ -126,8 +126,8 @@ setTimeout(function () { document.getElementById('wrapper').style.left = '0'; },
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 document.addEventListener('DOMContentLoaded', loaded, false); 
 
-function scan_info(id,license_number,so_id,user_id,order_id){
-	window.location.href="{:u('Scan/scan_info')}"+"&id="+id+"&license_number="+license_number+"&so_id="+so_id+"&user_id="+user_id+"&state=1&order_id="+order_id;
+function scan_info(id,license_number,so_id,so_type,user_id,order_id){
+	window.location.href="{:u('Scan/scan_info')}"+"&id="+id+"&license_number="+license_number+"&so_id="+so_id+"&so_type="+so_type+"&user_id="+user_id+"&state=1&order_id="+order_id;
 }
 </script>
 <style type="text/css" media="all">
@@ -294,7 +294,7 @@ body {
 		</tr>
         <tr>
         	<td class="l_pay td" style="font-size:20px;padding-top:10px;">{$v.o_money}元</td>
-            <?php if($v['order_status'] == 1){ ?><td rowspan="2" class="r_pay" onclick="scan_info('{$v.endorsement_id}', '{$v.license_number}', '{$v.so_id}', '{$user_id}','{$v.id}')"><?php }else{ ?><td rowspan="2" class="r_pay"><?php } ?><?php echo $order_status[$v['order_status']]; ?></td>
+            <?php if($v['order_status'] == 1){ ?><td rowspan="2" class="r_pay" onclick="scan_info('{$v.endorsement_id}', '{$v.license_number}', '{$v.so_id}', '{$v.so_type}', '{$user_id}','{$v.id}')"><?php }else{ ?><td rowspan="2" class="r_pay"><?php } ?><?php echo $order_status[$v['order_status']]; ?></td>
         </tr>
         <tr>
         	<td class="l_pay td" style="font-size:12px;padding-bottom:10px;"><?php echo date('Y/m/d H:i', $v['last_time']); ?></td>
