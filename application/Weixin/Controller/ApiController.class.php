@@ -42,7 +42,7 @@ class ApiController extends IndexController {
 			$count = 0;
 		}
 		$model = M ();
-		$car = $model->table ( "cw_endorsement as e" )->join ( "cw_car as c on c.id=e.car_id" )->field ( "c.*,e.area" )->where ( "e.is_manage <> 2" )->group ( "e.area" )->limit ( $count . ',' . timing_count1 )->select ();
+		$car = $model->table ( "cw_endorsement as e" )->join ( "cw_car as c on c.id=e.car_id" )->field ( "c.*,e.area" )->where ( "e.is_manage <> 2 and c.scan_state = 1" )->group ( "e.area" )->limit ( $count . ',' . timing_count1 )->select ();
 		if (empty ( $car )) {
 			return 102; // 查完了
 			exit ();
@@ -91,7 +91,7 @@ class ApiController extends IndexController {
 		$week = date ( "w" );
 		$num = $car_array [$week];
 		$car_model = M ( "Car" );
-		$car = $car_model->where ( "right(license_number,1) in ($num)" )->limit ( $count . ',' . timing_count1 )->select ();
+		$car = $car_model->where ( "right(license_number,1) in ($num) and scan_state = 1" )->limit ( $count . ',' . timing_count1 )->select ();
 		if (empty ( $car )) {
 			return 102; // 查完了
 			exit ();
@@ -145,7 +145,7 @@ class ApiController extends IndexController {
 			$count = 0;
 		}
 		$car_model = M ( "Car" );
-		$car = $car_model->limit ( $count . ',' . timing_count2 )->select ();
+		$car = $car_model->where("scan_state = 1")->limit ( $count . ',' . timing_count2 )->select ();
 		if (empty ( $car )) {
 			return 102; // 查完了
 			exit ();
@@ -237,9 +237,9 @@ class ApiController extends IndexController {
 							"content" => $v ['info'],
 							"create_time" => time (),
 							"manage_time" => time (),
-							"query_no" => $jilu_id,
+							"query_no" => $jilu_id
 							// "certificate_no" => $v ['archive'],
-							"office" => $v ['officer'] 
+							//"office" => $v ['officer'] 
 					);
 					$endorsement_model->add ( $data );
 					$end_id = $endorsement_model->getLastInsID ();
@@ -255,7 +255,16 @@ class ApiController extends IndexController {
 				}
 			}
 		} elseif ($jsoninfo ['status'] == 2000) {
-		} else {
+		} elseif($jsoninfo ['status'] == 5008){
+			$car_scan_data = array (
+				"scan_state" => 0,
+				"scan_state_desc" => "输入的车辆信息有误，请查证后重新输入",
+				"scan_state_time" => time (),
+				"scan_stop_query" => $jilu_id
+			);
+			$car_model->where ( "id='$car_id'" )->save ( $car_scan_data );
+		}
+		else {
 			/*
 			 * $jsoninfo = $this->get_endorsement ( $car_id, $city ); if ($jsoninfo ['code'] == '0') { foreach ( $jsoninfo ['data'] ['result'] as $v ) { $time = strtotime ( $v ['violationTime'] ); $endorsement = $endorsement_model->where ( "car_id = '$car_id' and time = '$time' and code = '{$v ['violationCode']}'" )->find (); if (empty ( $endorsement )) { $data = array ( "car_id" => $car_id, "area" => $v ['violationCity'], "query_port" => acfapi, "code" => $v ['violationCode'], "time" => $time, "money" => $v ['violationPrice'], "points" => $v ['violationMark'], "address" => $v ['violationAddress'], "content" => $v ['violationDesc'], "create_time" => time (), "query_no" => $v ['id'], "office" => $v ['officeName'] ); $endorsement_model->add ( $data ); $this->send ( $car_id, $endorsement_model->getLastInsID () ); } } }
 			 */
@@ -267,6 +276,13 @@ class ApiController extends IndexController {
 			$car_model->where ( "id = '$car_id'" )->save ( $data );
 		}
 	}
+	
+	function send_test() {
+		$car_id = $_REQUEST['car_id'];
+		$end_id = $_REQUEST['end_id'];
+		$this->send($car_id, $end_id);
+	}
+	
 	// 推送
 	function send($car_id, $end_id) {
 		$log = new Log ();
@@ -280,10 +296,11 @@ class ApiController extends IndexController {
 		$car_model = M ( "Car" );
 		$car_info = $car_model->where ( "id='$car_id'" )->find ();
 		$user_model = M ();
-		$user = $user_model->table ( "cw_user as u" )->join ( "cw_user_car as uc on uc.user_id = u.id" )->field ( "u.openid,u.nickname" )->where ( "uc.car_id='$car_id' and uc.is_sub = 0" )->select ();
+		$user = $user_model->table ( "cw_user as u" )->join ( "cw_user_car as uc on uc.user_id = u.id" )->field ( "u.id, u.openid, u.nickname, u.channel, u.channel_key" )->where ( "uc.car_id='$car_id' and uc.is_sub = 0" )->select ();
 		$date = date ( "Y年m月d日 H:i", $end_info ['time'] );
 		foreach ( $user as $p ) {
-			$data = array (
+			if($p['channel'] == 0){
+				$data = array (
 					'first' => array (
 							'value' => urlencode ( "{$p['nickname']}，{$car_info ['license_number']}有一条新违章" ),
 							'color' => "#000000" 
@@ -312,10 +329,48 @@ class ApiController extends IndexController {
 							'value' => urlencode ( "" ),
 							'color' => '#000000' 
 					) 
-			);
-			$this->doSend ( 0, '', $p ['openid'], MUBAN2, URL3 . "&openid=" . $p ['openid'] . "&carid=" . $car_id . "&end_id=" . $end_id, $data );
+				);
+				$this->doSend ( 0, '', $p ['openid'], MUBAN2, URL3 . "&openid=" . $p ['openid'] . "&carid=" . $car_id . "&end_id=" . $end_id, $data );
+			}
+			if($p['channel'] == 99){
+				$bizapi_id = substr($p['channel_key'], 7);
+				$bizapi_model = M('bizapi');
+				$bizapi = $bizapi_model->where("id = $bizapi_id")->find();
+				if(!empty($bizapi)){
+					$target_url = $bizapi['app_domain'];
+					$target_url = $bizapi_app_domain;
+					if(false === strpos($target_url, 'http://')){
+						$target_url = "http://" . $target_url;
+					}
+					$target_url = $target_url . "/api/weizhang/weizhangtixing";
+					$fuwu = $this->find_fuwu($car_id, $end_info['code'], $end_info['money'], $end_info['points'], $end_info['area']);
+					$post_data = array (
+						'chepai' => $car_info ['license_number'],
+						'weizhangtime' => $end_info['time'],
+						'weizhangcity' => $end_info['area'],
+						'weizhangcode' => $end_info['code'],
+						'fajin' => $end_info['money'],
+						'fafen' => $end_info['points'],
+						'zhangshucode' => $end_info['certificate_code'],
+						'weizhangaddress' => $end_info['address'],
+						'weizhanginfo' => $end_info['content'],
+						'weizhangoffice' => $end_info['office'],
+						'ischuli' => 'N',
+						'timestamp' => time()
+					);
+					if(!empty($fuwu)){
+						$post_data['ischuli'] = 'Y';
+						$post_data['daibanprice'] = $fuwu['so_money'];
+						$post_data['daibanlink'] = "http://wxdev.xiaoxianlink.com/index.php?g=weixin&m=scan&a=scan_info&id=".$end_info['id']."&license_number=". urlencode($car_info ['license_number'] ) ."&so_id=".$fuwu['so_id']."&so_type=".$fuwu['so_type']."&user_id=".$p['id'];
+					}
+					$log->write ( "target_url= " . $target_url, 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
+					$log->write ( serialize ( http_build_query($post_data) ), 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
+					$dataRes = $this->request_post($target_url, http_build_query($post_data));
+					$log->write ( serialize ( $dataRes ), 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
+				}
+			}
 			$data = array (
-					"from_user_id" => 0,
+					"from_userid" => 0,
 					"openid" => $p ['openid'],
 					"tar_id" => $end_info ['id'],
 					"create_time" => time (),
@@ -328,6 +383,144 @@ class ApiController extends IndexController {
 			$model->add ( $data );
 		}
 	}
+	
+	function find_fuwu($car_id, $code, $money, $points, $area){
+		$log = new Log ();
+		$fuwu = Array();
+		$region_model = M ( "Region" );
+		$where = array (
+				"city" => $area,
+				"level" => 2,
+				"is_dredge" => 0 
+		);
+		$region = $region_model->where ( $where )->order ( 'id' )->find ();
+		if (empty ( $region )) {
+			$city_id1 = 0;
+		}
+		else{
+			$city_id1 = $region ['id'];
+		}
+		
+		$where = array (
+				"id" => $car_id
+		);
+		$car_model = M ( "Car" );
+		$car = $car_model->where ( $where )->find ();
+		$l_nums = mb_substr ( $car ['license_number'], 0, 2, 'utf-8' );
+		$region_model = M ( "Region" );
+		$region = $region_model->where ( "nums = '$l_nums'" )->find ();
+		$region = $region_model->where ( "city = '{$region['city']}'" )->order ( "id" )->find ();
+		if (empty ( $region )) {
+			$city_id2 = 0;
+		} else {
+			$city_id2 = $region ['id'];
+		}
+		
+		$violation_model = M("violation");
+		$violation = $violation_model->field("money, points")->where("code = '$code'")->find();
+		if(empty($violation) || $violation['state'] == 1){
+			return $fuwu;
+		}
+		
+		$so_model = M(''); // 1.a
+		$so_sql = "select srv.id as services_id, so.id as so_id, so.money from cw_services as srv, cw_services_city as scity, cw_services_code as scode, cw_services_order as so where srv.id = scity.services_id and srv.id = scode.services_id and srv.id = so.services_id and srv.state = 0 and srv.grade > 4 and ((scity.code = $city_id1 and scity.state = 0) or (scity.code = $city_id2 and scity.state = 0)) and (scode.code = '$code' and scode.state = 0 ) and so.violation = '$code' and (so.code = $city_id1 or so.code = $city_id2) group by srv.id order by money asc ";
+		//$log->write ( $so_sql );
+		$solist = $so_model->query($so_sql);
+		
+		$sd_model = M(''); // 1.b
+		$sd_sql = "select * from (select dyna.services_id, dyna.id as so_id, ($money + dyna.fee + dyna.point_fee * $points) dyna_fee from cw_services as srv, cw_services_city as scity, cw_services_code as scode, cw_services_dyna as dyna where srv.id = scity.services_id and srv.id = scode.services_id and srv.id = dyna.services_id and srv.state = 0 and srv.grade > 4 and ((scity.code = $city_id1 and scity.state = 0) or (scity.code = $city_id2 and scity.state = 0)) and scode.code = '$code' and scode.state = 0 and (dyna.code = $city_id1 or dyna.code = $city_id2) ORDER BY dyna_fee ASC) as service_dyna group by services_id";
+		//$log->write ( $sd_sql );
+		$sdlist = $sd_model->query($sd_sql);
+		
+		// we now get the lowest price
+		$lowest_price = -1;
+		$so_id = -1;
+		$so_type = -1;
+		if( ! empty($solist)){
+			$lowest_price = $solist[0]['money'];
+			$so_id = $solist[0]['so_id'];
+			$so_type = 1;
+		}
+		if( ! empty($sdlist)){
+			if($lowest_price > -1 ){
+				if($lowest_price > $sdlist[0]['dyna_fee']){
+					$lowest_price = $sdlist[0]['dyna_fee'];
+					$so_id = $sdlist[0]['so_id'];
+					$so_type = 2;
+				}
+			}
+			else{
+				$lowest_price = $sdlist[0]['dyna_fee'];
+				$so_id = $sdlist[0]['so_id'];
+				$so_type = 2;
+			}
+		}
+		//$log->write ( "lowest_price=". $lowest_price );
+		if($lowest_price == -1){
+			return $fuwu;
+		}
+		
+		$where = "";
+		$firstCondition = false;
+		$services_id_by_money = array ();
+		if( ! empty($solist)){
+			foreach ( $solist as $p => $c ) {
+				if($c['money'] == $lowest_price){
+					if ($firstCondition == false) {
+						$where .= " services_id = {$c['services_id']}";
+						$firstCondition = true;
+					} else {
+						$where .= " or services_id = {$c['services_id']}";
+					}
+					$services_id_by_money[] = $c['services_id'];
+				}
+				else{
+					break;
+				}
+			}
+		}
+		if( ! empty($sdlist)){
+			foreach ( $sdlist as $p => $c ) {
+				if($c['dyna_fee'] == $lowest_price){
+					if ($firstCondition == false) {
+						$where .= " services_id = '{$c['services_id']}'";
+						$firstCondition = true;
+					} else {
+						$where .= " or services_id = '{$c['services_id']}'";
+					}
+					$services_id_by_money[] = $c['services_id'];
+				}
+				else{
+					break;
+				}
+			}
+		}
+		$order_model = M(''); // 2
+		$sql = "SELECT COUNT(*) as nums, `services_id` FROM `cw_order` WHERE $where GROUP BY `services_id` ORDER BY nums";
+		//$log->write ( $sql);
+		$orderlist = $order_model->query ( $sql );
+		$services_id_by_ordernum = array ();
+		foreach ( $orderlist as $p => $c ) {
+			$services_id_by_ordernum [] = $c ['services_id'];
+		}
+		$services = array_diff ( $services_id_by_money, $services_id_by_ordernum );
+		if (! empty ( $services )) {
+			foreach ( $services as $r ) {
+				$services_id = $r;
+				break;
+			}
+		} else {
+			$services_id = $orderlist [0] ['services_id'];
+		}
+		//$log->write ( "services_id=". $services_id );
+		// 3
+		$fuwu['so_id'] = $so_id;
+		$fuwu['so_type'] = $so_type;
+		$fuwu['so_money'] = $lowest_price;
+		
+		return $fuwu;
+	}
+	
 	// 每天定时多次查询违章
 	function scan_api_day($car_id, $city) {
 		$log = new Log ();
@@ -435,7 +628,19 @@ class ApiController extends IndexController {
 			/*
 			 * $endorsement = $endorsement_model->where ( "car_id = '$car_id' and is_manage <> 2 and area = '$city'" )->select (); $ec_model = M ( "Endorsement_record" ); foreach ( $endorsement as $v ) { $ecinfo = $ec_model->where ( "endor_id = {$v['id']}" )->find (); if (! empty ( $ecinfo )) { $data = array ( "nums" => $ecinfo ['nums'] + 1, "c_time" => time () ); $ec_model->where ( "id = '{$ecinfo['id']}'" )->save ( $data ); if ($ecinfo ['nums'] >= 2) { $data = array ( "manage_time" => time (), "query_no" => $jilu_id, "is_manage" => 2 ); $endorsement_model->where ( "id = '{$v['id']}'" )->save ( $data ); $this->finish_order ( $v ['id'] ); $jilu_data ['edit_nums'] ++; $data = array ( "end_id" => $v['id'], "state" => 2, "c_time" => time (), "type" => 2 ); $log_model->add ( $data ); } } else { $data = array ( "c_time" => time (), "endor_id" => $v ['id'], "nums" => $ecinfo ['nums'] + 1 ); $ec_model->add ( $data ); } }
 			 */
-		} else {
+		}
+		elseif($jsoninfo ['status'] == 5008){
+			$car_scan_data = array (
+				"scan_state" => 0,
+				"scan_state_desc" => "输入的车辆信息有误，请查证后重新输入",
+				"scan_state_time" => time (),
+				"scan_stop_query" => $jilu_id
+			);
+			$car_model->where ( "id='$car_id'" )->save ( $car_scan_data );
+		}
+		else {
+			// 爱车坊接口处理逻辑同上
+			$jsoninfo = $this->get_endorsement ( $car_id, $city );
 			$jilu_data = array (
 					"car_id" => $car_id,
 					"city" => $city,
@@ -445,15 +650,11 @@ class ApiController extends IndexController {
 					"add_nums" => 0,
 					"edit_nums" => 0,
 					"c_time" => time (),
-					"port" => 'cheshouye.com',
-					"code" => $jsoninfo ['status'],
+					"port" => "http://120.26.57.239/api/",
+					"code" => $jsoninfo ['code'],
 					"state" => 0 
 			);
 			$jilu_id = $jilu_model->add ( $jilu_data );
-			// 爱车坊接口处理逻辑同上
-			$jsoninfo = $this->get_endorsement ( $car_id, $city );
-			$jilu_data ['code'] = $jsoninfo ['code'];
-			$jilu_data ['port'] = "http://120.26.57.239/api/";
 			if ($jsoninfo ['code'] == '0') {
 				$ids = "0";
 				foreach ( $jsoninfo ['data'] [0] ['result'] as $v ) {
@@ -507,6 +708,15 @@ class ApiController extends IndexController {
 					 * $endorsement = $endorsement_model->where ( "id not in ($ids) and car_id = '$car_id' and is_manage <> 2 and area = '$city'" )->select (); $ec_model = M ( "Endorsement_record" ); foreach ( $endorsement as $v ) { $ecinfo = $ec_model->where ( "endor_id = {$v['id']}" )->find (); if (! empty ( $ecinfo )) { $data = array ( "nums" => $ecinfo ['nums'] + 1, "c_time" => time () ); $ec_model->where ( "id = '{$ecinfo['id']}'" )->save ( $data ); if ($ecinfo ['nums'] >= 2) { $data = array ( "manage_time" => time (), "query_no" => $jilu_id, "is_manage" => 2 ); $endorsement_model->where ( "id = '{$v['id']}'" )->save ( $data ); $this->finish_order ( $v ['id'] ); $jilu_data ['edit_nums'] ++; $data = array ( "end_id" => $v['id'], "state" => 2, "c_time" => time (), "type" => 2 ); $log_model->add ( $data ); } } else { $data = array ( "c_time" => time (), "endor_id" => $v ['id'], "nums" => $ecinfo ['nums'] + 1 ); $ec_model->add ( $data ); } }
 					 */
 				}
+			}
+			elseif($jsoninfo ['code'] == 29 || ($jsoninfo ['code'] >= 31 && $jsoninfo ['code'] <= 34)){
+				$car_scan_data = array (
+					"scan_state" => 0,
+					"scan_state_desc" => $jsoninfo['message'],
+					"scan_state_time" => time (),
+					"scan_stop_query" => $jilu_id
+				);
+				$car_model->where ( "id='$car_id'" )->save ( $car_scan_data );
 			}
 			$jilu_model->where ( "id='$jilu_id'" )->save ( $jilu_data );
 		}

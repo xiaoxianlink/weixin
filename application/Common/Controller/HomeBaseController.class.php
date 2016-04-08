@@ -44,7 +44,7 @@ class HomeBaseController extends AppframeController {
 		
 	}
 	
-	protected function  check_user(){
+	protected function check_user(){
 	    $user_status=M('Users')->where(array("id"=>sp_get_current_userid()))->getField("user_status");
 		if($user_status==2){
 			$this->error('您还没有激活账号，请激活后再使用！',U("user/login/active"));
@@ -148,11 +148,6 @@ class HomeBaseController extends AppframeController {
 				}
 			}
 		}
-		
-		
-		
-		
-		
 		
 		C('SP_DEFAULT_THEME',$theme);
 		

@@ -525,7 +525,7 @@ class IndexController extends HomeBaseController {
 		$dataRes = $this->request_post ( $url, urldecode ( $json_template ) );
 		if ($id != 0) {
 			$data = array (
-					"from_user_id" => 0,
+					"from_userid" => 0,
 					"openid" => $touser,
 					"msg_type" => 1,
 					"tar_id" => $id,
@@ -690,93 +690,130 @@ class IndexController extends HomeBaseController {
 			$car_model = M ();
 			$car = $car_model->table ( "cw_user_car as uc" )->join ( "cw_car as c on c.id = uc.car_id" )->join ( "cw_user as u on u.id = uc.user_id" )->field ( "c.*, uc.user_id, uc.car_id, u.city" )->where ( "uc.user_id = '{$user ['id']}' and uc.is_sub = 0" )->select ();
 			foreach ( $car as $k => $v ) {
-				// 查询违章保存信息
-				if ($v ['city'] != null && $v ['city'] != '') {
-					$this->scan_api ( $v ['car_id'], $v ['city'] );
-				}
-				$l_nums = mb_substr ( $v ['license_number'], 0, 2, 'utf-8' );
-				$region_model = M ( "Region" );
-				$region = $region_model->where ( "nums = '$l_nums'" )->find ();
-				if (! empty ( $region )) {
-					if ($v ['city'] != $region ['city']) {
-						$this->scan_api ( $v ['car_id'], $region ['city'] );
+				if($v['scan_state'] == 1){
+					// 查询违章保存信息
+					if ($v ['city'] != null && $v ['city'] != '') {
+						$this->scan_api ( $v ['car_id'], $v ['city'] );
+					}
+					$l_nums = mb_substr ( $v ['license_number'], 0, 2, 'utf-8' );
+					$region_model = M ( "Region" );
+					$region = $region_model->where ( "nums = '$l_nums'" )->find ();
+					if (! empty ( $region )) {
+						if ($v ['city'] != $region ['city']) {
+							$this->scan_api ( $v ['car_id'], $region ['city'] );
+						}
+					}
+					
+					// 查询数据库违章信息
+					$endorsement_model = M ( "Endorsement" );
+					$where = array (
+							"car_id" => $v ['car_id'],
+							"is_manage" => 0 
+					);
+					$endorsement = $endorsement_model->field ( "count(*) as nums, sum(points) as all_points, sum(money) as all_money" )->where ( $where )->find ();
+					$date = date ( 'Y-m-d' );
+					if (! empty ( $endorsement )) {
+						if ($endorsement ['nums'] != 0) {
+							$data = array (
+									'first' => array (
+											'value' => urlencode ( "您好，{$v ['license_number']}近期违章统计信息如下：" ),
+											'color' => "#000000" 
+									),
+									'keyword1' => array (
+											'value' => urlencode ( "{$v ['license_number']}" ),
+											'color' => '#000000' 
+									),
+									'keyword2' => array (
+											'value' => urlencode ( "{$endorsement['nums']}" ),
+											'color' => '#000000' 
+									),
+									'keyword3' => array (
+											'value' => urlencode ( "{$endorsement['all_points']}" ),
+											'color' => '#000000' 
+									),
+									'keyword4' => array (
+											'value' => urlencode ( "{$endorsement['all_money']}" ),
+											'color' => '#000000' 
+									),
+									'keyword5' => array (
+											'value' => urlencode ( $date ),
+											'color' => '#000000' 
+									),
+									'remark' => array (
+											'value' => urlencode ( "" ),
+											'color' => '#000000' 
+									) 
+							);
+							$this->doSend ( $v ['car_id'], $endorsement, ( string ) $openid, MUBAN1, URL3 . "&openid=" . ( string ) $openid . "&carid=" . $v ['car_id'], $data );
+						} else {
+							$data = array (
+									'first' => array (
+											'value' => urlencode ( "您好，{$v ['license_number']}近期违章统计信息如下：" ),
+											'color' => "#000000" 
+									),
+									'keyword1' => array (
+											'value' => urlencode ( "{$v ['license_number']}" ),
+											'color' => '#000000' 
+									),
+									'keyword2' => array (
+											'value' => urlencode ( "{$endorsement['nums']}" ),
+											'color' => '#000000' 
+									),
+									'keyword3' => array (
+											'value' => urlencode ( "0" ),
+											'color' => '#000000' 
+									),
+									'keyword4' => array (
+											'value' => urlencode ( "0" ),
+											'color' => '#000000' 
+									),
+									'keyword5' => array (
+											'value' => urlencode ( $date ),
+											'color' => '#000000' 
+									),
+									'remark' => array (
+											'value' => urlencode ( "" ),
+											'color' => '#000000' 
+									) 
+							);
+							$this->doSend ( $v ['car_id'], $endorsement, ( string ) $openid, MUBAN1, "", $data );
+						}
 					}
 				}
-				
-				// 查询数据库违章信息
-				$endorsement_model = M ( "Endorsement" );
-				$where = array (
-						"car_id" => $v ['car_id'],
-						"is_manage" => 0 
-				);
-				$endorsement = $endorsement_model->field ( "count(*) as nums, sum(points) as all_points, sum(money) as all_money" )->where ( $where )->find ();
-				$date = date ( 'Y-m-d' );
-				if (! empty ( $endorsement )) {
-					if ($endorsement ['nums'] != 0) {
-						$data = array (
-								'first' => array (
-										'value' => urlencode ( "您好，{$v ['license_number']}近期违章统计信息如下：" ),
-										'color' => "#000000" 
-								),
-								'keyword1' => array (
-										'value' => urlencode ( "{$v ['license_number']}" ),
-										'color' => '#000000' 
-								),
-								'keyword2' => array (
-										'value' => urlencode ( "{$endorsement['nums']}" ),
-										'color' => '#000000' 
-								),
-								'keyword3' => array (
-										'value' => urlencode ( "{$endorsement['all_points']}" ),
-										'color' => '#000000' 
-								),
-								'keyword4' => array (
-										'value' => urlencode ( "{$endorsement['all_money']}" ),
-										'color' => '#000000' 
-								),
-								'keyword5' => array (
-										'value' => urlencode ( $date ),
-										'color' => '#000000' 
-								),
-								'remark' => array (
-										'value' => urlencode ( "" ),
-										'color' => '#000000' 
-								) 
-						);
-						$this->doSend ( $v ['car_id'], $endorsement, ( string ) $openid, MUBAN1, URL3 . "&openid=" . ( string ) $openid . "&carid=" . $v ['car_id'], $data );
-					} else {
-						$data = array (
-								'first' => array (
-										'value' => urlencode ( "您好，{$v ['license_number']}近期违章统计信息如下：" ),
-										'color' => "#000000" 
-								),
-								'keyword1' => array (
-										'value' => urlencode ( "{$v ['license_number']}" ),
-										'color' => '#000000' 
-								),
-								'keyword2' => array (
-										'value' => urlencode ( "{$endorsement['nums']}" ),
-										'color' => '#000000' 
-								),
-								'keyword3' => array (
-										'value' => urlencode ( "0" ),
-										'color' => '#000000' 
-								),
-								'keyword4' => array (
-										'value' => urlencode ( "0" ),
-										'color' => '#000000' 
-								),
-								'keyword5' => array (
-										'value' => urlencode ( $date ),
-										'color' => '#000000' 
-								),
-								'remark' => array (
-										'value' => urlencode ( "" ),
-										'color' => '#000000' 
-								) 
-						);
-						$this->doSend ( $v ['car_id'], $endorsement, ( string ) $openid, MUBAN1, "", $data );
-					}
+				else{
+					$url = URL1;
+					$date = date ( 'Y-m-d' );
+					$data = array (
+							'first' => array (
+									'value' => urlencode ( "您好，{$v['license_number']}的车辆信息有误，请检查。" ),
+									'color' => "#000000" 
+							),
+							'keyword1' => array (
+									'value' => urlencode ( "{$v ['license_number']}" ),
+									'color' => '#000000' 
+							),
+							'keyword2' => array (
+									'value' => urlencode ( "0" ),
+									'color' => '#000000' 
+							),
+							'keyword3' => array (
+									'value' => urlencode ( "0" ),
+									'color' => '#000000' 
+							),
+							'keyword4' => array (
+									'value' => urlencode ( "0" ),
+									'color' => '#000000' 
+							),
+							'keyword5' => array (
+									'value' => urlencode ( $date ),
+									'color' => '#000000' 
+							),
+							'remark' => array (
+									'value' => urlencode ( "停查原因：{$v['scan_state_desc']}" ),
+									'color' => '#FF0000' 
+							) 
+					);
+					$this->doSend ( $v ['car_id'], null, ( string ) $openid, MUBAN1, $url, $data );
 				}
 			}
 			if (count ( $car ) == 0) {
@@ -887,7 +924,16 @@ class IndexController extends HomeBaseController {
 			}
 			$jilu_model->where ( "id='$jilu_id'" )->save ( $jilu_data );
 		} elseif ($jsoninfo ['status'] == 2000) {
-		} else {
+		} elseif($jsoninfo ['status'] == 5008){
+			$car_scan_data = array (
+				"scan_state" => 0,
+				"scan_state_desc" => "输入的车辆信息有误，请查证后重新输入",
+				"scan_state_time" => time (),
+				"scan_stop_query" => $jilu_id
+			);
+			$car_model->where ( "id='$car_id'" )->save ( $car_scan_data );
+		}else {
+			$jsoninfo = $this->get_endorsement ( $car_id, $city );
 			$jilu_data = array (
 					"car_id" => $car_id,
 					"city" => $city,
@@ -897,15 +943,11 @@ class IndexController extends HomeBaseController {
 					"add_nums" => 0,
 					"edit_nums" => 0,
 					"c_time" => time (),
-					"port" => 'cheshouye.com',
-					"code" => $jsoninfo ['status'],
+					"port" => "http://120.26.57.239/api/",
+					"code" => $jsoninfo ['code'],
 					"state" => 1
 			);
 			$jilu_id = $jilu_model->add ( $jilu_data );
-			
-			$jsoninfo = $this->get_endorsement ( $car_id, $city );
-			$jilu_data ['code'] = $jsoninfo ['code'];
-			$jilu_data ['port'] = "http://120.26.57.239/api/";
 			if ($jsoninfo ['code'] == '0') {
 				foreach ( $jsoninfo ['data'] [0] ['result'] as $v ) {
 					$v ['violationPrice'] = isset($v ['violationPrice']) ? $v ['violationPrice'] : 0;
@@ -951,6 +993,15 @@ class IndexController extends HomeBaseController {
 						}
 					}
 				}
+			}
+			elseif($jsoninfo ['code'] == 29 || ($jsoninfo ['code'] >= 31 && $jsoninfo ['code'] <= 34)){
+				$car_scan_data = array (
+					"scan_state" => 0,
+					"scan_state_desc" => $jsoninfo['message'],
+					"scan_state_time" => time (),
+					"scan_stop_query" => $jilu_id
+				);
+				$car_model->where ( "id='$car_id'" )->save ( $car_scan_data );
 			}
 			$jilu_model->where ( "id='$jilu_id'" )->save ( $jilu_data );
 		}

@@ -66,6 +66,9 @@ class SubController extends IndexController {
 			}
 			$engine_number .= $e_num2;
 			$list [$k] ['engine_number'] = $engine_number;
+			if(mb_strlen($v ['scan_state_desc'],'utf-8') > 19){
+				$list [$k] ['scan_state_desc'] = mb_substr ( $v ['scan_state_desc'], 0, 16, 'utf-8') . "...";
+			}
 		}
 		return $list;
 	}

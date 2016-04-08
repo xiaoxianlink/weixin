@@ -101,7 +101,7 @@ class ScanController extends IndexController {
 			// 若同一个城市中针对某违章的报价完全一样，且服务商数量上万，则本算法会造成内存使用量以及多次sql查询性能问题，但考虑该情况为极端情况，故本算法占时不处理。待真有此性能问题时，再行处理
 			
 			$violation_model = M("violation");
-			$violation = $violation_model->field("money, points")->where("code = {$v['code']}")->find();
+			$violation = $violation_model->where("code = '{$v['code']}'")->find();
 			if(empty($violation) || $violation['state'] == 1){
 				continue;
 			}
@@ -279,6 +279,16 @@ class ScanController extends IndexController {
 		$order_model = M ( "Order" );
 		$order = $order_model->where ( "endorsement_id = '{$endorsement ['id']}' and order_status = 1" )->find ();
 		if (! empty ( $order )) {
+			// re-generate order
+			// there are maybe another servie provider with a lower price after the order created
+			$data = array (
+				"money" => $so ['money'],
+				"last_time" => time (),
+				"services_id" => $so ['services_id'],
+				"so_id" => $so ['id'],
+				"so_type" => $so_type
+			);
+			$order_model->where("id = {$order['id']}" )->save ( $data );
 			return $order ['id'];
 		}
 		$order = $order_model->where ( "endorsement_id = '{$endorsement ['id']}' and (order_status = 2 or order_status = 3 or order_status = 4 or order_status = 5)" )->find ();
@@ -365,6 +375,10 @@ class ScanController extends IndexController {
 		} else {
 			$data ["pay_money"] = $order ['money'];
 		}
+		// re-generate order-sn
+		// for the same order, the money MUST be the same in wxpay side
+		// so if user apply an coupon to the order or choose another service provider with an lower price after an un-finish pay action, user will get an error with the un-changed order-sn when user try to pay again
+		$data["order_sn"] = $order['user_id'] . $order['car_id'] . time ();
 		$order_model->where ( "id='$order_id'" )->save ( $data );
 		$order = $this->get_order ( $order_id );
 		$data ["pay_money"]=intval($data ["pay_money"]*100);

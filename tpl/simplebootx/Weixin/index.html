@@ -63,7 +63,13 @@
 					<td class="td dy_td" style="font-size: 12px;">发动机号：{$v.engine_number}</td>
 				</tr>
 				<tr>
-					<td class="td dy_td" style="padding-bottom: 5px; font-size: 12px;">最新扫描：<?php if(!empty($v['last_time'])){echo date('Y.m.d', $v['last_time']);}else{echo date('Y.m.d', time());}?></td>
+					<td class="td dy_td" style="padding-bottom: 5px; font-size: 12px;">
+					<if condition="$v['scan_state'] eq 1">
+						最新扫描：<?php if(!empty($v['last_time'])){echo date('Y.m.d', $v['last_time']);}else{echo date('Y.m.d', time());}?>
+					<else />
+						<span style="color:red;">{$v.scan_state_desc}</span>
+					</if>
+					</td>
 				</tr>
 			</table>
 		</div>
