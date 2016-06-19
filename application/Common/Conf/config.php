@@ -19,12 +19,12 @@ $configs= array(
 		/* 标签库 */
 		'TAGLIB_BUILD_IN' => THINKCMF_CORE_TAGLIBS,
 		//'APP_GROUP_LIST'        => 'Admin,Portal,Asset,Api,Member,Wx,Toptic,Strap',      // 项目分组设定,多个组之间用逗号分隔,例如'Home,Admin'
-		'MODULE_ALLOW_LIST'  => array('Admin','Portal','Asset','Api','User','Wx','Comment','Qiushi','Tpl','Topic','Install','Bug','Better','Pay'),
+		'MODULE_ALLOW_LIST'  => array('Weixin'),
  		'TMPL_DETECT_THEME'     => false,       // 自动侦测模板主题
  		'TMPL_TEMPLATE_SUFFIX'  => '.html',     // 默认模板文件后缀
-		'DEFAULT_MODULE'        =>  'Admin',  // 默认模块
-		'DEFAULT_CONTROLLER'    =>  'public', // 默认控制器名称
-		'DEFAULT_ACTION'        =>  'login', // 默认操作名称
+		'DEFAULT_MODULE'        =>  'Weixin',  // 默认模块
+		'DEFAULT_CONTROLLER'    =>  'Index', // 默认控制器名称
+		'DEFAULT_ACTION'        =>  'index', // 默认操作名称
 		'DEFAULT_M_LAYER'       =>  'Model', // 默认的模型层名称
 		'DEFAULT_C_LAYER'       =>  'Controller', // 默认的控制器层名称
 		

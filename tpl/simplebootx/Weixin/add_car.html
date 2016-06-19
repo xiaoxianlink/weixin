@@ -15,7 +15,9 @@
 		var engine_number = $("#engine_number").val();
 		window.location.href="{:u('Sub/select_license')}"+"&user_id="+user_id+"&license_number="+license_number+"&frame_number="+frame_number+"&engine_number="+engine_number;
 	}
+	
 	function section() {
+		/*
 		var frame_number = $("#frame_number").val();
 		frame_number = frame_number.replace(/\s/g, "");
 		if (frame_number != '') {
@@ -25,6 +27,7 @@
 		    var newstr = newstr1 + ' ' + newstr2 + ' ' + newstr3;
 		    $("#frame_number").val("").focus().val(newstr);
 		}
+		*/
 	}
 	function onse() {
 		var frame_number = $("#frame_number").val();

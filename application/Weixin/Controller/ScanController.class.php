@@ -8,6 +8,29 @@ use Think\Model;
 use Think\Template\Driver\Mobile;
 
 class ScanController extends IndexController {
+	
+	function is_weixin(){
+		if ( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false ) {
+			return true;
+		}	
+		return false;
+	}
+	
+	function curPageURL() {
+		$pageURL = 'http';
+		if ($_SERVER["HTTPS"] == "on"){
+			$pageURL .= "s";
+		}
+		$pageURL .= "://";
+		if ($_SERVER["SERVER_PORT"] != "80") {
+			$pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
+		} 
+		else {
+			$pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+		}
+		return $pageURL;
+	}
+
 	public function index() {
 		$open_id = $_REQUEST ['openid'];
 		$car_id = $_REQUEST ['carid'];
@@ -17,6 +40,31 @@ class ScanController extends IndexController {
 				'openid' => ( string ) $open_id 
 		);
 		$user = $user_model->where ( $where )->find ();
+		if(empty($user) ){
+			$user = $user_model->where ( "bizid = '$open_id'" )->find ();
+		}
+		if(!empty($user)){
+			if($user['openid'] == $user['bizid'] && $this->is_weixin()){
+				if (! isset ( $_GET ['code'] )) {
+					$redirect_uri = $this->curPageURL();
+					$scope = 'snsapi_base';
+					$log = new Log ();
+					$log->write ( "sub请求", 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
+					$this->oauth ( $redirect_uri, $scope );
+				}
+				else {
+					$code = ( string ) $_GET ['code'];
+					$wx_open_id = $this->get_oauth_openid ( $code );
+					$log = new Log ();
+					$log->write ( "sub微信回调", 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
+					$userid = $user['id'];
+					$data = array (
+							"openid" => $wx_open_id
+						);
+					$user_model->where("id=$userid")->save($data);
+				}
+			}
+		}
 		$user_id = $user ['id'];
 		$car_model = M ( "Car" );
 		$where = array (
@@ -35,6 +83,7 @@ class ScanController extends IndexController {
 		$this->assign ( 'endorsement_list', $endorsement_list );
 		$this->display ( ":scan" );
 	}
+	
 	function get_endorsement($car_id) {
 		// 查询数据库违章信息
 		$endorsement_model = M ( "Endorsement" );
@@ -48,6 +97,7 @@ class ScanController extends IndexController {
 		}
 		return false;
 	}
+	
 	function get_endorsement_list($car_id, $user_id, $end_id = 0) {
 		// 查询数据库违章信息列表
 		$endorsement_model = M ( "Endorsement" );
@@ -61,149 +111,160 @@ class ScanController extends IndexController {
 		$endorsementlist = $endorsement_model->where ( $where )->order ( "`time` desc" )->select ();
 		$log = new Log ();
 		foreach ( $endorsementlist as $k => $v ) {
-			$city = $v ['area'];
-			$region_model = M ( "Region" );
-			$where = array (
-					"city" => $city,
-					"level" => 2,
-					"is_dredge" => 0 
-			);
-			$region = $region_model->where ( $where )->order ( 'id' )->find ();
-			if (empty ( $region )) {
-				$city_id1 = 0;
+			$fuwu = $this->find_fuwu($v["car_id"], $v["code"], $v["money"],$v["points"], $v["area"]);
+			if(!empty($fuwu)){
+				$endorsementlist [$k] ['so_id'] = $fuwu["so_id"];
+				$endorsementlist [$k] ['so_type'] = $fuwu["so_type"];
+				$endorsementlist [$k] ['so_money'] = $fuwu["so_money"];
 			}
-			else{
-				$city_id1 = $region ['id'];
-			}
-			
-			$where = array (
-					"id" => $v ['car_id'] 
-			);
-			$car_model = M ( "Car" );
-			$car = $car_model->where ( $where )->find ();
-			$l_nums = mb_substr ( $car ['license_number'], 0, 2, 'utf-8' );
-			$region_model = M ( "Region" );
-			$region = $region_model->where ( "nums = '$l_nums'" )->find ();
-			$region = $region_model->where ( "city = '{$region['city']}'" )->order ( "id" )->find ();
-			if (empty ( $region )) {
-				$city_id2 = 0;
-			} else {
-				$city_id2 = $region ['id'];
-			}
-			
-			// 筛选服务商
-			// 算法说明：
-		    // 1.先获取符合条件的静态报价列表，价格最低者优先
-			// 2.再获取符合条件的动态报价列表，价格最低者优先
-			// 3.比较两个价格列表顶部，价格最低者为本次违章处理的最低价
-			// 4.根据最低价，反查能提供该价格的服务商，选择正在处理订单数量最少的服务商为本次违章处理的服务商
-			// 潜在的性能问题：
-			// 若同一个城市中针对某违章的报价完全一样，且服务商数量上万，则本算法会造成内存使用量以及多次sql查询性能问题，但考虑该情况为极端情况，故本算法占时不处理。待真有此性能问题时，再行处理
-			
-			$violation_model = M("violation");
-			$violation = $violation_model->where("code = '{$v['code']}'")->find();
-			if(empty($violation) || $violation['state'] == 1){
-				continue;
-			}
-			
-			$so_model = new Model(); // 1.a
-			$so_sql = "select srv.id as services_id, so.id as so_id, so.money from cw_services as srv, cw_services_city as scity, cw_services_code as scode, cw_services_order as so where srv.id = scity.services_id and srv.id = scode.services_id and srv.id = so.services_id and srv.state = 0 and srv.grade > 4 and ((scity.code = $city_id1 and scity.state = 0) or (scity.code = $city_id2 and scity.state = 0)) and (scode.code = '{$v['code']}' and scode.state = 0 ) and so.violation = '{$v['code']}' and (so.code = $city_id1 or so.code = $city_id2) group by srv.id order by money asc ";
-			//$log->write ( $so_sql );
-			$solist = $so_model->query($so_sql);
-			
-			$sd_model = new Model(); // 1.b
-			$sd_sql = "select * from (select dyna.services_id, dyna.id as so_id, ({$v['money']} + dyna.fee + dyna.point_fee * {$v['points']}) dyna_fee from cw_services as srv, cw_services_city as scity, cw_services_code as scode, cw_services_dyna as dyna where srv.id = scity.services_id and srv.id = scode.services_id and srv.id = dyna.services_id and srv.state = 0 and srv.grade > 4 and ((scity.code = $city_id1 and scity.state = 0) or (scity.code = $city_id2 and scity.state = 0)) and scode.code = '{$v['code']}' and scode.state = 0 and (dyna.code = $city_id1 or dyna.code = $city_id2) ORDER BY dyna_fee ASC) as service_dyna group by services_id";
-			//$log->write ( $sd_sql );
-			$sdlist = $sd_model->query($sd_sql);
-			
-			// we now get the lowest price
-			$lowest_price = -1;
-			$so_id = -1;
-			$so_type = -1;
-			if( ! empty($solist)){
-				$lowest_price = $solist[0]['money'];
-				$so_id = $solist[0]['so_id'];
-				$so_type = 1;
-			}
-			if( ! empty($sdlist)){
-				if($lowest_price > -1 ){
-					if($lowest_price > $sdlist[0]['dyna_fee']){
-						$lowest_price = $sdlist[0]['dyna_fee'];
-						$so_id = $sdlist[0]['so_id'];
-						$so_type = 2;
-					}
-				}
-				else{
+		}
+		return $endorsementlist;
+	}
+	
+	function find_fuwu($car_id, $code, $money, $points, $area, $exclude_list = null){
+		$log = new Log ();
+		$fuwu = Array();
+		$region_model = M ( "Region" );
+		$where = array (
+				"city" => $area,
+				"level" => 2,
+				"is_dredge" => 0 
+		);
+		$region = $region_model->where ( $where )->order ( 'id' )->find ();
+		if (empty ( $region )) {
+			$city_id1 = 0;
+		}
+		else{
+			$city_id1 = $region ['id'];
+		}
+		
+		$where = array (
+				"id" => $car_id
+		);
+		$car_model = M ( "Car" );
+		$car = $car_model->where ( $where )->find ();
+		$l_nums = mb_substr ( $car ['license_number'], 0, 2, 'utf-8' );
+		$region_model = M ( "Region" );
+		$region = $region_model->where ( "nums = '$l_nums'" )->find ();
+		$region = $region_model->where ( "city = '{$region['city']}'" )->order ( "id" )->find ();
+		if (empty ( $region )) {
+			$city_id2 = 0;
+		} else {
+			$city_id2 = $region ['id'];
+		}
+		
+		$violation_model = M("violation");
+		$violation = $violation_model->field("money, points")->where("code = '$code'")->find();
+		if(empty($violation) || $violation['state'] == 1){
+			return $fuwu;
+		}
+		
+		$where = "";
+		if(!empty($exclude_list)){
+			$where = "srv.id not in (" . implode(",", $exclude_list) . ") and ";
+		}
+		$s_code = substr($code, 0, 4);
+		
+		$so_model = M(''); // 1.a
+		$so_sql = "select srv.id as services_id, so.id as so_id, so.money from cw_services as srv, cw_services_city as scity, cw_services_code as scode, cw_services_order as so where $where srv.id = scity.services_id and srv.id = scode.services_id and srv.id = so.services_id and srv.state = 0 and srv.grade > 4 and ((scity.code = $city_id1 and scity.state = 0) or (scity.code = $city_id2 and scity.state = 0)) and ((scode.code = '$code' or scode.code = '$s_code') and scode.state = 0 ) and so.violation = '$code' and (so.code = $city_id1 or so.code = $city_id2) group by srv.id order by money asc ";
+		$log->write ( $so_sql );
+		$solist = $so_model->query($so_sql);
+		
+		$sd_model = M(''); // 1.b
+		$sd_sql = "select * from (select dyna.services_id, dyna.id as so_id, ($money + dyna.fee + dyna.point_fee * $points) dyna_fee from cw_services as srv, cw_services_city as scity, cw_services_code as scode, cw_services_dyna as dyna where   $where srv.id = scity.services_id and srv.id = scode.services_id and srv.id = dyna.services_id and srv.state = 0 and srv.grade > 4 and ((scity.code = $city_id1 and scity.state = 0) or (scity.code = $city_id2 and scity.state = 0)) and (scode.code = '$code' or scode.code = '$s_code') and scode.state = 0 and (dyna.code = $city_id1 or dyna.code = $city_id2) ORDER BY dyna_fee ASC) as service_dyna group by services_id order by dyna_fee asc";
+		$log->write ( $sd_sql );
+		$sdlist = $sd_model->query($sd_sql);
+		
+		// we now get the lowest price
+		$lowest_price = -1;
+		$so_id = -1;
+		$so_type = -1;
+		if( ! empty($solist)){
+			$lowest_price = $solist[0]['money'];
+			$so_id = $solist[0]['so_id'];
+			$so_type = 1;
+		}
+		if( ! empty($sdlist)){
+			if($lowest_price > -1 ){
+				if($lowest_price > $sdlist[0]['dyna_fee']){
 					$lowest_price = $sdlist[0]['dyna_fee'];
 					$so_id = $sdlist[0]['so_id'];
 					$so_type = 2;
 				}
 			}
-			//$log->write ( "lowest_price=". $lowest_price );
-			if($lowest_price == -1){
-				continue;
+			else{
+				$lowest_price = $sdlist[0]['dyna_fee'];
+				$so_id = $sdlist[0]['so_id'];
+				$so_type = 2;
 			}
-			
-			$where = "";
-			$firstCondition = false;
-			$services_id_by_money = array ();
-			if( ! empty($solist)){
-				foreach ( $solist as $p => $c ) {
-					if($c['money'] == $lowest_price){
-						if ($firstCondition == false) {
-							$where .= " services_id = {$c['services_id']}";
-							$firstCondition = true;
-						} else {
-							$where .= " or services_id = {$c['services_id']}";
-						}
-						$services_id_by_money[] = $c['services_id'];
+		}
+		//$log->write ( "lowest_price=". $lowest_price );
+		if($lowest_price == -1){
+			return $fuwu;
+		}
+		
+		$where = "";
+		$firstCondition = false;
+		$services_id_by_money = array ();
+		if( ! empty($solist)){
+			foreach ( $solist as $p => $c ) {
+				if($c['money'] == $lowest_price){
+					if ($firstCondition == false) {
+						$where .= " services_id = {$c['services_id']}";
+						$firstCondition = true;
+					} else {
+						$where .= " or services_id = {$c['services_id']}";
 					}
-					else{
-						break;
-					}
+					$services_id_by_money[] = $c['services_id'];
 				}
-			}
-			if( ! empty($sdlist)){
-				foreach ( $sdlist as $p => $c ) {
-					if($c['dyna_fee'] == $lowest_price){
-						if ($firstCondition == false) {
-							$where .= " services_id = '{$c['services_id']}'";
-							$firstCondition = true;
-						} else {
-							$where .= " or services_id = '{$c['services_id']}'";
-						}
-						$services_id_by_money[] = $c['services_id'];
-					}
-					else{
-						break;
-					}
-				}
-			}
-			$order_model = new Model (); // 2
-			$sql = "SELECT COUNT(*) as nums, `services_id` FROM `cw_order` WHERE $where GROUP BY `services_id` ORDER BY nums";
-			//$log->write ( $sql);
-			$orderlist = $order_model->query ( $sql );
-			$services_id_by_ordernum = array ();
-			foreach ( $orderlist as $p => $c ) {
-				$services_id_by_ordernum [] = $c ['services_id'];
-			}
-			$services = array_diff ( $services_id_by_money, $services_id_by_ordernum );
-			if (! empty ( $services )) {
-				foreach ( $services as $r ) {
-					$services_id = $r;
+				else{
 					break;
 				}
-			} else {
-				$services_id = $orderlist [0] ['services_id'];
 			}
-			//$log->write ( "services_id=". $services_id );
-			// 3
-			$endorsementlist [$k] ['so_id'] = $so_id;
-			$endorsementlist [$k] ['so_type'] = $so_type;
-			$endorsementlist [$k] ['so_money'] = $lowest_price;
 		}
-		return $endorsementlist;
+		if( ! empty($sdlist)){
+			foreach ( $sdlist as $p => $c ) {
+				if($c['dyna_fee'] == $lowest_price){
+					if ($firstCondition == false) {
+						$where .= " services_id = '{$c['services_id']}'";
+						$firstCondition = true;
+					} else {
+						$where .= " or services_id = '{$c['services_id']}'";
+					}
+					$services_id_by_money[] = $c['services_id'];
+				}
+				else{
+					break;
+				}
+			}
+		}
+		$order_model = M(''); // 2
+		$sql = "SELECT COUNT(*) as nums, `services_id` FROM `cw_order` WHERE $where GROUP BY `services_id` ORDER BY nums";
+		//$log->write ( $sql);
+		$orderlist = $order_model->query ( $sql );
+		$services_id_by_ordernum = array ();
+		foreach ( $orderlist as $p => $c ) {
+			$services_id_by_ordernum [] = $c ['services_id'];
+		}
+		$services = array_diff ( $services_id_by_money, $services_id_by_ordernum );
+		if (! empty ( $services )) {
+			foreach ( $services as $r ) {
+				$services_id = $r;
+				break;
+			}
+		} else {
+			$services_id = $orderlist [0] ['services_id'];
+		}
+		//$log->write ( "services_id=". $services_id );
+		// 3
+		$fuwu['s_id'] = $services_id;
+		$fuwu['so_id'] = $so_id;
+		$fuwu['so_type'] = $so_type;
+		$fuwu['so_money'] = $lowest_price;
+		
+		return $fuwu;
 	}
+	
 	// 详情
 	public function scan_info() {
 		$id = $_REQUEST ['id'];
@@ -382,8 +443,12 @@ class ScanController extends IndexController {
 		$order_model->where ( "id='$order_id'" )->save ( $data );
 		$order = $this->get_order ( $order_id );
 		$data ["pay_money"]=intval($data ["pay_money"]*100);
-		$url ['url'] = APIURL . "Wxpay/example/jsapi.php??money={$data['pay_money']}&order_sn={$order ['order_sn']}&body=违章缴费&url=" . APIURL;
-		
+		if(runEnv == 'production'){
+			$url ['url'] = APIURL . "Wxpay/example/jsapi.php??money={$data['pay_money']}&order_sn={$order ['order_sn']}&body=违章缴费&url=" . APIURL;
+		}
+		else{
+			$url ['url'] = "http://weixin.xiaoxianlink.com/Wxpay/example/jsapi.php??money=1&order_sn={$order ['order_sn']}&body=违章缴费&url=" . APIURL;
+		}
 		$log = new Log ();
 		$log->write ( $url ['url'] );
 		
@@ -410,7 +475,10 @@ class ScanController extends IndexController {
 		$order = $order_model->where ( "order_sn='$order_sn'" )->find ();
 		$data = array (
 				"order_id" => $order ['id'],
+				"services_id" => $order ['services_id'],
 				"sod_id" => $order ['so_id'],
+				"so_type" => $order ['so_type'],
+				"money" => $order ['money'],
 				"state" => '0',
 				"c_time" => time (),
 				"l_time" => time () 
@@ -418,14 +486,6 @@ class ScanController extends IndexController {
 		$to_model = M ( "Turn_order" );
 		$to_model->add ( $data );
 		
-		$services_model = M ( "services" );
-		$services_info = $services_model->where ( "id='{$order['services_id']}'" )->find ();
-		if (! empty ( $services_info )) {
-			$data = array (
-					"all_nums" => $services_info ['all_nums'] + 1 
-			);
-			$services_model->where ( "id='{$order['services_id']}'" )->save ();
-		}
 		// 修改违章状态
 		$data = array (
 				"is_manage" => 1,
@@ -450,23 +510,26 @@ class ScanController extends IndexController {
 			$uc_model = M ( "User_coupon" );
 			$uc_model->where ( "id={$order ['ucoupon_id']}" )->save ( $data );
 		}
-		return true;
-	}
-	public function success_pay() {
-		$order_sn = $_REQUEST ['order_sn'];
-		$order_model = M ( "Order" );
-		$order = $order_model->field ( "cw_order.id,u.openid, cw_order.car_id, cw_order.services_id, sod.money" )->join ( "cw_services_order as sod on sod.id = cw_order.so_id" )->join ( "cw_user as u on u.id = cw_order.user_id" )->where ( "cw_order.order_sn='$order_sn'" )->find ();
+		
+		$services_model = M ( "services" );
+		$services_info = $services_model->where ( "id='{$order['services_id']}'" )->find ();
+		if (! empty ( $services_info )) {
+			$data = array (
+					"all_nums" => $services_info ['all_nums'] + 1 
+			);
+			$services_model->where ( "id='{$order['services_id']}'" )->save ($data);
+		}
+		
+		/*
 		// 服务商收入
 		$s_model = M ( "bank" );
 		$s_info = $s_model->where ( "bank_id = '{$order['services_id']}'" )->find ();
 		if (! empty ( $s_info )) {
 			$data = array (
 					"money" => $s_info ['money'] + $order ['money'],
-					"balance_money" => $s_info ['balance_money'] + $order ['money'],
-					"end_money" => $s_info ['end_money'] + $order ['money'],
-					"income_money" => $s_info ['income_money'] + $order ['money'] 
+					"end_money" => $s_info ['end_money'] + $order ['money']
 			);
-			$s_model->where ( "id='{$s_info['id']}'" )->save ( $data );
+			$re = $s_model->where ( "id='{$s_info['id']}'" )->save ( $data );
 		} else {
 			$data = array (
 					"bank_id" => $order ['services_id'],
@@ -476,27 +539,34 @@ class ScanController extends IndexController {
 					"money" => $order ['money'],
 					"end_money" => $order ['money'],
 					"user_money" => 0,
-					"create_time" => time (),
-					"pay_money" => 0,
-					"balance_money" => $order ['money'],
-					"income_money" => $order ['money'] 
+					"create_time" => time ()
 			);
 			$s_model->add ( $data );
-			$s_info = $s_model->where ( "bank_id = '{$order['services_id']}'" )->find ();
 		}
-		// 评估
-		$services_model = M ( "services" );
-		$services_info = $services_model->where ( "id='{$order['services_id']}'" )->find ();
-		$data = array (
-				"all_nums" => $services_info ['all_nums'] + 1 
-		);
-		$services_model->where ( "id='{$order['services_id']}'" )->save ( $data );
+		*/
+		/* start 增加新订单提醒推送*/
+		$turn_order_model = M ('turn_order');
+		$t_info = $turn_order_model->field('tos.c_time')->table ( "cw_turn_order as tos" )->join ( "cw_order as o on o.id=tos.order_id", 'left' )->join ( "cw_services as s on s.id=o.services_id", 'left' )->where ( "o.order_sn='$order_sn'" )->find ();
+		$order_sn_to = $order_sn . substr ( $t_info ['c_time'], - 2 ) . $order ['services_id'];
+		$content = sprintf(content4, $order_sn_to);
+		$title = title4;
+		$tz_content = sprintf(content4, $order_sn_to);
+		$model_mes = M ("message");
+		$info = $model_mes->where("content = '$content'")->find();
+		if(empty($info)){
+		    $this->pushMessageToSingle($content, $title,$tz_content,$services_info['phone']);
+		    //插入消息表
+		    $this->add_message($services_info['id'], 3, 4, '', $content);
+		}
+		/* end */
+		
+		/*
 		// 记录
 		$data = array (
 				"services_id" => $s_info ['bank_id'],
-				"income_money" => $s_info ['income_money'] + $order ['money'],
-				"pay_money" => $s_info ['pay_money'],
-				"end_money" => $s_info ['end_money'],
+				"income_money" => $order ['money'],
+				"pay_money" => 0,
+				"end_money" => $s_info ['end_money'] + $order ['money'],
 				"user_money" => $s_info ['user_money'],
 				"money" => $s_info ['money'] + $order ['money'],
 				"order_id" => $order ['id'],
@@ -504,6 +574,14 @@ class ScanController extends IndexController {
 		);
 		$jl_model = M ( "services_jilu" );
 		$jl_model->add ( $data );
+		*/
+		return true;
+	}
+	
+	public function success_pay() {
+		$order_sn = $_REQUEST ['order_sn'];
+		$order_model = M ( "Order" );
+		$order = $order_model->field ( "cw_order.id,u.openid, cw_order.car_id, cw_order.services_id, cw_order.money" )->join ( "cw_user as u on u.id = cw_order.user_id" )->where ( "cw_order.order_sn='$order_sn'" )->find ();
 		
 		$car_model = M ( "Car" );
 		$car = $car_model->field ( "license_number" )->where ( "id = '{$order['car_id']}'" )->find ();

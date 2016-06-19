@@ -100,6 +100,7 @@ class SubController extends IndexController {
 			$car_model = M ( "Car" );
 			$car = $car_model->where ( $data )->find ();
 			$uc_model = M ( "User_car" );
+			$new_car = 0;
 			if (! empty ( $car )) {
 				$data = array (
 						"user_id" => $_POST ['user_id'],
@@ -124,10 +125,12 @@ class SubController extends IndexController {
 						"is_sub" => 0,
 						'create_time' => time () 
 				);
+				$new_car = 1;
 				$uc_model->add ( $data );
 			}
 			$msg ['user_id'] = $_POST ['user_id'];
 			$msg ['car_id'] = $data ['car_id'];
+			$msg ['new_car'] = $new_car;
 			$msg ['license_number'] = $data ['license_number'];
 			$this->redirect ( "Sub/take_success", $msg );
 		}
@@ -135,22 +138,15 @@ class SubController extends IndexController {
 	public function take_success() {
 		$user_id = $_REQUEST ['user_id'];
 		$car_id = $_REQUEST ['car_id'];
+		$new_car = $_REQUEST ['new_car'];
 		$car_model = M ( "car" );
 		$car_info = $car_model->where ( "id='$car_id'" )->find ();
 		$license_number = $car_info ['license_number'];
 		$user_model = M ( "User" );
 		$user = $user_model->where ( "id='$user_id'" )->find ();
 		// 查询违章保存信息
-		if (! empty ( $user ['city'] )) {
-			$this->scan_api ( $car_id, $user ['city'] );
-		}
-		$l_nums = mb_substr ( $license_number, 0, 2, 'utf-8' );
-		$region_model = M ( "Region" );
-		$region = $region_model->where ( "nums = '$l_nums'" )->find ();
-		if (! empty ( $region )) {
-			if ($region ['city'] != $user ['city']) {
-				$this->scan_api ( $car_id, $region ['city'] );
-			}
+		if($new_car == 1){
+			$this->scan_api ( $car_id );
 		}
 		// 查询数据库违章信息
 		$endorsement_model = M ( "Endorsement" );
@@ -159,74 +155,8 @@ class SubController extends IndexController {
 				"is_manage" => 0 
 		);
 		$endorsement = $endorsement_model->field ( "count(*) as nums, sum(points) as all_points, sum(money) as all_money" )->where ( $where )->find ();
-		$date = date ( 'Y-m-d' );
-		if (! empty ( $endorsement )) {
-			if ($endorsement ['nums'] != 0) {
-				$data = array (
-						'first' => array (
-								'value' => urlencode ( "您好，{$license_number}近期违章统计信息如下：" ),
-								'color' => "#000000" 
-						),
-						'keyword1' => array (
-								'value' => urlencode ( $license_number ),
-								'color' => '#000000' 
-						),
-						'keyword2' => array (
-								'value' => urlencode ( "{$endorsement['nums']}" ),
-								'color' => '#000000' 
-						),
-						'keyword3' => array (
-								'value' => urlencode ( "{$endorsement['all_points']}" ),
-								'color' => '#000000' 
-						),
-						'keyword4' => array (
-								'value' => urlencode ( "{$endorsement['all_money']}" ),
-								'color' => '#000000' 
-						),
-						'keyword5' => array (
-								'value' => urlencode ( $date ),
-								'color' => '#000000' 
-						),
-						'remark' => array (
-								'value' => urlencode ( "" ),
-								'color' => '#000000' 
-						) 
-				);
-				$this->doSend ( $car_id, $endorsement, $user ['openid'], MUBAN1, URL3 . "&openid=" . $user ['openid'] . "&carid=" . $car_id, $data );
-			} else {
-				$data = array (
-						'first' => array (
-								'value' => urlencode ( "您好，{$license_number}近期违章统计信息如下：" ),
-								'color' => "#000000" 
-						),
-						'keyword1' => array (
-								'value' => urlencode ( $license_number ),
-								'color' => '#000000' 
-						),
-						'keyword2' => array (
-								'value' => urlencode ( "{$endorsement['nums']}" ),
-								'color' => '#000000' 
-						),
-						'keyword3' => array (
-								'value' => urlencode ( "0" ),
-								'color' => '#000000' 
-						),
-						'keyword4' => array (
-								'value' => urlencode ( "0" ),
-								'color' => '#000000' 
-						),
-						'keyword5' => array (
-								'value' => urlencode ( $date ),
-								'color' => '#000000' 
-						),
-						'remark' => array (
-								'value' => urlencode ( "" ),
-								'color' => '#000000' 
-						) 
-				);
-				$this->doSend ( $car_id, $endorsement, $user ['openid'], MUBAN1, "", $data );
-			}
-		}
+		
+		$this->__push_wzstats($user, $car_id, $license_number, $endorsement);
 		
 		$this->assign ( 'user_id', $user_id );
 		$this->display ( ":take_success" );

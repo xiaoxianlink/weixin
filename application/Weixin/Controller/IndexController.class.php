@@ -8,10 +8,13 @@
 // +----------------------------------------------------------------------
 namespace Weixin\Controller;
 
-use Common\Controller\HomeBaseController;
+//use Common\Controller\HomeBaseController;
+use Weixin\Controller\ApiController;
 use Think\Log;
 
-class IndexController extends HomeBaseController {
+
+class IndexController extends ApiController {
+
 	public function index() {
 		if (! isset ( $_GET ['echostr'] )) {
 			$this->responseMsg ();
@@ -471,122 +474,6 @@ class IndexController extends HomeBaseController {
 	 * private function logger($log_content) { if (isset ( $_SERVER ['HTTP_APPNAME'] )) { // SAE sae_set_display_errors ( false ); sae_debug ( $log_content ); sae_set_display_errors ( true ); } else if ($_SERVER ['REMOTE_ADDR'] != "127.0.0.1") { // LOCAL $max_size = 1000000; $log_filename = "log.xml"; if (file_exists ( $log_filename ) and (abs ( filesize ( $log_filename ) ) > $max_size)) { unlink ( $log_filename ); } file_put_contents ( $log_filename, date ( 'Y-m-d H:i:s' ) . " " . $log_content . "\r\n", FILE_APPEND ); } }
 	 */
 	
-	// 获取Access Token
-	function get_access_token() {
-		$appid = APPID;
-		$appsecret = APPSECRET;
-		$url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$appid&secret=$appsecret";
-		
-		$ch = curl_init ();
-		curl_setopt ( $ch, CURLOPT_URL, $url );
-		curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, FALSE );
-		curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, FALSE );
-		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
-		$output = curl_exec ( $ch );
-		curl_close ( $ch );
-		$jsoninfo = json_decode ( $output, true );
-		$access_token = $jsoninfo ["access_token"];
-		return $access_token;
-	}
-	
-	// 获取用户信息
-	function get_user_info($openid) {
-		$appid = APPID;
-		$appsecret = APPSECRET;
-		$access_token = $this->get_access_token ();
-		$url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=$access_token&openid=$openid&lang=zh_CN";
-		
-		$ch = curl_init ();
-		curl_setopt ( $ch, CURLOPT_URL, $url );
-		curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, FALSE );
-		curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, FALSE );
-		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
-		$output = curl_exec ( $ch );
-		curl_close ( $ch );
-		$jsoninfo = json_decode ( $output, true );
-		return $jsoninfo;
-	}
-	
-	// 发送自定义的模板消息
-	public function doSend($id, $endorsement, $touser, $template_id, $url, $data, $topcolor = '#7B68EE') {
-		/*
-		 * $data = array ( 'first' => array ( 'value' => urlencode ( "您好,您已购买成功" ), 'color' => "#743A3A" ), 'name' => array ( 'value' => urlencode ( "商品信息:微时代电影票" ), 'color' => '#EEEEEE' ), 'remark' => array ( 'value' => urlencode ( '永久有效!密码为:1231313' ), 'color' => '#FFFFFF' ) );
-		 */
-		$log = new Log ();
-		$template = array (
-				'touser' => $touser,
-				'template_id' => $template_id,
-				'url' => $url,
-				'topcolor' => $topcolor,
-				'data' => $data 
-		);
-		$json_template = json_encode ( $template );
-		$url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=" . $this->get_access_token ();
-		$dataRes = $this->request_post ( $url, urldecode ( $json_template ) );
-		if ($id != 0) {
-			$data = array (
-					"from_userid" => 0,
-					"openid" => $touser,
-					"msg_type" => 1,
-					"tar_id" => $id,
-					"create_time" => time (),
-					"nums" => $endorsement ['nums'],
-					"all_points" => $endorsement ['all_points'],
-					"all_money" => $endorsement ['all_money'] 
-			);
-			$model = M ( "Message" );
-			$model->add ( $data );
-		}
-		$log->write ( serialize ( $dataRes ), 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
-		if ($dataRes ['errcode'] == 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	// 网页授权
-	function oauth($redirect_uri, $scope, $state = '') {
-		$url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . APPID . '&redirect_uri=' . urlencode ( $redirect_uri ) . '&response_type=code&scope=' . $scope . '&state=' . $state . '#wechat_redirect';
-		header ( "Location:" . $url );
-	}
-	// 网页授权获取openid
-	function get_oauth_openid($code) {
-		$get_token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . APPID . '&secret=' . APPSECRET . '&code=' . $code . '&grant_type=authorization_code';
-		$ch = curl_init ();
-		curl_setopt ( $ch, CURLOPT_URL, $get_token_url );
-		curl_setopt ( $ch, CURLOPT_HEADER, 0 );
-		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
-		curl_setopt ( $ch, CURLOPT_CONNECTTIMEOUT, 10 );
-		$res = curl_exec ( $ch );
-		curl_close ( $ch );
-		$json_obj = json_decode ( $res, true );
-		
-		return $json_obj ['openid'];
-	}
-	/**
-	 * 发送post请求
-	 *
-	 * @param string $url        	
-	 * @param string $param        	
-	 * @return bool mixed
-	 */
-	function request_post($url = '', $param = '') {
-		if (empty ( $url ) || empty ( $param )) {
-			return false;
-		}
-		$postUrl = $url;
-		$curlPost = $param;
-		$ch = curl_init (); // 初始化curl
-		curl_setopt ( $ch, CURLOPT_URL, $postUrl ); // 抓取指定网页
-		curl_setopt ( $ch, CURLOPT_HEADER, 0 ); // 设置header
-		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 ); // 要求结果为字符串且输出到屏幕上
-		curl_setopt ( $ch, CURLOPT_POST, 1 ); // post提交方式
-		curl_setopt ( $ch, CURLOPT_POSTFIELDS, $curlPost );
-		$data = curl_exec ( $ch ); // 运行curl
-		curl_close ( $ch );
-		return $data;
-	}
-	
 	/**
 	 * 以下数据库操作 *
 	 */
@@ -662,7 +549,7 @@ class IndexController extends HomeBaseController {
 	function scanning($openid) {
 		$user_model = M ( "User" );
 		$data ['openid'] = ( string ) $openid;
-		$user = $user_model->field ( 'id' )->where ( $data )->find ();
+		$user = $user_model->where ( $data )->find ();
 		$msg = "1";
 		if (! empty ( $user )) {
 			// 查询记录
@@ -688,21 +575,11 @@ class IndexController extends HomeBaseController {
 			}
 			
 			$car_model = M ();
-			$car = $car_model->table ( "cw_user_car as uc" )->join ( "cw_car as c on c.id = uc.car_id" )->join ( "cw_user as u on u.id = uc.user_id" )->field ( "c.*, uc.user_id, uc.car_id, u.city" )->where ( "uc.user_id = '{$user ['id']}' and uc.is_sub = 0" )->select ();
+			$car = $car_model->table ( "cw_user_car as uc" )->join ( "cw_car as c on c.id = uc.car_id" )->join ( "cw_user as u on u.id = uc.user_id" )->field ( "c.*, uc.user_id, uc.car_id, u.city" )->where ( "uc.user_id = '{$user ['id']}' and uc.is_sub = 0 and u.is_att = 0" )->select ();
 			foreach ( $car as $k => $v ) {
 				if($v['scan_state'] == 1){
 					// 查询违章保存信息
-					if ($v ['city'] != null && $v ['city'] != '') {
-						$this->scan_api ( $v ['car_id'], $v ['city'] );
-					}
-					$l_nums = mb_substr ( $v ['license_number'], 0, 2, 'utf-8' );
-					$region_model = M ( "Region" );
-					$region = $region_model->where ( "nums = '$l_nums'" )->find ();
-					if (! empty ( $region )) {
-						if ($v ['city'] != $region ['city']) {
-							$this->scan_api ( $v ['car_id'], $region ['city'] );
-						}
-					}
+					//$this->scan_api ( $v ['car_id']);
 					
 					// 查询数据库违章信息
 					$endorsement_model = M ( "Endorsement" );
@@ -711,109 +588,11 @@ class IndexController extends HomeBaseController {
 							"is_manage" => 0 
 					);
 					$endorsement = $endorsement_model->field ( "count(*) as nums, sum(points) as all_points, sum(money) as all_money" )->where ( $where )->find ();
-					$date = date ( 'Y-m-d' );
-					if (! empty ( $endorsement )) {
-						if ($endorsement ['nums'] != 0) {
-							$data = array (
-									'first' => array (
-											'value' => urlencode ( "您好，{$v ['license_number']}近期违章统计信息如下：" ),
-											'color' => "#000000" 
-									),
-									'keyword1' => array (
-											'value' => urlencode ( "{$v ['license_number']}" ),
-											'color' => '#000000' 
-									),
-									'keyword2' => array (
-											'value' => urlencode ( "{$endorsement['nums']}" ),
-											'color' => '#000000' 
-									),
-									'keyword3' => array (
-											'value' => urlencode ( "{$endorsement['all_points']}" ),
-											'color' => '#000000' 
-									),
-									'keyword4' => array (
-											'value' => urlencode ( "{$endorsement['all_money']}" ),
-											'color' => '#000000' 
-									),
-									'keyword5' => array (
-											'value' => urlencode ( $date ),
-											'color' => '#000000' 
-									),
-									'remark' => array (
-											'value' => urlencode ( "" ),
-											'color' => '#000000' 
-									) 
-							);
-							$this->doSend ( $v ['car_id'], $endorsement, ( string ) $openid, MUBAN1, URL3 . "&openid=" . ( string ) $openid . "&carid=" . $v ['car_id'], $data );
-						} else {
-							$data = array (
-									'first' => array (
-											'value' => urlencode ( "您好，{$v ['license_number']}近期违章统计信息如下：" ),
-											'color' => "#000000" 
-									),
-									'keyword1' => array (
-											'value' => urlencode ( "{$v ['license_number']}" ),
-											'color' => '#000000' 
-									),
-									'keyword2' => array (
-											'value' => urlencode ( "{$endorsement['nums']}" ),
-											'color' => '#000000' 
-									),
-									'keyword3' => array (
-											'value' => urlencode ( "0" ),
-											'color' => '#000000' 
-									),
-									'keyword4' => array (
-											'value' => urlencode ( "0" ),
-											'color' => '#000000' 
-									),
-									'keyword5' => array (
-											'value' => urlencode ( $date ),
-											'color' => '#000000' 
-									),
-									'remark' => array (
-											'value' => urlencode ( "" ),
-											'color' => '#000000' 
-									) 
-							);
-							$this->doSend ( $v ['car_id'], $endorsement, ( string ) $openid, MUBAN1, "", $data );
-						}
-					}
+					
+					$this->__push_wzstats($user, $v ['car_id'], $v ['license_number'], $endorsement);
 				}
 				else{
-					$url = URL1;
-					$date = date ( 'Y-m-d' );
-					$data = array (
-							'first' => array (
-									'value' => urlencode ( "您好，{$v['license_number']}的车辆信息有误，请检查。" ),
-									'color' => "#000000" 
-							),
-							'keyword1' => array (
-									'value' => urlencode ( "{$v ['license_number']}" ),
-									'color' => '#000000' 
-							),
-							'keyword2' => array (
-									'value' => urlencode ( "0" ),
-									'color' => '#000000' 
-							),
-							'keyword3' => array (
-									'value' => urlencode ( "0" ),
-									'color' => '#000000' 
-							),
-							'keyword4' => array (
-									'value' => urlencode ( "0" ),
-									'color' => '#000000' 
-							),
-							'keyword5' => array (
-									'value' => urlencode ( $date ),
-									'color' => '#000000' 
-							),
-							'remark' => array (
-									'value' => urlencode ( "停查原因：{$v['scan_state_desc']}" ),
-									'color' => '#FF0000' 
-							) 
-					);
-					$this->doSend ( $v ['car_id'], null, ( string ) $openid, MUBAN1, $url, $data );
+					$this->__push_error($user, $v ['car_id'], $v ['license_number'], $v['scan_state_desc']);
 				}
 			}
 			if (count ( $car ) == 0) {
@@ -825,253 +604,21 @@ class IndexController extends HomeBaseController {
 		
 		return $msg;
 	}
-	// 车首页接口
-	function scan_api($car_id, $city, $type = 1) {
-		$log = new Log ();
-		$car_model = M ( "Car" );
-		$car = $car_model->where ( "id = $car_id" )->find ();
-		$region_model = M ( "Region" );
-		if ($type == 1) {
-			$region = $region_model->where ( "city = '$city'" )->find ();
-		} else {
-			$region = $region_model->where ( "province = '$city' and level = 1" )->find ();
+
+	function scan_api($car_id) {
+		$scan_api_url = "";
+		if(runEnv == "production"){
+			$scan_api_url = "http://ziniu.xiaoxianlink.com/index.php?g=weizhang&m=index&a=index"; 
 		}
-		
-		// 车首页查询
-		$app_id = app_id;
-		$app_key = app_key;
-		$engineLen = $region ['c_engine_nums'];
-		if ($engineLen > 0) {
-			$engine_number = substr ( $car ['engine_number'], - $engineLen );
-		} else {
-			$engine_number = $car ['engine_number'];
+		elseif(runEnv == "test"){
+			$scan_api_url = "http://zndev.xiaoxianlink.com/index.php?g=weizhang&m=index&a=index"; 
 		}
-		$frameLen = $region ['c_frame_nums'];
-		if ($frameLen > 0) {
-			$frame_number = substr ( $car ['frame_number'], - $frameLen );
-		} else {
-			$frame_number = $car ['frame_number'];
+		else{
+			$scan_api_url = "http://zn.xiaoxian.com/index.php?g=weizhang&m=index&a=index";
 		}
-		$car = "{hphm={$car['license_number']}&classno={$frame_number}&engineno={$engine_number}&city_id={$region['code']}&car_type=02}";
-		$car_info = urlencode ( $car );
-		$time = time ();
-		$sign = md5 ( $app_id . $car . $time . $app_key );
-		$url = "http://www.cheshouye.com/api/weizhang/query_task?car_info=$car_info&sign=$sign&timestamp=$time&app_id=$app_id";
-		$ch = curl_init ();
-		curl_setopt ( $ch, CURLOPT_URL, $url );
-		curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, FALSE );
-		curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, FALSE );
-		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
-		$output = curl_exec ( $ch );
-		curl_close ( $ch );
-		$jsoninfo = json_decode ( $output, true );
-		$log->write ( "请求参数：" . $url, 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
-		$log->write ( "返回参数：" . $output, 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
-		$endorsement_model = M ( "Endorsement" );
-		$log_model = M ( "Endorsement_log" );
-		// 保存车首页查询信息
-		$ids = "0";
-		$jilu_model = M ( "endorsement_jilu" );
-		$jilu_data = array (
-				"car_id" => $car_id,
-				"city" => $city,
-				"money" => 0,
-				"points" => 0,
-				"all_nums" => 0,
-				"add_nums" => 0,
-				"edit_nums" => 0,
-				"c_time" => time (),
-				"port" => 'cheshouye.com',
-				"code" => $jsoninfo ['status'],
-				"state" => 1 
+		$post_data = array(
+			"car_id" => $car_id
 		);
-		$jilu_id = $jilu_model->add ( $jilu_data );
-		if ($jsoninfo ['status'] == 2001) {
-			foreach ( $jsoninfo ['historys'] as $v ) {
-				$jilu_data ['all_nums'] ++;
-				$jilu_data ['money'] += $v ['money'];
-				$jilu_data ['points'] += $v ['fen'];
-				$time = strtotime ( $v ['occur_date'] );
-				$endorsement = $endorsement_model->where ( "car_id = '$car_id' and time = '$time'" )->find ();
-				if (empty ( $endorsement )) {
-					$city = isset ( $v ['city_name'] ) ? $v ['city_name'] : $city;
-					$data = array (
-							"car_id" => $car_id,
-							"area" => $city,
-							"query_port" => csyapi,
-							"code" => $v ['code'],
-							"time" => $time,
-							"money" => $v ['money'],
-							"points" => $v ['fen'],
-							"address" => $v ['occur_area'],
-							"content" => $v ['info'],
-							"create_time" => time (),
-							"manage_time" => time (),
-							"query_no" => $jilu_id,
-							// "certificate_no" => $v ['archive'],
-							"office" => $v ['officer'] 
-					);
-					$endorsement_model->add ( $data );
-					$jilu_data ['add_nums'] ++;
-					$data = array (
-							"end_id" => $endorsement_model->getLastInsID (),
-							"state" => 1,
-							"c_time" => time (),
-							"type" => 0 
-					);
-					$log_model->add ( $data );
-				}
-			}
-			$jilu_model->where ( "id='$jilu_id'" )->save ( $jilu_data );
-		} elseif ($jsoninfo ['status'] == 2000) {
-		} elseif($jsoninfo ['status'] == 5008){
-			$car_scan_data = array (
-				"scan_state" => 0,
-				"scan_state_desc" => "输入的车辆信息有误，请查证后重新输入",
-				"scan_state_time" => time (),
-				"scan_stop_query" => $jilu_id
-			);
-			$car_model->where ( "id='$car_id'" )->save ( $car_scan_data );
-		}else {
-			$jsoninfo = $this->get_endorsement ( $car_id, $city );
-			$jilu_data = array (
-					"car_id" => $car_id,
-					"city" => $city,
-					"money" => 0,
-					"points" => 0,
-					"all_nums" => 0,
-					"add_nums" => 0,
-					"edit_nums" => 0,
-					"c_time" => time (),
-					"port" => "http://120.26.57.239/api/",
-					"code" => $jsoninfo ['code'],
-					"state" => 1
-			);
-			$jilu_id = $jilu_model->add ( $jilu_data );
-			if ($jsoninfo ['code'] == '0') {
-				foreach ( $jsoninfo ['data'] [0] ['result'] as $v ) {
-					$v ['violationPrice'] = isset($v ['violationPrice']) ? $v ['violationPrice'] : 0;
-					$v ['violationMark'] = isset($v ['violationMark']) ? $v ['violationMark'] : '-1';
-					$v ['violationTime'] = isset($v ['violationTime']) ? $v ['violationTime'] : '-1';
-					$v ['violationCode'] = isset($v ['violationCode']) ? $v ['violationCode'] : 0;
-					$v ['violationAddress'] = isset($v ['violationAddress']) ? $v ['violationAddress'] : '-1';
-					$v ['violationDesc'] = isset($v ['violationDesc']) ? $v ['violationDesc'] : '-1';
-					if ($v ['violationPrice'] != 0 && $v ['violationMark'] != '-1' && $v ['violationTime'] != '-1' && $v ['violationCode'] != 0 && $v ['violationAddress'] != '-1' && $v ['violationDesc'] != '-1') {
-						$v ['violationPrice'] = $v ['violationPrice'] / 100;
-						$jilu_data ['all_nums'] ++;
-						$jilu_data ['money'] += $v ['violationPrice'];
-						$jilu_data ['points'] += $v ['violationMark'];
-						$time = strtotime ( $v ['violationTime'] );
-						$endorsement = $endorsement_model->where ( "car_id = '$car_id' and time = '$time'" )->find ();
-						if (empty ( $endorsement )) {
-							$city = isset ( $v ['violationCity'] ) ? $v ['violationCity'] : $city;
-							$data = array (
-									"car_id" => $car_id,
-									"area" => $city,
-									"query_port" => acfapi,
-									"code" => $v ['violationCode'],
-									"time" => $time,
-									"money" => $v ['violationPrice'],
-									"points" => $v ['violationMark'],
-									"address" => $v ['violationAddress'],
-									"content" => $v ['violationDesc'],
-									"create_time" => time (),
-									"manage_time" => time (),
-									"query_no" => $jilu_id,
-									// "certificate_no" => $v ['archive'],
-									"office" => $v ['officeName']
-							);
-							$endorsement_model->add ( $data );
-							$jilu_data ['add_nums'] ++;
-							$data = array (
-									"end_id" => $endorsement_model->getLastInsID (),
-									"state" => 1,
-									"c_time" => time (),
-									"type" => 0
-							);
-							$log_model->add ( $data );
-						}
-					}
-				}
-			}
-			elseif($jsoninfo ['code'] == 29 || ($jsoninfo ['code'] >= 31 && $jsoninfo ['code'] <= 34)){
-				$car_scan_data = array (
-					"scan_state" => 0,
-					"scan_state_desc" => $jsoninfo['message'],
-					"scan_state_time" => time (),
-					"scan_stop_query" => $jilu_id
-				);
-				$car_model->where ( "id='$car_id'" )->save ( $car_scan_data );
-			}
-			$jilu_model->where ( "id='$jilu_id'" )->save ( $jilu_data );
-		}
-		$data = array (
-				"last_time" => time () 
-		);
-		$car_model->where ( "id = '$car_id'" )->save ( $data );
-	}
-	// 爱车坊接口
-	function get_endorsement($car_id, $city) {
-		$log = new Log ();
-		$car_model = M ( "Car" );
-		$car = $car_model->where ( "id = $car_id" )->find ();
-		$region_model = M ( "Region" );
-		$region = $region_model->where ( "city = '$city'" )->find ();
-		/*
-		 * $acf_model = M ( "Acf_token" ); $acf = $acf_model->find (); if (empty ( $acf )) { $token = $this->get_acf_token (); $data = array ( "token" => $token, "c_time" => time () ); $acf_model->add ( $data ); } else {
-		 */
-		// if ($acf ['token'] == '' || $acf ['token'] == null || $acf ['c_time'] < (time () - 3600 * 23)) {
-		$token = $this->get_acf_token ();
-		/*
-		 * $data = array ( "token" => $token, "c_time" => time () ); $acf_model->where ( "id={$acf['id']}" )->save ( $data );
-		 */
-			/* } else {
-				$token = $acf ['token'];
-			} */
-		/* } */
-		if ($token != '' && $token != null) {
-			$license_nums = $car ['license_number'];
-			$provinceCode = urlencode ( mb_substr ( $license_nums, 0, 1, 'utf-8' ) );
-			$carNumber = mb_substr ( $license_nums, 1, strlen ( $license_nums ), 'utf-8' );
-			$engineLen = $region ['engine_nums'];
-			$frameLen = $region ['frame_nums'];
-			$engine_number = substr ( $car ['engine_number'], - $engineLen );
-			$frame_number = substr ( $car ['frame_number'], - $frameLen );
-			$url = "http://120.26.57.239/api/queryCarViolateInfo?provinceCode=$provinceCode&carNumber=$carNumber&vioCityCode={$region['acode']}&carType=0&carFrame={$frame_number}&carEngine={$engine_number}";
-			$log->write ( $url, 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
-			$ch = curl_init ();
-			$header = array (
-					"token: $token" 
-			);
-			curl_setopt ( $ch, CURLOPT_URL, $url );
-			curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, FALSE );
-			curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, FALSE );
-			curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
-			curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header );
-			$output = curl_exec ( $ch );
-			curl_close ( $ch );
-			$jsoninfo = json_decode ( $output, true );
-			$log->write ( "aichefang:" . $output, 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
-		} else {
-			$jsoninfo = array ();
-			$jsoninfo ['code'] = 1;
-		}
-		return $jsoninfo;
-	}
-	// 获取爱车坊token
-	function get_acf_token() {
-		$url = "http://120.26.57.239/api/getAccessToken?merKey=" . merKey . "&merCode=" . merCode;
-		$ch = curl_init ();
-		curl_setopt ( $ch, CURLOPT_URL, $url );
-		curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, FALSE );
-		curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, FALSE );
-		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
-		$output = curl_exec ( $ch );
-		curl_close ( $ch );
-		$log = new Log ();
-		$log->write ( "get_token:" . $output, 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
-		$jsoninfo = json_decode ( $output, true );
-		$token = $jsoninfo ['data'] [0] ['accessToken'];
-		return $token;
+		$this->request_post($scan_api_url, http_build_query($post_data));
 	}
 }
