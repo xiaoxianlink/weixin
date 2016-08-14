@@ -80,12 +80,12 @@
 			return false;
 		}
 		if(frame_number==""){
-			$("#list").html("车架号不能为空！");
+			$("#list").html("车辆识别代号不能为空！");
 			showbtn();
 			return false;
 		}
 		if(engine_number==""){
-			$("#list").html("发动机号不能为空！");
+			$("#list").html("发动机号码不能为空！");
 			showbtn();
 			return false;
 		}
@@ -96,12 +96,12 @@
 			return false;
 		}
 		if (!Regx.test(frame_number) || frame_number.length < 10) {
-			$("#list").html("车架号不正确！");
+			$("#list").html("车辆识别代号不正确！");
 			showbtn();
 			return false;
 		}
 		if (!Regx.test(engine_number)) {
-			$("#list").html("发动机号不正确！");
+			$("#list").html("发动机号码不正确！");
 			showbtn();
 			return false;
 		}
@@ -142,12 +142,12 @@
 				  <input type="text" name="license_number" id="license_number" value="<?php echo $license_number; ?>" class="font_color text" style="width:100px;text-transform:uppercase;"/></td>
 			</tr>
 			<tr>
-				<td class="td cd_td td_br">车&nbsp;&nbsp;架&nbsp;&nbsp;号</td>
+				<td class="td cd_td td_br">车辆识别代号</td>
 				<td class="font_color td cd_td td_br">|</td>
 				<td class="td cd_td td_br"><input oninput="section()" type="text" name="frame_number" id="frame_number" value="<?php echo $frame_number; ?>" class="font_color text" style="text-transform:uppercase;"/></td>
 			</tr>
 			<tr>
-				<td class="td cd_td">发动机号</td>
+				<td class="td cd_td">发动机号码</td>
 				<td class="font_color td cd_td">|</td>
 				<td class="td cd_td"><input type="text" name="engine_number" id="engine_number"
 					value="<?php echo $engine_number; ?>" class="font_color text" style="text-transform:uppercase;" /></td>
