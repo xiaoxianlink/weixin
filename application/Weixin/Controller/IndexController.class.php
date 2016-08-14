@@ -584,7 +584,7 @@ class IndexController extends ApiController {
 					// 查询数据库违章信息
 					$endorsement_model = M ( "Endorsement" );
 					$where = array (
-							"car_id" => $v ['car_id'],
+							"license_number" => $v['license_number'],
 							"is_manage" => 0 
 					);
 					$endorsement = $endorsement_model->field ( "count(*) as nums, sum(points) as all_points, sum(money) as all_money" )->where ( $where )->find ();

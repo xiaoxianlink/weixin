@@ -335,16 +335,14 @@ class ApiController extends HomeBaseController {
 	// 推送
 	function __push_confirm($end_id) {
 		// 推送消息
-		$model = M ();
-		$end = $model->table ( "cw_endorsement as e" )->join ( "cw_car as c on c.id = e.car_id" )->field("e.*, c.license_number")->where("e.id = '$end_id'")->find();
-		$car_id = $end["car_id"];
+		$end_model = M ("endorsement");
+		$end = $end_model->where("id = '$end_id'")->find();
+		$license_number = $end['license_number'];
+		$unman_cnt = $end_model->where("license_number = $license_number and is_manage = 0")->count();
 		$user_model = M ();
-		$users = $user_model->table ( "cw_user as u" )->join ( "cw_user_car as uc on uc.user_id = u.id" )->field ( "u.id, u.openid, u.nickname, u.channel, u.channel_key" )->where ( "uc.car_id='$car_id' and uc.is_sub = 0 and u.is_att = 0" )->select ();
+		$users = $user_model->table ( "cw_user as u" )->join ( "cw_user_car as uc on uc.user_id = u.id" )->join("cw_car as c on c.id = uc.car_id")->field ( "u.id, u.openid, u.nickname, u.channel, u.channel_key" )->where ( "c.license_number = '$license_number' and uc.is_sub = 0 and u.is_att = 0" )->select ();
 		foreach ( $users as $u ) {
 			if($u["channel"] == 0){
-				$end_model = M ("endorsement");
-				$unman_cnt = $end_model->where("car_id = $car_id and is_manage = 0")->count();
-				
 				$date = date ( "Y年m月d日 H:i", $end ['time'] );
 				$data = array (
 						'first' => array (
@@ -352,7 +350,7 @@ class ApiController extends HomeBaseController {
 								'color' => "#000000" 
 						),
 						'keyword1' => array (
-								'value' => urlencode ( "{$end['license_number']}"),
+								'value' => urlencode ( $license_number),
 								'color' => '#000000' 
 						),
 						'keyword2' => array (

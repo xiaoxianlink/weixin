@@ -5,15 +5,39 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>添加车辆</title>
-<link href="../Public/css/weixin.css" rel="stylesheet" type="text/css">
 <link href="__TMPL__Public/css/weixin.css" rel="stylesheet">
+<link href="__TMPL__Public/css/weui.css" rel="stylesheet" type="text/css">
 <script src="__ROOT__/statics/js/jquery.js"></script>
 <script type="text/javascript">
-	function select_license(user_id) {
-		var license_number = $("#license_number").val();
-		var frame_number = $("#frame_number").val();
-		var engine_number = $("#engine_number").val();
-		window.location.href="{:u('Sub/select_license')}"+"&user_id="+user_id+"&license_number="+license_number+"&frame_number="+frame_number+"&engine_number="+engine_number;
+    function showActonSheet () {
+		var mask = $('#mask');
+		var weuiActionsheet = $('#weui_actionsheet');
+		weuiActionsheet.addClass('weui_actionsheet_toggle');
+		mask.show()
+			.focus()//加focus是为了触发一次页面的重排(reflow or layout thrashing),使mask的transition动画得以正常触发
+			.addClass('weui_fade_toggle').one('click', function () {
+			hideActionSheet(weuiActionsheet, mask);
+		});
+		$('#actionsheet_cancel').one('click', function () {
+			hideActionSheet(weuiActionsheet, mask);
+		});
+		mask.unbind('transitionend').unbind('webkitTransitionEnd');
+	}
+	
+	function hideActionSheet(weuiActionsheet, mask) {
+		weuiActionsheet.removeClass('weui_actionsheet_toggle');
+		mask.removeClass('weui_fade_toggle');
+		mask.on('transitionend', function () {
+			mask.hide();
+		}).on('webkitTransitionEnd', function () {
+			mask.hide();
+		})
+	}
+	
+	function select_license(abbr) {
+		$('#license_label').html(abbr);
+		$('#license').val(abbr);
+		hideActionSheet($('#weui_actionsheet'), $('#mask'));
 	}
 	
 	function section() {
@@ -66,7 +90,7 @@
 			return false;
 		}
 		var Regx = /^[A-Za-z0-9]*$/;
-		if (!Regx.test(license_number) || license_number.length != 5) {
+		if (!Regx.test(license_number) || license_number.length != 6) {
 			$("#list").html("车牌号码不正确！");
 			showbtn();
 			return false;
@@ -106,14 +130,14 @@
 	<form name="myform" id="myform" action="{:U('Sub/insert_car')}"
 		method="post" class="form-horizontal J_ajaxForms"
 		enctype="multipart/form-data">
-		<input type="hidden" name="user_id" value="{$user_id}" /> <input
-			type="hidden" name="code" value="{$code}" />
+		<input type="hidden" name="user_id" value="{$user_id}" /> 
+		<input type="hidden" name="code" value="{$code}" />
         <div style="background-color: #FFFFFF;">
 		<table border="0" cellpadding="0" cellspacing="0" class="pad_l" id="car_info">
 			<tr>
 				<td class="td cd_td td_br">车牌号码</td>
 				<td class="font_color td cd_td td_br">|</td>
-				<td class="font_color td cd_td td_br"><span style="color:#000" onclick="select_license({$user_id})">&nbsp;{$abbreviation}</span>
+				<td class="font_color td cd_td td_br"><span style="color:#000" onclick="showActonSheet();">&nbsp;<span id="license_label">{$abbreviation}</span></span>
 				  <input type="hidden" name="license" id="license" value="<?php echo $abbreviation;?>" />〉
 				  <input type="text" name="license_number" id="license_number" value="<?php echo $license_number; ?>" class="font_color text" style="width:100px;text-transform:uppercase;"/></td>
 			</tr>
@@ -149,6 +173,37 @@
     <div class="list" id="list">
         不能为空
     </div>
+</div>
+<!--BEGIN actionSheet-->
+<div id="actionSheet_wrap">
+	<div class="weui_mask_transition" id="mask"></div>
+	<div class="weui_actionsheet" id="weui_actionsheet">
+		<div class="weui_actionsheet_menu">
+			<table  border="0" cellpadding="0" cellspacing="0" class="pad_l" id="br_tb" style="width:100%;">
+				<for start="0" end="count($region_list)/4" name="i">
+				<tr>
+					<for start="0" end="4" name="j"> <if
+						condition="!empty($region_list[$i*4+$j]['province'])"><?php $c ++; ?>
+					<td class="cd_td" style="width: 25%; text-left;"
+						onclick="select_license('<?php echo $region_list[$i*4+$j]['abbreviation'];?>');">&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 20px;">{$region_list[$i*4+$j]['abbreviation']}</span><span style="font-size: 12px;">&nbsp;{$region_list[$i*4+$j]['province']}</span></td>
+					</if></for>
+					<for start="0" end="3" name="j"> <if
+						condition="(($i+1) gt count($region_list)/4) and ($c%4 neq 0)">
+					<?php $c ++; ?>
+					<td style="width: 25%"></td>
+					</if> </for>
+				</tr>
+				</for>
+			</table>
+		</div>
+		<div class="weui_actionsheet_action">
+			<div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>
+		</div>
+	</div>
+</div>
+    <!--END actionSheet-->
+<div>
+	
 </div>
 <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1256820389).'" width="0" height="0"/>';?>
 </body>

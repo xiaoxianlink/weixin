@@ -73,22 +73,22 @@ class ScanController extends IndexController {
 		$car = $car_model->where ( $where )->find ();
 		$l_num1 = mb_substr ( $car ['license_number'], 0, 2, 'utf-8' );
 		$l_num2 = mb_substr ( $car ['license_number'], 2, strlen ( $car ['license_number'] ), 'utf-8' );
-		$car ['license_number'] = $l_num1 . "·" . $l_num2;
-		$license_number = $car ['license_number'];
-		$endorsement = $this->get_endorsement ( $car_id );
-		$endorsement_list = $this->get_endorsement_list ( $car_id, $user_id, $end_id );
+		$license_number = $l_num1 . "·" . $l_num2;
+		$endorsement = $this->get_endorsement ( $car ['license_number']);
+		$endorsement_list = $this->get_endorsement_list ( $car_id, $car ['license_number'], $user_id, $end_id );
 		$this->assign ( 'user_id', $user_id );
+		$this->assign ( 'car_id', $car_id );
 		$this->assign ( 'license_number', $license_number );
 		$this->assign ( 'endorsement', $endorsement );
 		$this->assign ( 'endorsement_list', $endorsement_list );
 		$this->display ( ":scan" );
 	}
 	
-	function get_endorsement($car_id) {
+	function get_endorsement($license_number) {
 		// 查询数据库违章信息
 		$endorsement_model = M ( "Endorsement" );
 		$where = array (
-				"car_id" => $car_id,
+				"license_number" => $license_number,
 				"is_manage" => 0 
 		);
 		$endorsement = $endorsement_model->field ( "count(*) as nums, sum(points) as all_points, sum(money) as all_money" )->where ( $where )->find ();
@@ -98,11 +98,11 @@ class ScanController extends IndexController {
 		return false;
 	}
 	
-	function get_endorsement_list($car_id, $user_id, $end_id = 0) {
+	function get_endorsement_list($car_id, $license_number, $user_id, $end_id = 0) {
 		// 查询数据库违章信息列表
 		$endorsement_model = M ( "Endorsement" );
 		$where = array (
-				"car_id" => $car_id,
+				"license_number" => $license_number,
 				"is_manage" => 0 
 		);
 		if ($end_id != 0) {
@@ -111,7 +111,7 @@ class ScanController extends IndexController {
 		$endorsementlist = $endorsement_model->where ( $where )->order ( "`time` desc" )->select ();
 		$log = new Log ();
 		foreach ( $endorsementlist as $k => $v ) {
-			$fuwu = $this->find_fuwu($v["car_id"], $v["code"], $v["money"],$v["points"], $v["area"]);
+			$fuwu = $this->find_fuwu($car_id, $v["code"], $v["money"],$v["points"], $v["area"]);
 			if(!empty($fuwu)){
 				$endorsementlist [$k] ['so_id'] = $fuwu["so_id"];
 				$endorsementlist [$k] ['so_type'] = $fuwu["so_type"];
@@ -143,7 +143,16 @@ class ScanController extends IndexController {
 		);
 		$car_model = M ( "Car" );
 		$car = $car_model->where ( $where )->find ();
-		$l_nums = mb_substr ( $car ['license_number'], 0, 2, 'utf-8' );
+		
+		$a_class = array("京", "沪", "津", "渝");
+		$l_nums = "";
+		$l_nums_a = mb_substr ( $car ['license_number'], 0, 1, 'utf-8' );
+		if(in_array($l_nums_a, $a_class)){
+			$l_nums = $l_nums_a;
+		}
+		else{
+			$l_nums = mb_substr ( $car ['license_number'], 0, 2, 'utf-8' );
+		}
 		$region_model = M ( "Region" );
 		$region = $region_model->where ( "nums = '$l_nums'" )->find ();
 		$region = $region_model->where ( "city = '{$region['city']}'" )->order ( "id" )->find ();
@@ -267,11 +276,39 @@ class ScanController extends IndexController {
 	
 	// 详情
 	public function scan_info() {
+		$user_id = $_REQUEST ['user_id'];
+		if(empty($user_id)){
+			if (! isset ( $_GET ['code'] )) {
+				$redirect_uri = $this->curPageURL();
+				$scope = 'snsapi_base';
+				$log = new Log ();
+				$log->write ( "sub请求", 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
+				$this->oauth ( $redirect_uri, $scope );
+			}
+			else {
+				$code = ( string ) $_GET ['code'];
+				$wx_open_id = $this->get_oauth_openid ( $code );
+				$log = new Log ();
+				$log->write ( "sub微信回调:" . $wx_open_id, 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
+				$user_model = M ( "User" );
+				$where = array (
+						'openid' => ( string ) $wx_open_id 
+				);
+				$user = $user_model->where ( $where )->find ();
+				if(empty($user)){
+					exit("can't find user");
+				}
+				$user_id = $user["id"];
+			}
+		}
+		if(empty($user_id)){
+			exit("can't find user");
+		}
 		$id = $_REQUEST ['id'];
+		$car_id = $_REQUEST ['car_id'];
 		$license_number = $_REQUEST ['license_number'];
 		$so_id = $_REQUEST ['so_id'];
 		$so_type = $_REQUEST ['so_type'];
-		$user_id = $_REQUEST ['user_id'];
 		$state = isset ( $_REQUEST ['state'] ) ? $_REQUEST ['state'] : '';
 		
 		$endorsement = $this->get_endorsement_info ( $id );
@@ -286,7 +323,7 @@ class ScanController extends IndexController {
 		$coupon_money = 0;
 		// 创建订单
 		if (empty ( $state )) {
-			$order_id = $this->create_order ( $endorsement, $so, $so_type, $user_id );
+			$order_id = $this->create_order ( $car_id, $endorsement, $so, $so_type, $user_id );
 		} else {
 			$order_id = $_REQUEST ['order_id'];
 			$cuc_id = isset ( $_REQUEST ['cuc_id'] ) ? $_REQUEST ['cuc_id'] : 0;
@@ -336,7 +373,7 @@ class ScanController extends IndexController {
 		return $sd;
 	}
 	
-	function create_order($endorsement, $so, $so_type, $user_id) {
+	function create_order($car_id, $endorsement, $so, $so_type, $user_id) {
 		$order_model = M ( "Order" );
 		$order = $order_model->where ( "endorsement_id = '{$endorsement ['id']}' and order_status = 1" )->find ();
 		if (! empty ( $order )) {
@@ -358,8 +395,8 @@ class ScanController extends IndexController {
 		}
 		$data = array (
 				"user_id" => $user_id,
-				"car_id" => $endorsement ['car_id'],
-				"order_sn" => $user_id . $endorsement ['car_id'] . time (),
+				"car_id" => $car_id,
+				"order_sn" => $user_id . $car_id . time (),
 				"endorsement_id" => $endorsement ['id'],
 				"order_status" => 1,
 				"money" => $so ['money'],
@@ -398,6 +435,7 @@ class ScanController extends IndexController {
 	}
 	public function ucoupon_list() {
 		$id = $_REQUEST ['id'];
+		$car_id = $_REQUEST ['car_id'];
 		$license_number = $_REQUEST ['license_number'];
 		$so_id = $_REQUEST ['so_id'];
 		$so_type = $_REQUEST ['so_type'];
@@ -407,6 +445,7 @@ class ScanController extends IndexController {
 		
 		$uclist = $this->get_ucoupon ( $user_id, $money );
 		$this->assign ( 'id', $id );
+		$this->assign ( 'car_id', $car_id );
 		$this->assign ( 'license_number', $license_number );
 		$this->assign ( 'so_id', $so_id );
 		$this->assign ( 'so_type', $so_type );

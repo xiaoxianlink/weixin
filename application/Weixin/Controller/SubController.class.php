@@ -81,29 +81,42 @@ class SubController extends IndexController {
 		$license_number = isset ( $_REQUEST ['license_number'] ) ? $_REQUEST ['license_number'] : '';
 		$frame_number = isset ( $_REQUEST ['frame_number'] ) ? $_REQUEST ['frame_number'] : '';
 		$engine_number = isset ( $_REQUEST ['engine_number'] ) ? $_REQUEST ['engine_number'] : '';
-		$abbreviation = isset ( $_REQUEST ['name'] ) ? $_REQUEST ['name'] : '沪A';
+		$abbreviation = isset ( $_REQUEST ['name'] ) ? $_REQUEST ['name'] : '沪';
 		
-		$this->assign ( 'license_number', $license_number );
+		$region_model = M ( "Region" );
+		$where = array (
+				"level" => 1,
+				"is_dredge" => 0 
+		);
+		$region_list = $region_model->where ( $where )->order ( 'orders' )->select ();
+		
+		$this->assign ( 'user_id', $user_id );
 		$this->assign ( 'code', $code );
+		$this->assign ( 'license_number', $license_number );
 		$this->assign ( 'abbreviation', $abbreviation );
 		$this->assign ( 'frame_number', $frame_number );
 		$this->assign ( 'engine_number', $engine_number );
-		$this->assign ( 'user_id', $user_id );
+		$this->assign ( 'region_list', $region_list );
 		$this->display ( ":add_car" );
 	}
 	public function insert_car() {
 		if (IS_POST) {
 			$data = array ();
-			$data ['license_number'] = $_POST ['license'] . strtoupper ( $_POST ['license_number'] );
-			$data ['frame_number'] = strtoupper ( str_replace ( ' ', '', $_POST ['frame_number'] ) );
-			$data ['engine_number'] = strtoupper ( $_POST ['engine_number'] );
+			$license_number = $_POST ['license'] . strtoupper ( $_POST ['license_number'] );
+			$frame_number = strtoupper ( str_replace ( ' ', '', $_POST ['frame_number'] ));
+			$engine_number = strtoupper ( $_POST ['engine_number'] );
+			$data ['license_number'] = $license_number;
+			$data ['frame_number'] = $frame_number;
+			$data ['engine_number'] = $engine_number;
+			$data ['hash'] = md5($license_number . $frame_number . $engine_number);
 			$car_model = M ( "Car" );
 			$car = $car_model->where ( $data )->find ();
 			$uc_model = M ( "User_car" );
+			$user_id = $_POST ['user_id'];
 			$new_car = 0;
 			if (! empty ( $car )) {
 				$data = array (
-						"user_id" => $_POST ['user_id'],
+						"user_id" => $user_id,
 						"car_id" => $car ['id'] 
 				);
 				$uc = $uc_model->where ( $data )->find ();
@@ -120,7 +133,7 @@ class SubController extends IndexController {
 				$car_model->add ( $data );
 				$car_id = $car_model->getLastInsID ();
 				$data = array (
-						"user_id" => $_POST ['user_id'],
+						"user_id" => $user_id,
 						"car_id" => $car_id,
 						"is_sub" => 0,
 						'create_time' => time () 
@@ -128,17 +141,17 @@ class SubController extends IndexController {
 				$new_car = 1;
 				$uc_model->add ( $data );
 			}
-			$msg ['user_id'] = $_POST ['user_id'];
-			$msg ['car_id'] = $data ['car_id'];
-			$msg ['new_car'] = $new_car;
-			$msg ['license_number'] = $data ['license_number'];
-			$this->redirect ( "Sub/take_success", $msg );
+			$this->__take_success ($user_id, $data ['car_id'], $new_car);
 		}
 	}
 	public function take_success() {
 		$user_id = $_REQUEST ['user_id'];
 		$car_id = $_REQUEST ['car_id'];
 		$new_car = $_REQUEST ['new_car'];
+		$this->__take_success($user_id, $car_id, $new_car);
+	}	
+	
+	public function __take_success($user_id, $car_id, $new_car) {
 		$car_model = M ( "car" );
 		$car_info = $car_model->where ( "id='$car_id'" )->find ();
 		$license_number = $car_info ['license_number'];
@@ -151,7 +164,7 @@ class SubController extends IndexController {
 		// 查询数据库违章信息
 		$endorsement_model = M ( "Endorsement" );
 		$where = array (
-				"car_id" => $car_id,
+				"license_number" => $license_number,
 				"is_manage" => 0 
 		);
 		$endorsement = $endorsement_model->field ( "count(*) as nums, sum(points) as all_points, sum(money) as all_money" )->where ( $where )->find ();

@@ -9,9 +9,9 @@
 <link href="__TMPL__Public/css/weixin.css" rel="stylesheet">
 <script src="__ROOT__/statics/js/jquery.js"></script>
 <script type="text/javascript">
-	function get_coupon(user_id, id, license_number, so_id, so_type, order_id, money) {
+	function get_coupon(user_id, id, car_id, license_number, so_id, so_type, order_id, money) {
 		window.location.href = "{:u('Scan/ucoupon_list')}" + "&user_id="
-				+ user_id + "&id=" + id + "&license_number=" + license_number
+				+ user_id + "&id=" + id + "&car_id=" + car_id + "&license_number=" + license_number
 				+ "&so_id=" + so_id + "&so_type=" + so_type + "&order_id=" + order_id + "&money="
 				+ money;
 	}
@@ -63,7 +63,7 @@
 			<td colspan="2" class="td dy_td" style="padding-bottom: 10px;">代缴价：{$so.money}元</td>
 		</tr>
 		<if condition="$ucoupon_count != 0">
-        <tr onclick="get_coupon('{$order.user_id}', '{$endorsement.id}', '{$license_number}', '{$so.id}', '{$so_type}', '{$order.id}', '{$so.money}')" style="background-color: #f77462;">
+        <tr onclick="get_coupon('{$order.user_id}', '{$endorsement.id}', '{$order.car_id}', '{$license_number}', '{$so.id}', '{$so_type}', '{$order.id}', '{$so.money}')" style="background-color: #f77462;">
         <if condition="empty($coupon)" >
         	<td class="bottom_td td" style="border-bottom-right-radius:0;background-color: #f77462;">优惠：您有{$ucoupon_count}张可用优惠券
 		<else /><td class="bottom_td td" style="border-bottom-right-radius:0;background-color: #f77462;">{$coupon.name}&nbsp;&nbsp;{$coupon.money}元 </if></td>

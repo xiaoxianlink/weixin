@@ -9,8 +9,8 @@
 <link href="__TMPL__Public/css/weixin.css" rel="stylesheet">
 <script src="__ROOT__/statics/js/jquery.js"></script>
 <script type="text/javascript">
-	function scan_info(id,license_number,so_id,so_type,user_id){
-		window.location.href="{:u('Scan/scan_info')}"+"&id="+id+"&license_number="+license_number+"&so_id="+so_id+"&so_type="+so_type+"&user_id="+user_id;
+	function scan_info(id,car_id,license_number,so_id,so_type,user_id){
+		window.location.href="{:u('Scan/scan_info')}"+"&id="+id+"&car_id="+car_id+"&license_number="+license_number+"&so_id="+so_id+"&so_type="+so_type+"&user_id="+user_id;
 	}
 </script>
 </head>
@@ -45,7 +45,7 @@
 		</tr>
         <if condition="!empty($v['so_id'])">
         <tr>
-        	<td colspan="2" align="center" onclick="scan_info('{$v.id}', '{$license_number}', '{$v.so_id}', '{$v.so_type}','{$user_id}')" class="bottom_td">代缴：{$v.so_money}元</td>
+        	<td colspan="2" align="center" onclick="scan_info('{$v.id}', '{$car_id}', '{$license_number}', '{$v.so_id}', '{$v.so_type}','{$user_id}')" class="bottom_td">代缴：{$v.so_money}元</td>
         </tr>
         </if>
 	</table><br/>
