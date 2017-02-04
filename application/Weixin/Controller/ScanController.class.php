@@ -433,6 +433,7 @@ class ScanController extends IndexController {
 		$ucoupon = $ucoupon_model->field ( "cw_coupon.*, cw_user_coupon.id as cuc_id" )->join ( "cw_coupon on cw_coupon.id = cw_user_coupon.coupon_id" )->where ( $where )->find ();
 		return $ucoupon;
 	}
+	
 	public function ucoupon_list() {
 		$id = $_REQUEST ['id'];
 		$car_id = $_REQUEST ['car_id'];

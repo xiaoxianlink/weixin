@@ -129,6 +129,8 @@ class IndexController extends ApiController {
 				break;
 			case "SCAN" :
 				$content = "扫描场景 " . $object->EventKey;
+				$log = new Log ();
+				$log->write ( $object->EventKey, 'DEBUG', '', dirname ( $_SERVER ['SCRIPT_FILENAME'] ) . '/Logs/Weixin/' . date ( 'y_m_d' ) . '.log' );
 				break;
 			case "LOCATION" :
 				$content = $this->insert_city ( $object );
